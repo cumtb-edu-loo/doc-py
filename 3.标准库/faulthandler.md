@@ -4,7 +4,7 @@
 
 * * *
 
-当故障、超时或收到用户信号时，利用本模块内的函数可转储 Python 跟踪信息。调用 `faulthandler.enable()` 可安装 `SIGSEGV` 、 `SIGFPE` 、 `SIGABRT` 、 `SIGBUS` 和 `SIGILL` 信号的故障处理程序。通过设置 [`PYTHONFAULTHANDLER`](cmdline.md#envvar-PYTHONFAULTHANDLER) 环境变量或 [`-X`](cmdline.md#cmdoption-X) `faulthandler` 命令行参数，还可以在启动时开启这些设置。
+当故障、超时或收到用户信号时，利用本模块内的函数可转储 Python 跟踪信息。调用 `faulthandler.enable()` 可安装 `SIGSEGV` 、 `SIGFPE` 、 `SIGABRT` 、 `SIGBUS` 和 `SIGILL` 信号的故障处理程序。通过设置 [`PYTHONFAULTHANDLER`](1.%20命令行与环境.md#envvar-PYTHONFAULTHANDLER) 环境变量或 [`-X`](1.%20命令行与环境.md#cmdoption-X) `faulthandler` 命令行参数，还可以在启动时开启这些设置。
 
 故障处理程序与操作系统的故障处理程序兼容，比如 Apport 或 Windows 故障处理程序等。如果 `sigaltstack()` 函数可用，本模块将为信号处理程序使用备用堆栈。这样即便堆栈溢出也能转储跟踪信息。
 

@@ -42,7 +42,7 @@ void PyErr_WriteUnraisable([PyObject](structures.md#c.PyObject "PyObject") *obj)
 
 使用当前异常和 _obj_ 参数调用 [`sys.unraisablehook()`](3.标准库/sys.md#sys.unraisablehook "sys.unraisablehook")。
 
-当异常已被设置但解释器不可能实际引发该异常时，这个工具函数会向 `sys.stderr` 打印一条警告消息。 例如，当异常发生在 [`__del__()`](datamodel.md#object.__del__ "object.__del__") 方法中时就会使用该函数。
+当异常已被设置但解释器不可能实际引发该异常时，这个工具函数会向 `sys.stderr` 打印一条警告消息。 例如，当异常发生在 [`__del__()`](3.%20数据模型.md#object.__del__ "object.__del__") 方法中时就会使用该函数。
 
 该函数使用单个参数 _obj_ 进行调用，该参数标识发生不可触发异常的上下文。如果可能， _obj_ 的报告将打印在警告消息中。
 

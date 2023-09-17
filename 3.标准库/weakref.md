@@ -37,9 +37,9 @@ obj = Dict(red=1, green=2, blue=3)   # this object is weak referenceable
 
 **CPython 实现细节：** 其他内置类型例如 [`tuple`](stdtypes.md#tuple "tuple") 和 [`int`](functions.md#int "int") 不支持弱引用，即使通过子类化也不支持。
 
-Extension types can easily be made to support weak references; see [弱引用支持](newtypes.md#weakref-support).
+Extension types can easily be made to support weak references; see [弱引用支持](3.%20定义扩展类型：已分类主题.md#weakref-support).
 
-当为某个给定类型定义了 `__slots__` 时，弱引用支持会被禁用，除非将 `'__weakref__'` 字符串也加入到 `__slots__` 声明的字符串序列中。 请参阅 [__slots__ 文档](datamodel.md#slots) 了解详情。
+当为某个给定类型定义了 `__slots__` 时，弱引用支持会被禁用，除非将 `'__weakref__'` 字符串也加入到 `__slots__` 声明的字符串序列中。 请参阅 [__slots__ 文档](3.%20数据模型.md#slots) 了解详情。
 
 _class _weakref.ref( _object_ [, _callback_ ])¶
 

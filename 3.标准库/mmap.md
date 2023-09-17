@@ -78,7 +78,7 @@ with open("hello.txt", "r+b") as f:
     mm.close()
 ~~~
 
-`mmap` 也可以在 [`with`](compound_stmts.md#with) 语句中被用作上下文管理器:
+`mmap` 也可以在 [`with`](8.%20复合语句.md#with) 语句中被用作上下文管理器:
 
     
     

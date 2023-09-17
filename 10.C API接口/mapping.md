@@ -6,7 +6,7 @@ int PyMapping_Check([PyObject](structures.md#c.PyObject "PyObject") *o)¶
 
     _Part of the[ Stable ABI](stable.md#stable)._
 
-如果对象提供了映射协议或是支持切片则返回 `1`，否则返回 `0`。 请注意它将为具有 [`__getitem__()`](datamodel.md#object.__getitem__ "object.__getitem__") 方法的 Python 类返回 `1`，因为在通常情况下无法确定该类支持哪种键类型。 此函数总是会成功执行。
+如果对象提供了映射协议或是支持切片则返回 `1`，否则返回 `0`。 请注意它将为具有 [`__getitem__()`](3.%20数据模型.md#object.__getitem__ "object.__getitem__") 方法的 Python 类返回 `1`，因为在通常情况下无法确定该类支持哪种键类型。 此函数总是会成功执行。
 
 [Py_ssize_t](10.C%20API接口/intro.md#c.Py_ssize_t "Py_ssize_t") PyMapping_Size([PyObject](structures.md#c.PyObject "PyObject") *o)¶  
 

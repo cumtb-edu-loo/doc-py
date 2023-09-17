@@ -24,7 +24,7 @@ static PyMethodDef my_obj_methods[] = {
 
 参见
 
-数据模型方法 [`__class_getitem__()`](datamodel.md#object.__class_getitem__ "object.__class_getitem__")。
+数据模型方法 [`__class_getitem__()`](3.%20数据模型.md#object.__class_getitem__ "object.__class_getitem__")。
 
 在 3.9 版本加入.
 

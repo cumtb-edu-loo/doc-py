@@ -8,11 +8,11 @@ Important
 
 此页面仅包含 API 参考信息。教程信息和更多高级用法的讨论，请参阅
 
-  * [基础教程](6.常用指引/enum.md#enum-basic-tutorial)
+  * [基础教程](5.Enum%20指南.md#enum-basic-tutorial)
 
-  * [进阶教程](6.常用指引/enum.md#enum-advanced-tutorial)
+  * [进阶教程](5.Enum%20指南.md#enum-advanced-tutorial)
 
-  * [枚举指南](6.常用指引/enum.md#enum-cookbook)
+  * [枚举指南](5.Enum%20指南.md#enum-cookbook)
 
 * * *
 
@@ -26,7 +26,7 @@ Important
 
   * 使用 _索引_ 语法按名称返回成员
 
-枚举是通过使用 [`class`](compound_stmts.md#class) 语法或是通过使用函数调用语法来创建的:
+枚举是通过使用 [`class`](8.%20复合语句.md#class) 语法或是通过使用函数调用语法来创建的:
 
     
     
@@ -43,7 +43,7 @@ Important
 >>> Color = Enum('Color', ['RED', 'GREEN', 'BLUE'])
 ~~~
 
-虽然我们可以使用 [`class`](compound_stmts.md#class) 语法来创建枚举，但枚举并不是常规的 Python 类。 请参阅 [枚举有什么不同？](6.常用指引/enum.md#enum-class-differences) 了解更多细节。
+虽然我们可以使用 [`class`](8.%20复合语句.md#class) 语法来创建枚举，但枚举并不是常规的 Python 类。 请参阅 [枚举有什么不同？](5.Enum%20指南.md#enum-class-differences) 了解更多细节。
 
 备注
 
@@ -551,7 +551,7 @@ __format__( _self_ )¶
 
 将 `auto` 用于 `Enum` 将得到递增的整数值，从 `1` 开始。
 
-在 3.12 版本发生变更: 增加了 [数据类支持](6.常用指引/enum.md#enum-dataclass-support)
+在 3.12 版本发生变更: 增加了 [数据类支持](5.Enum%20指南.md#enum-dataclass-support)
 
 _class _enum.IntEnum¶
 
@@ -583,7 +583,7 @@ True
 
 将 `auto` 用于 `IntEnum` 将得到递增的整数值，从 `1` 开始。
 
-在 3.11 版本发生变更: [`__str__()`](datamodel.md#object.__str__ "object.__str__") 现在是 `int.__str__()` 以更好地支持 _现有常量的替换_ 应用场景。 出于同样的原因 [`__format__()`](datamodel.md#object.__format__ "object.__format__") 也已经是 `int.__format__()`。
+在 3.11 版本发生变更: [`__str__()`](3.%20数据模型.md#object.__str__ "object.__str__") 现在是 `int.__str__()` 以更好地支持 _现有常量的替换_ 应用场景。 出于同样的原因 [`__format__()`](3.%20数据模型.md#object.__format__ "object.__format__") 也已经是 `int.__format__()`。
 
 _class _enum.StrEnum¶
 
@@ -830,7 +830,7 @@ _IntFlag_ 与 _Flag_ 相同，但其成员还属于整数类型并能被用于�
 
 将 `auto` 用于 `IntFlag` 将得到二的整数次方，从 `1` 开始。
 
-在 3.11 版本发生变更: [`__str__()`](datamodel.md#object.__str__ "object.__str__") 现在是 `int.__str__()` 以更好地支持 _现有常量的替换_ 应用场景。 出于同样的原因 [`__format__()`](datamodel.md#object.__format__ "object.__format__") 也已经是 `int.__format__()`。
+在 3.11 版本发生变更: [`__str__()`](3.%20数据模型.md#object.__str__ "object.__str__") 现在是 `int.__str__()` 以更好地支持 _现有常量的替换_ 应用场景。 出于同样的原因 [`__format__()`](3.%20数据模型.md#object.__format__ "object.__format__") 也已经是 `int.__format__()`。
 
 对一个 `IntFlag` 的反转现在将返回一个等于不在给定旗标中的所有旗标的并集的正值，而非一个负值。 这与现有 `Flag` 的行为相匹配。
 
@@ -1029,7 +1029,7 @@ KEEP¶
 
 `__members__` 是由 `member_name`:`member` 条目组成的只读有序映射。 它只在类上可用。
 
-如果指定了 [`__new__()`](datamodel.md#object.__new__ "object.__new__")，它必须创建并返回枚举成员；相应地设置成员的 `_value_` 也是一个很好的主意。 一旦所有成员都创建完成它将不再被使用。
+如果指定了 [`__new__()`](3.%20数据模型.md#object.__new__ "object.__new__")，它必须创建并返回枚举成员；相应地设置成员的 `_value_` 也是一个很好的主意。 一旦所有成员都创建完成它将不再被使用。
 
 ### 支持的 `_sunder_` 名称¶
 

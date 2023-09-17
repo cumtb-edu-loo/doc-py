@@ -803,5 +803,5 @@ with OpenKey(HKEY_LOCAL_MACHINE, "foo") as key:
     ...  # work with key
 ~~~
 
-在离开 [`with`](compound_stmts.md#with) 语句块时， _key_ 会自动关闭。
+在离开 [`with`](8.%20复合语句.md#with) 语句块时， _key_ 会自动关闭。
 

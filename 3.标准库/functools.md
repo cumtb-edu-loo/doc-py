@@ -97,7 +97,7 @@ functools.cmp_to_key( _func_ )¶
 sorted(iterable, key=cmp_to_key(locale.strcoll))  # locale-aware sort order
 ~~~
 
-有关排序示例和简要排序教程，请参阅 [排序指南](sorting.md#sortinghowto) 。
+有关排序示例和简要排序教程，请参阅 [排序指南](11.排序指南.md#sortinghowto) 。
 
 在 3.2 版本加入.
 

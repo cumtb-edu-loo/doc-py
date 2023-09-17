@@ -4,7 +4,7 @@
 
 * * *
 
-此模块使 Python 程序可以确定某个字符串是否为 [关键字](lexical_analysis.md#keywords) 或 [软关键字](lexical_analysis.md#soft-keywords)。
+此模块使 Python 程序可以确定某个字符串是否为 [关键字](2.%20词法分析.md#keywords) 或 [软关键字](2.%20词法分析.md#soft-keywords)。
 
 keyword.iskeyword( _s_ )¶
 

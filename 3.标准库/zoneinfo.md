@@ -107,7 +107,7 @@
 
 #### 编译时配置¶
 
-默认的 `TZPATH` 包括一些时区数据库的通用部署位置（Windows 除外，该系统没有时区数据的“通用”位置）。 在 POSIX 系统中，下游分发者和从源码编译 Python 的开发者知道系统时区数据部署位置，它们可以通过指定编译时选项 `TZPATH` (或者更常见的是通过 [`配置旗标 --with-tzpath`](configure.md#cmdoption-with-tzpath)) 来改变默认的时区路径，该选项应当是一个由 [`os.pathsep`](os.md#os.pathsep "os.pathsep") 分隔的字符串。
+默认的 `TZPATH` 包括一些时区数据库的通用部署位置（Windows 除外，该系统没有时区数据的“通用”位置）。 在 POSIX 系统中，下游分发者和从源码编译 Python 的开发者知道系统时区数据部署位置，它们可以通过指定编译时选项 `TZPATH` (或者更常见的是通过 [`配置旗标 --with-tzpath`](3.%20配置%20Python.md#cmdoption-with-tzpath)) 来改变默认的时区路径，该选项应当是一个由 [`os.pathsep`](os.md#os.pathsep "os.pathsep") 分隔的字符串。
 
 在所有平台上，配置值会在 [`sysconfig.get_config_var()`](sysconfig.md#sysconfig.get_config_var "sysconfig.get_config_var") 中以 `TZPATH` 键的形式提供。
 

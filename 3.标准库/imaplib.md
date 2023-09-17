@@ -31,7 +31,7 @@ _class _imaplib.IMAP4( _host =''_, _port =IMAP4_PORT_, _timeout =None_)¶
 ('OK', [b'Nothing Accomplished. d25if65hy903weo.87'])
 ~~~
 
-在 3.5 版本发生变更: 添加了对 [`with`](compound_stmts.md#with) 语句的支持。
+在 3.5 版本发生变更: 添加了对 [`with`](8.%20复合语句.md#with) 语句的支持。
 
 在 3.9 版本发生变更: 添加了可选的 _timeout_ 形参。
 

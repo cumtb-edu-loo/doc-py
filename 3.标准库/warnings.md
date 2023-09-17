@@ -158,11 +158,11 @@ The default category for `warn()`.
 
 无论位置如何，仅打印第一次出现的匹配警告  
   
-  * _message_ 是一个包含警告消息的开头需要匹配的正则表达式的字符串，对大小写不敏感。 在 [`-W`](cmdline.md#cmdoption-W) 和 [`PYTHONWARNINGS`](cmdline.md#envvar-PYTHONWARNINGS) 中， _message_ 是警告消息的开头需要包含的字符串字面值（对大小写不敏感），将忽略 _message_ 开头和末尾的任何空格。
+  * _message_ 是一个包含警告消息的开头需要匹配的正则表达式的字符串，对大小写不敏感。 在 [`-W`](1.%20命令行与环境.md#cmdoption-W) 和 [`PYTHONWARNINGS`](1.%20命令行与环境.md#envvar-PYTHONWARNINGS) 中， _message_ 是警告消息的开头需要包含的字符串字面值（对大小写不敏感），将忽略 _message_ 开头和末尾的任何空格。
 
   * _category_ 是警告类别的类（[`Warning`](3.标准库/exceptions.md#Warning "Warning") 的子类），警告类别必须是其子类，才能匹配。
 
-  * _module_ 是一个包含完整限定模块名称的开头需要匹配的正则表达式的字符串，对大小写敏感。 在 [`-W`](cmdline.md#cmdoption-W) 和 [`PYTHONWARNINGS`](cmdline.md#envvar-PYTHONWARNINGS) 中， _module_ 是完整限定模块名称需要与之相等的字符串字面值（对大小写敏感），将忽略 _module_ 开头和末尾的任何空格。
+  * _module_ 是一个包含完整限定模块名称的开头需要匹配的正则表达式的字符串，对大小写敏感。 在 [`-W`](1.%20命令行与环境.md#cmdoption-W) 和 [`PYTHONWARNINGS`](1.%20命令行与环境.md#envvar-PYTHONWARNINGS) 中， _module_ 是完整限定模块名称需要与之相等的字符串字面值（对大小写敏感），将忽略 _module_ 开头和末尾的任何空格。
 
   * _lineno_ 是个整数，发生警告的行号必须与之匹配，或为 `0` 表示与所有行号匹配。
 
@@ -172,7 +172,7 @@ The default category for `warn()`.
 
 ### 警告过滤器的介绍¶
 
-警告过滤器由传给 Python 解释器的命令行 [`-W`](cmdline.md#cmdoption-W) 选项和 [`PYTHONWARNINGS`](cmdline.md#envvar-PYTHONWARNINGS) 环境变量初始化。解释器在 `sys.warningoptions` 中保存了所有给出的参数，但不作解释；`warnings` 模块在第一次导入时会解析这些参数（无效的选项被忽略，并会先向 [`sys.stderr`](3.标准库/sys.md#sys.stderr "sys.stderr") 打印一条信息）。
+警告过滤器由传给 Python 解释器的命令行 [`-W`](1.%20命令行与环境.md#cmdoption-W) 选项和 [`PYTHONWARNINGS`](1.%20命令行与环境.md#envvar-PYTHONWARNINGS) 环境变量初始化。解释器在 `sys.warningoptions` 中保存了所有给出的参数，但不作解释；`warnings` 模块在第一次导入时会解析这些参数（无效的选项被忽略，并会先向 [`sys.stderr`](3.标准库/sys.md#sys.stderr "sys.stderr") 打印一条信息）。
 
 每个警告过滤器的设定格式为冒号分隔的字段序列：
 
@@ -182,7 +182,7 @@ The default category for `warn()`.
 action:message:category:module:line
 ~~~
 
-这些字段的含义在 警告过滤器 中描述。当一行中列出多个过滤器时（如 [`PYTHONWARNINGS`](cmdline.md#envvar-PYTHONWARNINGS)），过滤器间用逗号隔开，后面的优先于前面的（因为是从左到右应用的，最近应用的过滤器优先于前面的）。
+这些字段的含义在 警告过滤器 中描述。当一行中列出多个过滤器时（如 [`PYTHONWARNINGS`](1.%20命令行与环境.md#envvar-PYTHONWARNINGS)），过滤器间用逗号隔开，后面的优先于前面的（因为是从左到右应用的，最近应用的过滤器优先于前面的）。
 
 常用的警告过滤器适用于所有的警告、特定类别的警告、由特定模块和包引发的警告。下面是一些例子：
 
@@ -200,7 +200,7 @@ error:::mymodule             # Convert warnings to errors in "mymodule"
 
 ### 默认警告过滤器¶
 
-Python 默认安装了几个警告过滤器，可以通过 [`-W`](cmdline.md#cmdoption-W) 命令行参数、 [`PYTHONWARNINGS`](cmdline.md#envvar-PYTHONWARNINGS) 环境变量及调用 `filterwarnings()` 进行覆盖。
+Python 默认安装了几个警告过滤器，可以通过 [`-W`](1.%20命令行与环境.md#cmdoption-W) 命令行参数、 [`PYTHONWARNINGS`](1.%20命令行与环境.md#envvar-PYTHONWARNINGS) 环境变量及调用 `filterwarnings()` 进行覆盖。
 
 在常规发布的版本中，默认的警告过滤器包括（按优先顺序排列）：
 
@@ -214,13 +214,13 @@ ignore::ImportWarning
 ignore::ResourceWarning
 ~~~
 
-在 [调试版本](configure.md#debug-build) 中，默认警告过滤器的列表是空的。
+在 [调试版本](3.%20配置%20Python.md#debug-build) 中，默认警告过滤器的列表是空的。
 
 在 3.2 版本发生变更: 除了 [`PendingDeprecationWarning`](3.标准库/exceptions.md#PendingDeprecationWarning "PendingDeprecationWarning") 之外，[`DeprecationWarning`](3.标准库/exceptions.md#DeprecationWarning "DeprecationWarning") 现在默认会被忽略。
 
 在 3.7 版本发生变更: [`DeprecationWarning`](3.标准库/exceptions.md#DeprecationWarning "DeprecationWarning") 在被 `__main__` 中的代码直接触发时，默认会再次显示。
 
-在 3.7 版本发生变更: 如果指定两次 [`-b`](cmdline.md#cmdoption-b)，则 [`BytesWarning`](3.标准库/exceptions.md#BytesWarning "BytesWarning") 不再出现在默认的过滤器列表中，而是通过 `sys.warningoptions` 进行配置。
+在 3.7 版本发生变更: 如果指定两次 [`-b`](1.%20命令行与环境.md#cmdoption-b)，则 [`BytesWarning`](3.标准库/exceptions.md#BytesWarning "BytesWarning") 不再出现在默认的过滤器列表中，而是通过 `sys.warningoptions` 进行配置。
 
 ### 重写默认的过滤器¶
 
@@ -315,7 +315,7 @@ with warnings.catch_warnings(record=True) as w:
 
 理想情况下，代码会有一个合适的测试套件，在运行测试时会隐含地启用所有警告（由 [`unittest`](unittest.md#module-unittest "unittest: Unit testing framework for Python.") 模块提供的测试运行程序就是如此）。
 
-在不太理想的情况下，可以通过向 Python 解释器传入 [`-Wd`](cmdline.md#cmdoption-W) (这是 `-W default` 的简写) 或设置环境变量 `PYTHONWARNINGS=default` 来检查应用程序是否用到了已弃用的接口。 这样可以启用对所有警告的默认处理操作，包括那些默认忽略的警告。 要改变遇到警告后执行的动作，可以改变传给 [`-W`](cmdline.md#cmdoption-W) 的参数 (例如 `-W error`)。 请参阅 [`-W`](cmdline.md#cmdoption-W) 旗标来了解更多的细节。
+在不太理想的情况下，可以通过向 Python 解释器传入 [`-Wd`](1.%20命令行与环境.md#cmdoption-W) (这是 `-W default` 的简写) 或设置环境变量 `PYTHONWARNINGS=default` 来检查应用程序是否用到了已弃用的接口。 这样可以启用对所有警告的默认处理操作，包括那些默认忽略的警告。 要改变遇到警告后执行的动作，可以改变传给 [`-W`](1.%20命令行与环境.md#cmdoption-W) 的参数 (例如 `-W error`)。 请参阅 [`-W`](1.%20命令行与环境.md#cmdoption-W) 旗标来了解更多的细节。
 
 ## 可用的函数¶
 

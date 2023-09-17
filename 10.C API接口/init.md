@@ -62,7 +62,7 @@ The following functions **should not be called** before `Py_Initialize()`: [`Py_
 
 ## 全局配置变量¶
 
-Python 有负责控制全局配置中不同特性和选项的变量。这些标志默认被 [命令行选项](cmdline.md#using-on-interface-options)。
+Python 有负责控制全局配置中不同特性和选项的变量。这些标志默认被 [命令行选项](1.%20命令行与环境.md#using-on-interface-options)。
 
 当一个选项设置一个旗标时，该旗标的值将是设置选项的次数。 例如，`-b` 会将 `Py_BytesWarningFlag` 设为 1 而 `-bb` 会将 `Py_BytesWarningFlag` 设为 2.
 
@@ -486,13 +486,13 @@ wchar_t *Py_GetPythonHome()¶
 
     _Part of the[ Stable ABI](stable.md#stable)._
 
-Return the default "home", that is, the value set by [`PyConfig.home`](init_config.md#c.PyConfig.home "PyConfig.home"), or the value of the [`PYTHONHOME`](cmdline.md#envvar-PYTHONHOME) environment variable if it is set.
+Return the default "home", that is, the value set by [`PyConfig.home`](init_config.md#c.PyConfig.home "PyConfig.home"), or the value of the [`PYTHONHOME`](1.%20命令行与环境.md#envvar-PYTHONHOME) environment variable if it is set.
 
 此函数不应在 `Py_Initialize()` 之前被调用，否则将返回 `NULL`。
 
 在 3.10 版本发生变更: 现在如果它在 `Py_Initialize()` 之前被调用将返回 `NULL`。
 
-从 3.13 版起不建议使用，将在 3.15 版中移除: Get [`PyConfig.home`](init_config.md#c.PyConfig.home "PyConfig.home") or [`PYTHONHOME`](cmdline.md#envvar-PYTHONHOME) environment variable instead.
+从 3.13 版起不建议使用，将在 3.15 版中移除: Get [`PyConfig.home`](init_config.md#c.PyConfig.home "PyConfig.home") or [`PYTHONHOME`](1.%20命令行与环境.md#envvar-PYTHONHOME) environment variable instead.
 
 ## 线程状态和全局解释器锁¶
 

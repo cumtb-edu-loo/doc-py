@@ -8,7 +8,7 @@
 
   2. Python 包中的 `__main__.py` 文件。
 
-这两种机制都有 Python 模块有关；用户如何与它们交互以及它们之间如何交互。 下文将进行详细说明。 如果你还不了解 Python 模块，请查看教程 [模块](2.教程/modules.md#tut-modules) 一节的介绍。
+这两种机制都有 Python 模块有关；用户如何与它们交互以及它们之间如何交互。 下文将进行详细说明。 如果你还不了解 Python 模块，请查看教程 [模块](6.%20模块.md#tut-modules) 一节的介绍。
 
 ## `__name__ == '__main__'`¶
 
@@ -52,7 +52,7 @@
 >     Hello, world!
 >  
 
-  * 作为 [`-m`](cmdline.md#cmdoption-m) 参数传给 Python 解释器的 Python 模块或包:
+  * 作为 [`-m`](1.%20命令行与环境.md#cmdoption-m) 参数传给 Python 解释器的 Python 模块或包:
 
 > >     $ python -m tarfile
 >     usage: tarfile.py [-h] [-v] (...)
@@ -68,7 +68,7 @@
 >     ...
 >  
 
-  * 作为 [`-c`](cmdline.md#cmdoption-c) 参数传递给 Python 解释器的 Python 代码:
+  * 作为 [`-c`](1.%20命令行与环境.md#cmdoption-c) 参数传递给 Python 解释器的 Python 代码:
 
 > >     $ python -c "import this"
 >     The Zen of Python, by Tim Peters
@@ -92,7 +92,7 @@ if __name__ == '__main__':
 
 参见
 
-关于在所有情况下 `__name__` 是如何设置的细节，请看教程部分 [模块](2.教程/modules.md#tut-modules) 。
+关于在所有情况下 `__name__` 是如何设置的细节，请看教程部分 [模块](6.%20模块.md#tut-modules) 。
 
 ### 常见用法¶
 
@@ -152,7 +152,7 @@ sys.exit(main())
 
 ## Python 包中的 `__main__.py`¶
 
-如果你不熟悉Python包，请参阅本教程的 [包](2.教程/modules.md#tut-packages) 一节。最常见的是， `__main__.py` 文件被用来为一个包提供命令行接口。假设有下面这个虚构的包，"bandclass":
+如果你不熟悉Python包，请参阅本教程的 [包](6.%20模块.md#tut-packages) 一节。最常见的是， `__main__.py` 文件被用来为一个包提供命令行接口。假设有下面这个虚构的包，"bandclass":
 
     
     
@@ -163,7 +163,7 @@ bandclass
   └── student.py
 ~~~
 
-当使用 [`-m`](cmdline.md#cmdoption-m) 标志从命令行直接调用软件包本身时，将执行 `__main__.py` 。比如说。
+当使用 [`-m`](1.%20命令行与环境.md#cmdoption-m) 标志从命令行直接调用软件包本身时，将执行 `__main__.py` 。比如说。
 
     
     
@@ -185,7 +185,7 @@ student_name = sys.argv[2] if len(sys.argv) >= 2 else ''
 print(f'Found student: {search_students(student_name)}')
 ~~~
 
-注意， `from .student import search_students` 是一个相对导入的例子。 这种导入方式可以在引用一个包内的模块时使用。 更多细节，请参见教程 [模块](2.教程/modules.md#tut-modules) 中的 [相对导入](2.教程/modules.md#intra-package-references) 一节。
+注意， `from .student import search_students` 是一个相对导入的例子。 这种导入方式可以在引用一个包内的模块时使用。 更多细节，请参见教程 [模块](6.%20模块.md#tut-modules) 中的 [相对导入](6.%20模块.md#intra-package-references) 一节。
 
 ### 常见用法¶
 
@@ -207,7 +207,7 @@ print(f'Found student: {search_students(student_name)}')
 
 请参阅 [`venv`](3.标准库/venv.md#module-venv "venv: Creation of virtual environments.") 以获取标准库中具有最小化 `__main__.py` 的软件包示例。 它不包含 `if __name__ == '__main__'` 代码块。 你可以用 `python -m venv [directory]` 来发起调用。
 
-参见 [`runpy`](runpy.md#module-runpy "runpy: Locate and run Python modules without importing them first.") 以了解更多关于 [`-m`](cmdline.md#cmdoption-m) 标志对解释器可执行包的细节。
+参见 [`runpy`](runpy.md#module-runpy "runpy: Locate and run Python modules without importing them first.") 以了解更多关于 [`-m`](1.%20命令行与环境.md#cmdoption-m) 标志对解释器可执行包的细节。
 
 参见 [`zipapp`](zipapp.md#module-zipapp "zipapp: Manage executable Python zip archives") 了解如何运行打包成 _.zip_ 文件的应用程序。在这种情况下，Python 会在归档文件的根目录下寻找一个 `__main__.py` 文件。
 
@@ -280,7 +280,7 @@ Dinsdale found in file /path/to/start.py
 
 请注意，导入 `__main__` 不会导致无意中运行旨在用于脚本的顶层代码的问题，这些代码被放在模块 `start` 的 `if __name__ == "__main__"` 块中。为什么这样做？
 
-Python 解释器启动时会在 [`sys.modules`](3.标准库/sys.md#sys.modules "sys.modules") 中插入一个空的 `__main__` 模块，并通过运行最高层级代码来填充它。 在我们的例子中这就是 `start` 模块，它逐行运行并导入 `namely`。 相应地，`namely` 会导入 `__main__` (它实际上就是 `start`)。 这就是一个导入循环！ 幸运的是，由于部分填充的 `__main__` 模块存在于 [`sys.modules`](3.标准库/sys.md#sys.modules "sys.modules") 中，Python 会将其传递给 `namely`。 请参阅导入系统的参考文档中 [有关 __main__ 的特别考量](4.语言参考/import.md#import-dunder-main) 来了解其中的详情。
+Python 解释器启动时会在 [`sys.modules`](3.标准库/sys.md#sys.modules "sys.modules") 中插入一个空的 `__main__` 模块，并通过运行最高层级代码来填充它。 在我们的例子中这就是 `start` 模块，它逐行运行并导入 `namely`。 相应地，`namely` 会导入 `__main__` (它实际上就是 `start`)。 这就是一个导入循环！ 幸运的是，由于部分填充的 `__main__` 模块存在于 [`sys.modules`](3.标准库/sys.md#sys.modules "sys.modules") 中，Python 会将其传递给 `namely`。 请参阅导入系统的参考文档中 [有关 __main__ 的特别考量](5.%20导入系统.md#import-dunder-main) 来了解其中的详情。
 
 Python REPL 是另一个 "顶层环境 "的例子，所以在 REPL 中定义的任何东西都成为 `__main__` 范围的一部分:
 

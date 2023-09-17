@@ -60,7 +60,7 @@
 
 Python 是一种解释型、交互式、面向对象的编程语言。 它包含了模块、异常、动态类型、高层级动态数据类型以及类等特性。 在面向对象编程以外它还支持多种编程范式，例如过程式和函数式编程等。 Python 结合了超强的功能和极清晰的语法。 它带有许多系统调用和库以及多种窗口系统的接口，并且能用 C 或 C++ 来进行扩展。 它还可用作需要可编程接口的应用程序的扩展语言。 最后，Python 非常易于移植：它可以在包括 Linux 和 macOS 在内的许多 Unix 变种以及 Windows 上运行。
 
-要了解更多详情，请先查看 [Python 教程](2.教程/index.md#tutorial-index)。 [Python 新手指南](https://wiki.python.org/moin/BeginnersGuide) 提供了学习 Python 的其他入门教程及资源的链接。
+要了解更多详情，请先查看 [Python 教程](0.Python%20教程.md#tutorial-index)。 [Python 新手指南](https://wiki.python.org/moin/BeginnersGuide) 提供了学习 Python 的其他入门教程及资源的链接。
 
 ### 什么是 Python 软件基金会？¶
 
@@ -142,7 +142,7 @@ Alpha, beta 和候选发布版带有额外的后缀:
 
 ### 我之前从未接触过编程。 哪里有 Python 的教程？¶
 
-有许多可选择的教程和书籍。 标准文档中也包含有 [Python 教程](2.教程/index.md#tutorial-index)。
+有许多可选择的教程和书籍。 标准文档中也包含有 [Python 教程](0.Python%20教程.md#tutorial-index)。
 
 请参阅 [新手指南](https://wiki.python.org/moin/BeginnersGuide) 以获取针对 Python 编程初学者的信息，包括教程的清单。
 

@@ -11,8 +11,12 @@
             "id": "d38d64cd56e25178",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "3.标准库/atexit.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,8 +85,9 @@
             "state": {
               "type": "backlink",
               "state": {
-                "collapseAll": false,
-                "extraContext": false,
+                "file": "3.标准库/atexit.md",
+                "collapseAll": true,
+                "extraContext": true,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "3.标准库/atexit.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,15 +124,17 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "3.标准库/atexit.md"
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -138,17 +146,43 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "0541a7e81e1da703",
+  "active": "d38d64cd56e25178",
   "lastOpenFiles": [
-    "1.新变化/3.13.md",
-    "index.md",
-    "download.md",
-    "genindex.md",
-    "glossary.md",
-    "license.md",
-    "copyright.md",
-    "contents.md",
-    "about.md",
-    "bugs.md"
+    "3.标准库/13.数据压缩和存档/asyncio.md",
+    "3.标准库/13.数据压缩和存档/asyncio-api-index.md",
+    "3.标准库/18.网络和进程间通信/asyncio-runner.md",
+    "3.标准库/13.数据压缩和存档/asyncio-protocol.md",
+    "3.标准库/13.数据压缩和存档/asyncio-exceptions.md",
+    "3.标准库/8.数据类型/array.md",
+    "3.标准库/16.通用操作系统服务/argparse.md",
+    "3.标准库/13.数据压缩和存档/archiving.md",
+    "3.标准库/16.通用操作系统服务/allos.md",
+    "9.拓展和嵌入/5. 在 Windows 上构建 C 和 C++ 扩展.md",
+    "3.标准库/36.安全考量",
+    "3.标准库/35.被取代的模块",
+    "3.标准库/34.Unix 专有服务",
+    "3.标准库/33.Windows系统相关模块",
+    "3.标准库/32.Python 语言服务",
+    "3.标准库/31.导入模块",
+    "3.标准库/30.自定义 Python 解释器",
+    "3.标准库/29.Python运行时服务",
+    "3.标准库/28.软件打包和分发",
+    "3.标准库/27.调试和分析",
+    "9.拓展和嵌入/2. 自定义扩展类型：教程.md",
+    "9.拓展和嵌入/3. 定义扩展类型：已分类主题.md",
+    "9.拓展和嵌入/0.扩展和嵌入 Python 解释器.md",
+    "9.拓展和嵌入/1. 使用 C 或 C++ 扩展 Python.md",
+    "9.拓展和嵌入/1. 在其它应用程序嵌入 Python.md",
+    "9.拓展和嵌入/4. 构建C C++扩展.md",
+    "6.常用指引/20.隔离扩展模块.md",
+    "6.常用指引/19.对象注解属性的最佳实践.md",
+    "6.常用指引/0.Python 指南.md",
+    "6.常用指引/18.Python 对 Linux `perf` 性能分析器的支持.md",
+    "6.常用指引/17.使用 DTrace 和 SystemTap 检测CPython.md",
+    "6.常用指引/16.Argument Clinic 的用法.md",
+    "6.常用指引/15.ipaddress模块介绍.md",
+    "6.常用指引/14.argparse 教程.md",
+    "6.常用指引/13.如何利用 urllib 包获取网络资源.md",
+    "6.常用指引/12.Unicode 指南.md"
   ]
 }

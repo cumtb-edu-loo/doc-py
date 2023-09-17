@@ -1239,7 +1239,7 @@ py_cmp_func 5 7
 0x30c00a0
 ~~~
 
-如果解释器使用 [`-O`](cmdline.md#cmdoption-O) 选项启动，这个例子会打印 `c_long(1)` ， 如果使用 [`-OO`](cmdline.md#cmdoption-OO) 启动，则会打印 `c_long(2)` 。
+如果解释器使用 [`-O`](1.%20命令行与环境.md#cmdoption-O) 选项启动，这个例子会打印 `c_long(1)` ， 如果使用 [`-OO`](1.%20命令行与环境.md#cmdoption-OO) 启动，则会打印 `c_long(2)` 。
 
 一个扩展例子, 同时也展示了使用指针访问 Python 导出的 [`PyImport_FrozenModules`](10.C%20API接口/import.md#c.PyImport_FrozenModules "PyImport_FrozenModules") 指针对象。
 

@@ -385,7 +385,7 @@ flags.debug¶
     
 |
 
-[`-d`](cmdline.md#cmdoption-d)  
+[`-d`](1.%20命令行与环境.md#cmdoption-d)  
   
 ---|---  
   
@@ -394,133 +394,133 @@ flags.inspect¶
     
 |
 
-[`-i`](cmdline.md#cmdoption-i)  
+[`-i`](1.%20命令行与环境.md#cmdoption-i)  
   
 flags.interactive¶
 
     
 |
 
-[`-i`](cmdline.md#cmdoption-i)  
+[`-i`](1.%20命令行与环境.md#cmdoption-i)  
   
 flags.isolated¶
 
     
 |
 
-[`-I`](cmdline.md#cmdoption-I)  
+[`-I`](1.%20命令行与环境.md#cmdoption-I)  
   
 flags.optimize¶
 
     
 |
 
-[`-O`](cmdline.md#cmdoption-O) 或 [`-OO`](cmdline.md#cmdoption-OO)  
+[`-O`](1.%20命令行与环境.md#cmdoption-O) 或 [`-OO`](1.%20命令行与环境.md#cmdoption-OO)  
   
 flags.dont_write_bytecode¶
 
     
 |
 
-[`-B`](cmdline.md#cmdoption-B)  
+[`-B`](1.%20命令行与环境.md#cmdoption-B)  
   
 flags.no_user_site¶
 
     
 |
 
-[`-s`](cmdline.md#cmdoption-s)  
+[`-s`](1.%20命令行与环境.md#cmdoption-s)  
   
 flags.no_site¶
 
     
 |
 
-[`-S`](cmdline.md#cmdoption-S)  
+[`-S`](1.%20命令行与环境.md#cmdoption-S)  
   
 flags.ignore_environment¶
 
     
 |
 
-[`-E`](cmdline.md#cmdoption-E)  
+[`-E`](1.%20命令行与环境.md#cmdoption-E)  
   
 flags.verbose¶
 
     
 |
 
-[`-v`](cmdline.md#cmdoption-1)  
+[`-v`](1.%20命令行与环境.md#cmdoption-1)  
   
 flags.bytes_warning¶
 
     
 |
 
-[`-b`](cmdline.md#cmdoption-b)  
+[`-b`](1.%20命令行与环境.md#cmdoption-b)  
   
 flags.quiet¶
 
     
 |
 
-[`-q`](cmdline.md#cmdoption-q)  
+[`-q`](1.%20命令行与环境.md#cmdoption-q)  
   
 flags.hash_randomization¶
 
     
 |
 
-[`-R`](cmdline.md#cmdoption-R)  
+[`-R`](1.%20命令行与环境.md#cmdoption-R)  
   
 flags.dev_mode¶
 
     
 |
 
-[`-X dev`](cmdline.md#cmdoption-X) ([Python 开发模式](devmode.md#devmode))  
+[`-X dev`](1.%20命令行与环境.md#cmdoption-X) ([Python 开发模式](devmode.md#devmode))  
   
 flags.utf8_mode¶
 
     
 |
 
-[`-X utf8`](cmdline.md#cmdoption-X)  
+[`-X utf8`](1.%20命令行与环境.md#cmdoption-X)  
   
 flags.safe_path¶
 
     
 |
 
-[`-P`](cmdline.md#cmdoption-P)  
+[`-P`](1.%20命令行与环境.md#cmdoption-P)  
   
 flags.int_max_str_digits¶
 
     
 |
 
-[`-X int_max_str_digits`](cmdline.md#cmdoption-X) ([integer string conversion length limitation](stdtypes.md#int-max-str-digits))  
+[`-X int_max_str_digits`](1.%20命令行与环境.md#cmdoption-X) ([integer string conversion length limitation](stdtypes.md#int-max-str-digits))  
   
 flags.warn_default_encoding¶
 
     
 |
 
-[`-X warn_default_encoding`](cmdline.md#cmdoption-X)  
+[`-X warn_default_encoding`](1.%20命令行与环境.md#cmdoption-X)  
   
-在 3.2 版本发生变更: 为新的 [`-q`](cmdline.md#cmdoption-q) 标志添加了 `quiet` 属性
+在 3.2 版本发生变更: 为新的 [`-q`](1.%20命令行与环境.md#cmdoption-q) 标志添加了 `quiet` 属性
 
 在 3.2.3 版本加入: `hash_randomization` 属性
 
 在 3.3 版本发生变更: 删除了过时的 `division_warning` 属性
 
-在 3.4 版本发生变更: 为 [`-I`](cmdline.md#cmdoption-I) `isolated` 标志添加了 `isolated` 属性。
+在 3.4 版本发生变更: 为 [`-I`](1.%20命令行与环境.md#cmdoption-I) `isolated` 标志添加了 `isolated` 属性。
 
-在 3.7 版本发生变更: 为新的 [Python 开发模式](devmode.md#devmode) 添加了 `dev_mode` 属性，为新的 [`-X`](cmdline.md#cmdoption-X) `utf8` 标志添加了 `utf8_mode` 属性。
+在 3.7 版本发生变更: 为新的 [Python 开发模式](devmode.md#devmode) 添加了 `dev_mode` 属性，为新的 [`-X`](1.%20命令行与环境.md#cmdoption-X) `utf8` 标志添加了 `utf8_mode` 属性。
 
-在 3.10 版本发生变更: 为 [`-X`](cmdline.md#cmdoption-X) `warn_default_encoding` 旗标添加了 `warn_default_encoding` 属性。
+在 3.10 版本发生变更: 为 [`-X`](1.%20命令行与环境.md#cmdoption-X) `warn_default_encoding` 旗标添加了 `warn_default_encoding` 属性。
 
-在 3.11 版本发生变更: 添加了用于 [`-P`](cmdline.md#cmdoption-P) 选项的 `safe_path` 属性。
+在 3.11 版本发生变更: 添加了用于 [`-P`](1.%20命令行与环境.md#cmdoption-P) 选项的 `safe_path` 属性。
 
 在 3.11 版本发生变更: 增加了 `int_max_str_digits` 属性。
 
@@ -1848,7 +1848,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 {'a': 'b', 'c': True}
 ~~~
 
-**CPython 实现细节：** 这是 CPython 专属的访问通过 [`-X`](cmdline.md#cmdoption-X) 传递的选项的方式。 其他实现可能会通过其他方式导出它们，或者完全不导出。
+**CPython 实现细节：** 这是 CPython 专属的访问通过 [`-X`](1.%20命令行与环境.md#cmdoption-X) 传递的选项的方式。 其他实现可能会通过其他方式导出它们，或者完全不导出。
 
 在 3.2 版本加入.
 

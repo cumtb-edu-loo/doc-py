@@ -29,7 +29,7 @@ from pkgutil import extend_path
 __path__ = extend_path(__path__, __name__)
 ~~~
 
-对于 [`sys.path`](3.标准库/sys.md#sys.path "sys.path") 中每个具有与该包名称相匹配的子目录的目录，将该子目录添加到包的 [`__path__`](4.语言参考/import.md#path__ "__path__")。 这在需要将单个逻辑包的不同部分拆分为多个目录的情况下很有用处。
+对于 [`sys.path`](3.标准库/sys.md#sys.path "sys.path") 中每个具有与该包名称相匹配的子目录的目录，将该子目录添加到包的 [`__path__`](5.%20导入系统.md#path__ "__path__")。 这在需要将单个逻辑包的不同部分拆分为多个目录的情况下很有用处。
 
 它还会查找开头部分 `*` 与 _name_ 参数相匹配的 `*.pkg` 文件。 此特性与 `*.pth` 文件类似（请参阅 [`site`](site.md#module-site "site: Module responsible for site-specific configuration.") 模块了解更多信息），区别在于它不会对以 `import` 开头的行做特别对待。 将按外在值对 `*.pkg` 文件添加信任：除了检查重复项，，所有在 `*.pkg` 文件中找到的条目都会被添加到路径中，不管它们是否存在于文件系统中。 （这是特性而非缺陷。）
 

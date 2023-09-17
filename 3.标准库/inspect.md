@@ -10,7 +10,7 @@
 
 ## 类型和成员¶
 
-`getmembers()` 函数获取对象如类或模块的成员。 名称以“is”打头的函数主要是作为传给 `getmembers()` 的第二个参数的便捷选项提供的。 它们还可帮助你确定你是否能找到下列特殊属性（请参阅 [导入相关的模块属性](4.语言参考/import.md#import-mod-attrs) 了解有关模块属性的详情）:
+`getmembers()` 函数获取对象如类或模块的成员。 名称以“is”打头的函数主要是作为传给 `getmembers()` 的第二个参数的便捷选项提供的。 它们还可帮助你确定你是否能找到下列特殊属性（请参阅 [导入相关的模块属性](5.%20导入系统.md#import-mod-attrs) 了解有关模块属性的详情）:
 
 类型
 
@@ -1566,7 +1566,7 @@ def handle_stackframe_without_leak():
         del frame
 ~~~
 
-如果你希望保持帧更长的时间（比如在之后打印回溯），你也可以通过 [`frame.clear()`](datamodel.md#frame.clear "frame.clear") 方法打破循环引用。
+如果你希望保持帧更长的时间（比如在之后打印回溯），你也可以通过 [`frame.clear()`](3.%20数据模型.md#frame.clear "frame.clear") 方法打破循环引用。
 
 大部分这些函数支持的可选的 _context_ 参数指定返回时包含的上下文的行数，以当前行为中心。
 

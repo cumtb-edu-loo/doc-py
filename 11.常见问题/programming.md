@@ -281,7 +281,7 @@ UnboundLocalError: local variable 'x' referenced before assignment
 11
 ~~~
 
-你可以使用 [`nonlocal`](simple_stmts.md#nonlocal) 关键字在嵌套作用域中执行类似的操作：
+你可以使用 [`nonlocal`](7.%20简单语句.md#nonlocal) 关键字在嵌套作用域中执行类似的操作：
 
     
     
@@ -304,7 +304,7 @@ UnboundLocalError: local variable 'x' referenced before assignment
 
 函数内部只作引用的 Python 变量隐式视为全局变量。如果在函数内部任何位置为变量赋值，则除非明确声明为全局变量，否则均将其视为局部变量。
 
-起初尽管有点令人惊讶，不过考虑片刻即可释然。一方面，已分配的变量要求加上 [`global`](simple_stmts.md#global) 可以防止意外的副作用发生。另一方面，如果所有全局引用都要加上 `global` ，那处处都得用上 `global` 了。那么每次对内置函数或导入模块中的组件进行引用时，都得声明为全局变量。这种杂乱会破坏 `global` 声明用于警示副作用的有效性。
+起初尽管有点令人惊讶，不过考虑片刻即可释然。一方面，已分配的变量要求加上 [`global`](7.%20简单语句.md#global) 可以防止意外的副作用发生。另一方面，如果所有全局引用都要加上 `global` ，那处处都得用上 `global` 了。那么每次对内置函数或导入模块中的组件进行引用时，都得声明为全局变量。这种杂乱会破坏 `global` 声明用于警示副作用的有效性。
 
 ### 为什么在循环中定义的参数各异的 lambda 都返回相同的结果？¶
 
@@ -403,7 +403,7 @@ print(config.x)
 
 按如下顺序导入模块就是一种好做法：
 
-  1. 标准库模块——例如：[`sys`](3.标准库/sys.md#module-sys "sys: Access system-specific parameters and functions.")、[`os`](os.md#module-os "os: Miscellaneous operating system interfaces.")、[`argparse`](3.标准库/argparse.md#module-argparse "argparse: Command-line option and argument parsing library.")、[`re`](re.md#module-re "re: Regular expression operations.") 等。
+  1. 标准库模块——例如：[`sys`](3.标准库/sys.md#module-sys "sys: Access system-specific parameters and functions.")、[`os`](os.md#module-os "os: Miscellaneous operating system interfaces.")、[`argparse`](argparse.md#module-argparse "argparse: Command-line option and argument parsing library.")、[`re`](re.md#module-re "re: Regular expression operations.") 等。
 
   2. 第三方库模块（安装于 Python site-packages 目录中的内容）——例如：`dateutil`、`requests`、`PIL.Image` 等。
 
@@ -562,7 +562,7 @@ func(42, bar=314, extra=somevar)
 
   * 对于一个不可变对象（ [`str`](stdtypes.md#str "str") 、 [`int`](functions.md#int "int") 、 [`tuple`](stdtypes.md#tuple "tuple") 等），所有引用它的变量都会给出相同的值，但所有改变其值的操作都将返回一个新的对象。
 
-如要知道两个变量是否指向同一个对象，可以利用 [`is`](expressions.md#is) 运算符或内置函数 [`id()`](functions.md#id "id")。
+如要知道两个变量是否指向同一个对象，可以利用 [`is`](6.%20表达式.md#is) 运算符或内置函数 [`id()`](functions.md#id "id")。
 
 ### 如何编写带有输出参数的函数（按照引用调用）？¶
 
@@ -808,7 +808,7 @@ small = x if x < y else y
 
 ### 是否可以用 Python 编写让人眼晕的单行程序?¶
 
-可以。 这一般是通过在 `lambda` 中嵌套 [`lambda`](expressions.md#lambda) 来实现的。 请参阅以下三个示例，它们是基于 Ulf Bartelt 的代码改写的:
+可以。 这一般是通过在 `lambda` 中嵌套 [`lambda`](6.%20表达式.md#lambda) 来实现的。 请参阅以下三个示例，它们是基于 Ulf Bartelt 的代码改写的:
 
     
     
@@ -943,7 +943,7 @@ SyntaxError: invalid decimal literal
 
 ### 如何将数字转换为字符串？¶
 
-例如，要把数字 `144` 转换为字符串 `'144'`，可使用内置类型构造器 [`str()`](stdtypes.md#str "str")。 如果你需要十六进制或八进制表示形式，可使用内置函数 [`hex()`](functions.md#hex "hex") 或 [`oct()`](functions.md#oct "oct")。 更复杂的格式化方式，请参阅 [格式字符串字面值](lexical_analysis.md#f-strings) 和 [格式字符串语法](string.md#formatstrings) 等章节，例如 `"{:04d}".format(144)` 将产生 `'0144'` 而 `"{:.3f}".format(1.0/3.0)` 将产生 `'0.333'`。
+例如，要把数字 `144` 转换为字符串 `'144'`，可使用内置类型构造器 [`str()`](stdtypes.md#str "str")。 如果你需要十六进制或八进制表示形式，可使用内置函数 [`hex()`](functions.md#hex "hex") 或 [`oct()`](functions.md#oct "oct")。 更复杂的格式化方式，请参阅 [格式字符串字面值](2.%20词法分析.md#f-strings) 和 [格式字符串语法](string.md#formatstrings) 等章节，例如 `"{:04d}".format(144)` 将产生 `'0144'` 而 `"{:.3f}".format(1.0/3.0)` 将产生 `'0.333'`。
 
 ### 如何修改字符串？¶
 
@@ -1051,7 +1051,7 @@ array('w', 'yello, world')
 
 ### 'UnicodeDecodeError' 或 'UnicodeEncodeError' 错误是什么意思？¶
 
-见 [Unicode 指南](6.常用指引/unicode.md#unicode-howto)
+见 [Unicode 指南](12.Unicode%20指南.md#unicode-howto)
 
 ### 我能以奇数个反斜杠来结束一个原始字符串吗？¶
 
@@ -1103,7 +1103,7 @@ SyntaxError: unterminated string literal (detected at line 1)
 "backslash\\'preserved"
 ~~~
 
-另请参阅 [语言参考](lexical_analysis.md#strings) 中的规范说明。
+另请参阅 [语言参考](2.%20词法分析.md#strings) 中的规范说明。
 
 ## 性能¶
 
@@ -1127,11 +1127,11 @@ SyntaxError: unterminated string literal (detected at line 1)
 
   * 使用正确的数据结构。参考 [内置类型](stdtypes.md#bltin-types) 和 [`collections`](collections.md#module-collections "collections: Container datatypes") 模块的文档。
 
-  * 如果标准库已为某些操作提供了基础函数，则可能（当然不能保证）比所有自编的函数都要快。对于用 C 语言编写的基础函数则更是如此，比如内置函数和一些扩展类型。例如，一定要用内置方法 [`list.sort()`](stdtypes.md#list.sort "list.sort") 或 [`sorted()`](functions.md#sorted "sorted") 函数进行排序（某些高级用法的示例请参阅 [排序指南](sorting.md#sortinghowto) ）。
+  * 如果标准库已为某些操作提供了基础函数，则可能（当然不能保证）比所有自编的函数都要快。对于用 C 语言编写的基础函数则更是如此，比如内置函数和一些扩展类型。例如，一定要用内置方法 [`list.sort()`](stdtypes.md#list.sort "list.sort") 或 [`sorted()`](functions.md#sorted "sorted") 函数进行排序（某些高级用法的示例请参阅 [排序指南](11.排序指南.md#sortinghowto) ）。
 
   * 抽象往往会造成中间层，并会迫使解释器执行更多的操作。如果抽象出来的中间层级太多，工作量超过了要完成的有效任务，那么程序就会被拖慢。应该避免过度的抽象，而且往往也会对可读性产生不利影响，特别是当函数或方法比较小的时候。
 
-如果你已经达到纯 Python 允许的限制，那么有一些工具可以让你走得更远。 例如，[Cython](https://cython.org) 可以将稍加修改的 Python 代码版本编译为 C 扩展，并能在许多不同的平台上使用。 Cython 可以利用编译（和可选的类型标注）来让你的代码显著快于解释运行时的速度。 如果你对自己的 C 编程技能有信心，还可以自行 [编写 C 扩展模块](9.拓展和嵌入/index.md#extending-index)。
+如果你已经达到纯 Python 允许的限制，那么有一些工具可以让你走得更远。 例如，[Cython](https://cython.org) 可以将稍加修改的 Python 代码版本编译为 C 扩展，并能在许多不同的平台上使用。 Cython 可以利用编译（和可选的类型标注）来让你的代码显著快于解释运行时的速度。 如果你对自己的 C 编程技能有信心，还可以自行 [编写 C 扩展模块](0.扩展和嵌入%20Python%20解释器.md#extending-index)。
 
 参见
 
@@ -1326,7 +1326,7 @@ result = [obj.method() for obj in mylist]
 result = [function(obj) for obj in mylist]
 ~~~
 
-如果只需运行方法或函数而不保存返回值，那么一个简单的 [`for`](compound_stmts.md#for) 循环就足够了:
+如果只需运行方法或函数而不保存返回值，那么一个简单的 [`for`](8.%20复合语句.md#for) 循环就足够了:
 
     
     
@@ -1393,7 +1393,7 @@ TypeError: 'tuple' object does not support item assignment
 ['foo', 'item']
 ~~~
 
-要明白为什么会这样，你需要知道 (a) 如果一个对象实现了 [`__iadd__()`](datamodel.md#object.__iadd__ "object.__iadd__") 魔术方法，那么它就会在执行 `+=` 增强赋值时被调用，并且其返回值将在赋值语句中被使用；(b) 对于列表而言，`__iadd__()` 等价于在列表上调用 `extend()` 并返回该列表。 所以对于列表我们可以这样说，`+=` 就是 `list.extend()` 的“快捷方式”:
+要明白为什么会这样，你需要知道 (a) 如果一个对象实现了 [`__iadd__()`](3.%20数据模型.md#object.__iadd__ "object.__iadd__") 魔术方法，那么它就会在执行 `+=` 增强赋值时被调用，并且其返回值将在赋值语句中被使用；(b) 对于列表而言，`__iadd__()` 等价于在列表上调用 `extend()` 并返回该列表。 所以对于列表我们可以这样说，`+=` 就是 `list.extend()` 的“快捷方式”:
 
     
     
@@ -1573,9 +1573,9 @@ class UpperOut:
         return getattr(self._outfile, name)
 ~~~
 
-这里 `UpperOut` 类重新定义了 `write()` 方法，在调用下层的 `self._outfile.write()` 方法之前将参数字符串转换为大写形式。 所有其他方法都被委托给下层的 `self._outfile` 对象。 委托是通过 [`__getattr__()`](datamodel.md#object.__getattr__ "object.__getattr__") 方法完成的；请参阅 [语言参考](datamodel.md#attribute-access) 了解有关控制属性访问的更多信息。
+这里 `UpperOut` 类重新定义了 `write()` 方法，在调用下层的 `self._outfile.write()` 方法之前将参数字符串转换为大写形式。 所有其他方法都被委托给下层的 `self._outfile` 对象。 委托是通过 [`__getattr__()`](3.%20数据模型.md#object.__getattr__ "object.__getattr__") 方法完成的；请参阅 [语言参考](3.%20数据模型.md#attribute-access) 了解有关控制属性访问的更多信息。
 
-请注意在更一般的情况下委托可能会变得比较棘手。 当属性即需要被设置又需要被提取时，类还必须定义 [`__setattr__()`](datamodel.md#object.__setattr__ "object.__setattr__") 方法，而这样做必须十分小心。 `__setattr__()` 的基本实现大致如下所示:
+请注意在更一般的情况下委托可能会变得比较棘手。 当属性即需要被设置又需要被提取时，类还必须定义 [`__setattr__()`](3.%20数据模型.md#object.__setattr__ "object.__setattr__") 方法，而这样做必须十分小心。 `__setattr__()` 的基本实现大致如下所示:
 
     
     
@@ -1722,7 +1722,7 @@ def __init__(self, *args):
 
 这有几个可能的原因。
 
-[`del`](simple_stmts.md#del) 语句不一定要调用 [`__del__()`](datamodel.md#object.__del__ "object.__del__") \-- 它只是减少对象的引用计数，如果计数达到零才会调用 `__del__()`。
+[`del`](7.%20简单语句.md#del) 语句不一定要调用 [`__del__()`](3.%20数据模型.md#object.__del__ "object.__del__") \-- 它只是减少对象的引用计数，如果计数达到零才会调用 `__del__()`。
 
 如果你的数据结构包含循环链接（如树每个子节点都带有父节点的引用，而每个父节点也带有子节点的列表），引用计数永远不会回零。 尽管 Python 偶尔会用某种算法检测这种循环引用，但在数据结构的最后一条引用消失之后，垃圾收集器可能还要过段时间才会运行，因此 `__del__()` 方法可能会在不方便或随机的时刻被调用。 这对于重现一个问题是非常不方便的。 更糟糕的是，各个对象的 `__del__()` 方法是以随机顺序执行的。 虽然你可以运行 [`gc.collect()`](gc.md#gc.collect "gc.collect") 来强制执行垃圾回收操作，但 _仍会存在_ 一些对象永远不会被回收的失控情况。
 
@@ -1841,7 +1841,7 @@ def __contains__(self, value):
 
 ### 一个子类如何控制哪些数据被存储在一个不可变的实例中？¶
 
-当子类化一个不可变类型时，请重载 [`__new__()`](datamodel.md#object.__new__ "object.__new__") 方法而不是 [`__init__()`](datamodel.md#object.__init__ "object.__init__") 方法。 后者只在一个实例被创建 _之后_ 运行，这对于改变不可变实例中的数据来说太晚了。
+当子类化一个不可变类型时，请重载 [`__new__()`](3.%20数据模型.md#object.__new__ "object.__new__") 方法而不是 [`__init__()`](3.%20数据模型.md#object.__init__ "object.__init__") 方法。 后者只在一个实例被创建 _之后_ 运行，这对于改变不可变实例中的数据来说太晚了。
 
 所有这些不可变的类都有一个与它们的父类不同的签名:
 
@@ -1927,7 +1927,7 @@ class Weather:
 
 上面的例子假定 _station_id_ 从不改变。 如果相关实例属性是可变对象，则 _cached_property_ 方式就不再适用，因为它无法检测到属性的改变。
 
-要让 _lru_cache_ 方式在 _station_id_ 可变时仍然适用，类需要定义 [`__eq__()`](datamodel.md#object.__eq__ "object.__eq__") 和 [`__hash__()`](datamodel.md#object.__hash__ "object.__hash__") 方法以便缓存能检测到相关属性的更新:
+要让 _lru_cache_ 方式在 _station_id_ 可变时仍然适用，类需要定义 [`__eq__()`](3.%20数据模型.md#object.__eq__ "object.__eq__") 和 [`__hash__()`](3.%20数据模型.md#object.__hash__ "object.__hash__") 方法以便缓存能检测到相关属性的更新:
 
     
     
@@ -1961,7 +1961,7 @@ class Weather:
 
 `.pyc` 文件有可能会无法创建，原因之一是源码文件所在的目录存在权限问题，这样就无法创建 `__pycache__` 子目录。假如以某个用户开发程序而以另一用户运行程序，就有可能发生权限问题，测试 Web 服务器就属于这种情况。
 
-除非设置了 [`PYTHONDONTWRITEBYTECODE`](cmdline.md#envvar-PYTHONDONTWRITEBYTECODE) 环境变量，否则导入模块并且 Python 能够创建 `__pycache__` 子目录并把已编译模块写入该子目录（权限、存储空间等等）时，.pyc 文件就将自动创建。
+除非设置了 [`PYTHONDONTWRITEBYTECODE`](1.%20命令行与环境.md#envvar-PYTHONDONTWRITEBYTECODE) 环境变量，否则导入模块并且 Python 能够创建 `__pycache__` 子目录并把已编译模块写入该子目录（权限、存储空间等等）时，.pyc 文件就将自动创建。
 
 在最高层级运行的 Python 脚本不会被视为经过了导入操作，因此不会创建 `.pyc` 文件。假定有一个最高层级的模块文件 `foo.py`，它导入了另一个模块 `xyz.py`，当运行 `foo` 模块（通过输入 shell 命令 `python foo.py` ），则会为 `xyz` 创建一个 `.pyc`，因为 `xyz` 是被导入的，但不会为 `foo` 创建 `.pyc` 文件，因为 `foo.py` 不是被导入的。
 

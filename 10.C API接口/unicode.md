@@ -1118,7 +1118,7 @@ Encode a Unicode object using ASCII and return the result as Python bytes object
 
 ### Character Map Codecs¶
 
-This codec is special in that it can be used to implement many different codecs (and this is in fact what was done to obtain most of the standard codecs included in the `encodings` package). The codec uses mappings to encode and decode characters. The mapping objects provided must support the [`__getitem__()`](datamodel.md#object.__getitem__ "object.__getitem__") mapping interface; dictionaries and sequences work well.
+This codec is special in that it can be used to implement many different codecs (and this is in fact what was done to obtain most of the standard codecs included in the `encodings` package). The codec uses mappings to encode and decode characters. The mapping objects provided must support the [`__getitem__()`](3.%20数据模型.md#object.__getitem__ "object.__getitem__") mapping interface; dictionaries and sequences work well.
 
 These are the mapping codec APIs:
 
@@ -1148,7 +1148,7 @@ Translate a string by applying a character mapping table to it and return the re
 
 The mapping table must map Unicode ordinal integers to Unicode ordinal integers or `None` (causing deletion of the character).
 
-Mapping tables need only provide the [`__getitem__()`](datamodel.md#object.__getitem__ "object.__getitem__") interface; dictionaries and sequences work well. Unmapped character ordinals (ones which cause a [`LookupError`](3.标准库/exceptions.md#LookupError "LookupError")) are left untouched and are copied as-is.
+Mapping tables need only provide the [`__getitem__()`](3.%20数据模型.md#object.__getitem__ "object.__getitem__") interface; dictionaries and sequences work well. Unmapped character ordinals (ones which cause a [`LookupError`](3.标准库/exceptions.md#LookupError "LookupError")) are left untouched and are copied as-is.
 
 _errors_ has the usual meaning for codecs. It may be `NULL` which indicates to use the default error handling.
 

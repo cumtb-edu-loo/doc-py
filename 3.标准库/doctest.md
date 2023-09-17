@@ -412,7 +412,7 @@ detail
 
 ### 选项标记¶
 
-一系列选项旗标控制着 doctest 的各方面行为。 旗标的符号名称以模块常量的形式提供，可以一起 [bitwise ORed](expressions.md#bitwise) 并传递给各种函数。 这些名称也可以在 doctest directives 中使用，并且可以通过 `-o` 选项传递给 doctest 命令行接口。
+一系列选项旗标控制着 doctest 的各方面行为。 旗标的符号名称以模块常量的形式提供，可以一起 [bitwise ORed](6.%20表达式.md#bitwise) 并传递给各种函数。 这些名称也可以在 doctest directives 中使用，并且可以通过 `-o` 选项传递给 doctest 命令行接口。
 
 在 3.4 版本加入: 命令行选项 `-o` 。
 

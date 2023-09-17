@@ -192,7 +192,7 @@ def broadcast_message(
     ...
 ~~~
 
-[`type`](simple_stmts.md#type) 语句是在 Python 3.12 中新增加的。 为了向下兼容，类型别名也可以通过简单的赋值来创建:
+[`type`](7.%20简单语句.md#type) 语句是在 Python 3.12 中新增加的。 为了向下兼容，类型别名也可以通过简单的赋值来创建:
 
     
     
@@ -331,7 +331,7 @@ x = str     # OK
 x = concat  # Also OK
 ~~~
 
-`Callable` 无法表达复杂的签名如接受可变数量参数的函数、`重载的函数` 或具有仅限关键字形参的函数。 但是，这些签名可通过定义具有 [`__call__()`](datamodel.md#object.__call__ "object.__call__") 方法的 `Protocol` 类来表达:
+`Callable` 无法表达复杂的签名如接受可变数量参数的函数、`重载的函数` 或具有仅限关键字形参的函数。 但是，这些签名可通过定义具有 [`__call__()`](3.%20数据模型.md#object.__call__ "object.__call__") 方法的 `Protocol` 类来表达:
 
     
     
@@ -383,7 +383,7 @@ def notify_by_email(employees: Sequence[Employee],
                     overrides: Mapping[str, str]) -> None: ...
 ~~~
 
-泛型函数和类可以通过使用 [类型形参语法](compound_stmts.md#type-params) 来实现参数化:
+泛型函数和类可以通过使用 [类型形参语法](8.%20复合语句.md#type-params) 来实现参数化:
 
     
     
@@ -516,7 +516,7 @@ new_non_team_user(TeamUser)   # Error: ``type[TeamUser]`` is not a subtype
 new_non_team_user(User)       # Also an error
 ~~~
 
-`type[Any]` is equivalent to [`type`](functions.md#type "type"), which is the root of Python's [metaclass hierarchy](datamodel.md#metaclasses).
+`type[Any]` is equivalent to [`type`](functions.md#type "type"), which is the root of Python's [metaclass hierarchy](3.%20数据模型.md#metaclasses).
 
 ## 用户定义的泛型类型¶
 
@@ -560,7 +560,7 @@ class LoggedVar(Generic[T]):
     ...
 ~~~
 
-Generic classes have [`__class_getitem__()`](datamodel.md#object.__class_getitem__ "object.__class_getitem__") methods, meaning they can be parameterised at runtime (e.g. `LoggedVar[int]` below):
+Generic classes have [`__class_getitem__()`](3.%20数据模型.md#object.__class_getitem__ "object.__class_getitem__") methods, meaning they can be parameterised at runtime (e.g. `LoggedVar[int]` below):
 
     
     
@@ -897,7 +897,7 @@ def greet_proper(cond: bool) -> str | bytes:
     return "hi there!" if cond else b"greetings!"
 ~~~
 
-从 3.13 版起不建议使用，将在 3.18 版中移除: Deprecated in favor of the new [type parameter syntax](compound_stmts.md#type-params). Use `class A[T: (str, bytes)]: ...` instead of importing `AnyStr`. See [**PEP 695**](https://peps.python.org/pep-0695/) for more details.
+从 3.13 版起不建议使用，将在 3.18 版中移除: Deprecated in favor of the new [type parameter syntax](8.%20复合语句.md#type-params). Use `class A[T: (str, bytes)]: ...` instead of importing `AnyStr`. See [**PEP 695**](https://peps.python.org/pep-0695/) for more details.
 
 In Python 3.16, `AnyStr` will be removed from `typing.__all__`, and deprecation warnings will be emitted at runtime when it is accessed or imported from `typing`. `AnyStr` will be removed from `typing` in Python 3.18.
 
@@ -1034,7 +1034,7 @@ In general, if something returns `self`, as in the above examples, you should us
 
   * 被用作替代构造器的 [`classmethod`](functions.md#classmethod "classmethod")，它将返回 `cls` 形参的实例。
 
-  * 标注一个返回自身的 [`__enter__()`](datamodel.md#object.__enter__ "object.__enter__") 方法。
+  * 标注一个返回自身的 [`__enter__()`](3.%20数据模型.md#object.__enter__ "object.__enter__") 方法。
 
 You should not use `Self` as the return annotation if the method is not guaranteed to return an instance of a subclass when the class is subclassed:
 
@@ -1094,7 +1094,7 @@ class Box(Generic[T]):
 
 在 3.10 版本加入.
 
-自 3.12 版本弃用: `TypeAlias` is deprecated in favor of the [`type`](simple_stmts.md#type) statement, which creates instances of `TypeAliasType` and which natively supports forward references. Note that while `TypeAlias` and `TypeAliasType` serve similar purposes and have similar names, they are distinct and the latter is not the type of the former. Removal of `TypeAlias` is not currently planned, but users are encouraged to migrate to [`type`](simple_stmts.md#type) statements.
+自 3.12 版本弃用: `TypeAlias` is deprecated in favor of the [`type`](7.%20简单语句.md#type) statement, which creates instances of `TypeAliasType` and which natively supports forward references. Note that while `TypeAlias` and `TypeAliasType` serve similar purposes and have similar names, they are distinct and the latter is not the type of the former. Removal of `TypeAlias` is not currently planned, but users are encouraged to migrate to [`type`](7.%20简单语句.md#type) statements.
 
 #### 特殊形式¶
 
@@ -1578,7 +1578,7 @@ See [**PEP 692**](https://peps.python.org/pep-0692/) for more details on using `
 
 The following classes should not be used directly as annotations. Their intended purpose is to be building blocks for creating generic types and type aliases.
 
-These objects can be created through special syntax ([type parameter lists](compound_stmts.md#type-params) and the [`type`](simple_stmts.md#type) statement). For compatibility with Python 3.11 and earlier, they can also be created without the dedicated syntax, as documented below.
+These objects can be created through special syntax ([type parameter lists](8.%20复合语句.md#type-params) and the [`type`](7.%20简单语句.md#type) statement). For compatibility with Python 3.11 and earlier, they can also be created without the dedicated syntax, as documented below.
 
 _class _typing.Generic¶
 
@@ -1598,7 +1598,7 @@ class Mapping[KT, VT]:
         # Etc.
 ~~~
 
-Such a class implicitly inherits from `Generic`. The runtime semantics of this syntax are discussed in the [Language Reference](compound_stmts.md#generic-classes).
+Such a class implicitly inherits from `Generic`. The runtime semantics of this syntax are discussed in the [Language Reference](8.%20复合语句.md#generic-classes).
 
 该类的用法如下：
 
@@ -1612,7 +1612,7 @@ def lookup_name[X, Y](mapping: Mapping[X, Y], key: X, default: Y) -> Y:
         return default
 ~~~
 
-Here the brackets after the function name indicate a [generic function](compound_stmts.md#generic-functions).
+Here the brackets after the function name indicate a [generic function](8.%20复合语句.md#generic-functions).
 
 For backwards compatibility, generic classes can also be declared by explicitly inheriting from `Generic`. In this case, the type parameters must be declared separately:
 
@@ -1690,7 +1690,7 @@ def repeat[T](x: T, n: int) -> Sequence[T]:
 
 请注意，类型变量可以是 _被绑定的_ ， _被约束的_ ，或者两者都不是，但不能既是被绑定的 _又是_ 被约束的。
 
-The variance of type variables is inferred by type checkers when they are created through the [type parameter syntax](compound_stmts.md#type-params) or when `infer_variance=True` is passed. Manually created type variables may be explicitly marked covariant or contravariant by passing `covariant=True` or `contravariant=True`. By default, manually created type variables are invariant. See [**PEP 484**](https://peps.python.org/pep-0484/) and [**PEP 695**](https://peps.python.org/pep-0695/) for more details.
+The variance of type variables is inferred by type checkers when they are created through the [type parameter syntax](8.%20复合语句.md#type-params) or when `infer_variance=True` is passed. Manually created type variables may be explicitly marked covariant or contravariant by passing `covariant=True` or `contravariant=True`. By default, manually created type variables are invariant. See [**PEP 484**](https://peps.python.org/pep-0484/) and [**PEP 695**](https://peps.python.org/pep-0695/) for more details.
 
 绑定类型变量和约束类型变量在几个重要方面具有不同的主义。 使用 _绑定_ 类型变量意味着 `TypeVar` 将尽可能使用最为专属的类型来解析:
 
@@ -2393,7 +2393,7 @@ An alternative way to create a `TypedDict` is by using function-call syntax. The
 Point2D = TypedDict('Point2D', {'x': int, 'y': int, 'label': str})
 ~~~
 
-This functional syntax allows defining keys which are not valid [identifiers](lexical_analysis.md#identifiers), for example because they are keywords or contain hyphens:
+This functional syntax allows defining keys which are not valid [identifiers](2.%20词法分析.md#identifiers), for example because they are keywords or contain hyphens:
 
     
     
@@ -2516,7 +2516,7 @@ class Group(TypedDict, Generic[T]):
     group: list[T]
 ~~~
 
-`TypedDict` 可以通过注解字典（参见 [对象注解属性的最佳实践](annotations.md#annotations-howto) 了解更多关于注解的最佳实践）、 `__total__` 、 `__required_keys__` 和 `__optional_keys__` 进行内省。
+`TypedDict` 可以通过注解字典（参见 [对象注解属性的最佳实践](19.对象注解属性的最佳实践.md#annotations-howto) 了解更多关于注解的最佳实践）、 `__total__` 、 `__required_keys__` 和 `__optional_keys__` 进行内省。
 
 __total__¶
 

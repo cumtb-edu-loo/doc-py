@@ -23,7 +23,7 @@ readline.__name__         readline.parse_and_bind(
 >>> readline.
 ~~~
 
-`rlcompleter` 模块是为了使用 Python 的 [交互模式](interpreter.md#tut-interactive) 而设计的。 除非 Python 是通过 [`-S`](cmdline.md#cmdoption-S) 选项运行, 这个模块总是自动地被导入且配置 (参见 [Readline 配置](site.md#rlcompleter-config))。
+`rlcompleter` 模块是为了使用 Python 的 [交互模式](2.%20Python%20解释器.md#tut-interactive) 而设计的。 除非 Python 是通过 [`-S`](1.%20命令行与环境.md#cmdoption-S) 选项运行, 这个模块总是自动地被导入且配置 (参见 [Readline 配置](site.md#rlcompleter-config))。
 
 在没有 [`readline`](readline.md#module-readline "readline: GNU readline support for Python. \(Unix\)") 的平台, 此模块定义的 `Completer` 类仍然可以用于自定义行为.
 

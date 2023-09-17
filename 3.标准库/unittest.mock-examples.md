@@ -264,7 +264,7 @@ Exception: Boom!
 
 ### 模拟异步迭代器¶
 
-从 Python 3.8 起，`AsyncMock` 和 `MagicMock` 支持通过 `__aiter__` 来模拟 [异步迭代器](datamodel.md#async-iterators)。 `__aiter__` 的 [`return_value`](unittest.mock.md#unittest.mock.Mock.return_value "unittest.mock.Mock.return_value") 属性可以被用来设置要用于迭代的返回值。
+从 Python 3.8 起，`AsyncMock` 和 `MagicMock` 支持通过 `__aiter__` 来模拟 [异步迭代器](3.%20数据模型.md#async-iterators)。 `__aiter__` 的 [`return_value`](unittest.mock.md#unittest.mock.Mock.return_value "unittest.mock.Mock.return_value") 属性可以被用来设置要用于迭代的返回值。
 
     
     
@@ -280,7 +280,7 @@ Exception: Boom!
 
 ### 模拟异步上下文管理器¶
 
-从 Python 3.8 起，`AsyncMock` 和 `MagicMock` 支持通过 `__aenter__` 和 `__aexit__` 来模拟 [异步上下文管理器](datamodel.md#async-context-managers)。 在默认情况下，`__aenter__` 和 `__aexit__` 将为返回异步函数的 `AsyncMock` 实例。
+从 Python 3.8 起，`AsyncMock` 和 `MagicMock` 支持通过 `__aenter__` 和 `__aexit__` 来模拟 [异步上下文管理器](3.%20数据模型.md#async-context-managers)。 在默认情况下，`__aenter__` 和 `__aexit__` 将为返回异步函数的 `AsyncMock` 实例。
 
     
     
@@ -603,7 +603,7 @@ mock_backend.get_endpoint.return_value.create_call.return_value.start_call.retur
 
 ### 模拟生成器方法¶
 
-Python 生成器是指在被迭代时使用 [`yield`](simple_stmts.md#yield) 语句来返回一系列值的函数或方法 [1]。
+Python 生成器是指在被迭代时使用 [`yield`](7.%20简单语句.md#yield) 语句来返回一系列值的函数或方法 [1]。
 
 调用生成器方法 / 函数将返回生成器对象。 生成器对象随后会被迭代。 迭代操作对应的协议方法是 [`__iter__()`](stdtypes.md#container.__iter__ "container.__iter__")，因此我们可以使用 [`MagicMock`](unittest.mock.md#unittest.mock.MagicMock "unittest.mock.MagicMock") 来模拟它。
 
@@ -943,7 +943,7 @@ Actual: mock(set())
 
 要做到这点我们可以用 [`MagicMock`](unittest.mock.md#unittest.mock.MagicMock "unittest.mock.MagicMock")，它的行为类似于字典，并会使用 [`side_effect`](unittest.mock.md#unittest.mock.Mock.side_effect "unittest.mock.Mock.side_effect") 将字典访问委托给下层的在我们控制之下的一个真正的字典。
 
-当我们的 `MagicMock` 的 [`__getitem__()`](datamodel.md#object.__getitem__ "object.__getitem__") 和 [`__setitem__()`](datamodel.md#object.__setitem__ "object.__setitem__") 方法被调用（即正常的字典访问操作）时 `side_effect` 将附带相应的键（对于 `__setitem__` 还将附带值）被调用。 我们还可以控制返回的内容。
+当我们的 `MagicMock` 的 [`__getitem__()`](3.%20数据模型.md#object.__getitem__ "object.__getitem__") 和 [`__setitem__()`](3.%20数据模型.md#object.__setitem__ "object.__setitem__") 方法被调用（即正常的字典访问操作）时 `side_effect` 将附带相应的键（对于 `__setitem__` 还将附带值）被调用。 我们还可以控制返回的内容。
 
 在 `MagicMock` 被使用之后我们可以使用 [`call_args_list`](unittest.mock.md#unittest.mock.Mock.call_args_list "unittest.mock.Mock.call_args_list") 等属性来针对该字典是如何被使用的下断言。
 

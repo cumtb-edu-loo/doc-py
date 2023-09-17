@@ -44,7 +44,7 @@ python -m venv /path/to/new/virtual/environment
 c:\>Python35\python -m venv c:\path\to\myenv
 ~~~
 
-或者，如果已经为 [Python 安装](5.安装和使用/windows.md#using-on-windows) 配置好 `PATH` 和 `PATHEXT` 变量:
+或者，如果已经为 [Python 安装](4.%20在Windows上使用%20Python.md#using-on-windows) 配置好 `PATH` 和 `PATHEXT` 变量:
 
     
     
@@ -192,7 +192,7 @@ PowerShell
 
 激活一个虚拟环境的操作 _不是必需的_ ，因为你完全可以在发起调用 Python 时指明特定虚拟环境的 Python 解释器的完整路径。 更进一步地说，安装在虚拟环境中的所有脚本也都可以在不激活该虚拟环境的情况下运行。
 
-为了达成此目的，安装到虚拟环境中的脚本将包含一个以“井号叹号”打头的行用来指定虚拟环境的 Python 解释器，例如 `#!/ _< path-to-venv>_/bin/python`。 这意味着无论 `PATH` 的值是什么该脚本都将使用指定的解释器运行。 在 Windows 上对“井号叹号”行的处理将在你安装了 [适用于Windows的Python启动器](5.安装和使用/windows.md#launcher) 的情况下获得支持。 这样，在 Windows 资源管理器窗口中双击一个已安装的脚本应当会使用正确的解释器运行它而无需激活相应虚拟环境或设置 `PATH`。
+为了达成此目的，安装到虚拟环境中的脚本将包含一个以“井号叹号”打头的行用来指定虚拟环境的 Python 解释器，例如 `#!/ _< path-to-venv>_/bin/python`。 这意味着无论 `PATH` 的值是什么该脚本都将使用指定的解释器运行。 在 Windows 上对“井号叹号”行的处理将在你安装了 [适用于Windows的Python启动器](4.%20在Windows上使用%20Python.md#launcher) 的情况下获得支持。 这样，在 Windows 资源管理器窗口中双击一个已安装的脚本应当会使用正确的解释器运行它而无需激活相应虚拟环境或设置 `PATH`。
 
 当一个虚拟环境已被激活时，`VIRTUAL_ENV` 环境变量会被设为该虚拟环境的路径。 由于使用虚拟环境并不需要显式地激活它，因此 `VIRTUAL_ENV` 并不能被用来可靠地确定是否正在使用虚拟环境。
 

@@ -2,11 +2,11 @@
 
 **源代码:** [Lib/getopt.py](https://github.com/python/cpython/tree/3.12/Lib/getopt.py)
 
-自 3.13 版本弃用: The `getopt` module is [soft deprecated](../glossary.md#term-soft-deprecated) and will not be developed further; development will continue with the [`argparse`](3.标准库/argparse.md#module-argparse "argparse: Command-line option and argument parsing library.") module.
+自 3.13 版本弃用: The `getopt` module is [soft deprecated](../glossary.md#term-soft-deprecated) and will not be developed further; development will continue with the [`argparse`](argparse.md#module-argparse "argparse: Command-line option and argument parsing library.") module.
 
 备注
 
-The `getopt` module is a parser for command line options whose API is designed to be familiar to users of the C `getopt()` function. Users who are unfamiliar with the C `getopt()` function or who would like to write less code and get better help and error messages should consider using the [`argparse`](3.标准库/argparse.md#module-argparse "argparse: Command-line option and argument parsing library.") module instead.
+The `getopt` module is a parser for command line options whose API is designed to be familiar to users of the C `getopt()` function. Users who are unfamiliar with the C `getopt()` function or who would like to write less code and get better help and error messages should consider using the [`argparse`](argparse.md#module-argparse "argparse: Command-line option and argument parsing library.") module instead.
 
 * * *
 
@@ -118,7 +118,7 @@ if __name__ == "__main__":
     main()
 ~~~
 
-请注意通过 [`argparse`](3.标准库/argparse.md#module-argparse "argparse: Command-line option and argument parsing library.") 模块可以使用更少的代码并附带更详细的帮助与错误消息生成等价的命令行接口:
+请注意通过 [`argparse`](argparse.md#module-argparse "argparse: Command-line option and argument parsing library.") 模块可以使用更少的代码并附带更详细的帮助与错误消息生成等价的命令行接口:
 
     
     
@@ -136,7 +136,7 @@ if __name__ == '__main__':
 
 参见
 
-模块 [`argparse`](3.标准库/argparse.md#module-argparse "argparse: Command-line option and argument parsing library.")
+模块 [`argparse`](argparse.md#module-argparse "argparse: Command-line option and argument parsing library.")
 
     
 

@@ -64,7 +64,7 @@ dr-xr-xr-x   3 ftp      ftp            18 Jul 10  2008 Fedora
 >>>
 ~~~
 
-在 3.2 版本发生变更: 添加了对 [`with`](compound_stmts.md#with) 语句的支持。
+在 3.2 版本发生变更: 添加了对 [`with`](8.%20复合语句.md#with) 语句的支持。
 
 在 3.3 版本发生变更: 添加了 _source_address_ 参数。
 

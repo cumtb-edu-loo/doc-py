@@ -387,7 +387,7 @@ with socketserver.TCPServer(("", PORT), Handler) as httpd:
 
 `SimpleHTTPRequestHandler` 也可以被子类化以便增强其行为，例如通过重载类属性 `index_pages` 以使用不同的 index 文件名。
 
-`http.server` 也可以使用解释器的 [`-m`](cmdline.md#cmdoption-m) 参数直接调用。 与前面的例子类似，这将提供相对于当前目录的文件:
+`http.server` 也可以使用解释器的 [`-m`](1.%20命令行与环境.md#cmdoption-m) 参数直接调用。 与前面的例子类似，这将提供相对于当前目录的文件:
 
     
     

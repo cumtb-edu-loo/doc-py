@@ -30,9 +30,9 @@ return res;
 
 参见
 
-环境变量 [`PYTHONMALLOC`](cmdline.md#envvar-PYTHONMALLOC) 可被用来配置 Python 所使用的内存分配器。
+环境变量 [`PYTHONMALLOC`](1.%20命令行与环境.md#envvar-PYTHONMALLOC) 可被用来配置 Python 所使用的内存分配器。
 
-环境变量 [`PYTHONMALLOCSTATS`](cmdline.md#envvar-PYTHONMALLOCSTATS) 可以用来在每次创建和关闭新的 pymalloc 对象区域时打印 pymalloc 内存分配器 的统计数据。
+环境变量 [`PYTHONMALLOCSTATS`](1.%20命令行与环境.md#envvar-PYTHONMALLOCSTATS) 可以用来在每次创建和关闭新的 pymalloc 对象区域时打印 pymalloc 内存分配器 的统计数据。
 
 ## 分配器域¶
 

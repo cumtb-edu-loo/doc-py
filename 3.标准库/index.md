@@ -1,6 +1,6 @@
 # Python 标准库¶
 
-[Python 语言参考手册](4.语言参考/index.md#reference-index) 描述了 Python 语言的具体语法和语义，这份库参考则介绍了与 Python 一同发行的标准库。它还描述了通常包含在 Python 发行版中的一些可选组件。
+[Python 语言参考手册](0.Python%20语言参考手册.md#reference-index) 描述了 Python 语言的具体语法和语义，这份库参考则介绍了与 Python 一同发行的标准库。它还描述了通常包含在 Python 发行版中的一些可选组件。
 
 Python 标准库非常庞大，所提供的组件涉及范围十分广泛，正如以下内容目录所显示的。这个库包含了多个内置模块 (以 C 编写)，Python 程序员必须依靠它们来实现系统级功能，例如文件 I/O，此外还有大量以 Python 编写的模块，提供了日常编程中许多问题的标准解决方案。其中有些模块经过专门设计，通过将特定平台功能抽象化为平台中立的 API 来鼓励和加强 Python 程序的可移植性。
 
@@ -184,7 +184,7 @@ Windows 版本的 Python 安装程序通常包含整个标准库，往往还包�
     * [`os` \--- 多种操作系统接口](os.md)
     * [`io` \--- 处理流的核心工具](io.md)
     * [`time` \--- 时间的访问和转换](time.md)
-    * [`argparse` \--- 命令行选项、参数和子命令解析器](3.标准库/argparse.md)
+    * [`argparse` \--- 命令行选项、参数和子命令解析器](argparse.md)
     * [`getopt` \--- C 风格的命令行选项解析器](getopt.md)
     * [`logging` \--- Python 的日志记录工具](3.标准库/logging.md)
     * [`logging.config` \--- 日志记录配置](logging.config.md)

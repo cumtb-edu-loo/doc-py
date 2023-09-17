@@ -28,5 +28,5 @@
 
   * [`zipfile`](zipfile.md#module-zipfile "zipfile: Read and write ZIP-format archive files."): [恶意处理的 .zip 文件可能导致硬盘空间耗尽](zipfile.md#zipfile-resources-limitations)
 
-[`-I`](cmdline.md#cmdoption-I) 命令行选项可被用来在隔离模式下运行 Python。 当它无法使用时，可以使用 [`-P`](cmdline.md#cmdoption-P) 选项或 [`PYTHONSAFEPATH`](cmdline.md#envvar-PYTHONSAFEPATH) 环境变量以避免在 [`sys.path`](3.标准库/sys.md#sys.path "sys.path") 中预置一个潜在的不安全路径，如当前目录、脚本的目录或一个空字符串。
+[`-I`](1.%20命令行与环境.md#cmdoption-I) 命令行选项可被用来在隔离模式下运行 Python。 当它无法使用时，可以使用 [`-P`](1.%20命令行与环境.md#cmdoption-P) 选项或 [`PYTHONSAFEPATH`](1.%20命令行与环境.md#envvar-PYTHONSAFEPATH) 环境变量以避免在 [`sys.path`](3.标准库/sys.md#sys.path "sys.path") 中预置一个潜在的不安全路径，如当前目录、脚本的目录或一个空字符串。
 

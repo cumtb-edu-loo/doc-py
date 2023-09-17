@@ -56,7 +56,7 @@ _Release date: XXXX-XX-XX_
 
   * [gh-108959](https://github.com/python/cpython/issues/108959): Fix caret placement for error locations for subscript and binary operations that involve non-semantic parentheses and spaces. Patch by Pablo Galindo
 
-  * [gh-104584](https://github.com/python/cpython/issues/104584): Fix a crash when running with `PYTHONUOPS` or [`-X uops`](cmdline.md#cmdoption-X) enabled and an error occurs during optimization.
+  * [gh-104584](https://github.com/python/cpython/issues/104584): Fix a crash when running with `PYTHONUOPS` or [`-X uops`](1.%20命令行与环境.md#cmdoption-X) enabled and an error occurs during optimization.
 
   * [gh-108727](https://github.com/python/cpython/issues/108727): Define `tp_dealloc` for `CounterOptimizer_Type`. This fixes a segfault on deallocation.
 
@@ -96,7 +96,7 @@ Fixes crash when tracing in recursive calls to Python classes.
 
   * [gh-91051](https://github.com/python/cpython/issues/91051): Fix abort / segfault when using all eight type watcher slots, on platforms where `char` is signed by default.
 
-  * [gh-106581](https://github.com/python/cpython/issues/106581): Fix possible assertion failures and missing instrumentation events when `PYTHONUOPS` or [`-X uops`](cmdline.md#cmdoption-X) is enabled.
+  * [gh-106581](https://github.com/python/cpython/issues/106581): Fix possible assertion failures and missing instrumentation events when `PYTHONUOPS` or [`-X uops`](1.%20命令行与环境.md#cmdoption-X) is enabled.
 
   * [gh-107526](https://github.com/python/cpython/issues/107526): Revert converting `vars`, `dir`, `next`, `getattr`, and `iter` to argument clinic.
 
@@ -128,7 +128,7 @@ Fixes crash when tracing in recursive calls to Python classes.
 
   * [gh-107263](https://github.com/python/cpython/issues/107263): Increase C recursion limit for functions other than the main interpreter from 800 to 1500. This should allow functions like `list.__repr__` and `json.dumps` to handle all the inputs that they could prior to 3.12
 
-  * [gh-104584](https://github.com/python/cpython/issues/104584): Fix an issue which caused incorrect inline caches to be read when running with `PYTHONUOPS` or [`-X uops`](cmdline.md#cmdoption-X) enabled.
+  * [gh-104584](https://github.com/python/cpython/issues/104584): Fix an issue which caused incorrect inline caches to be read when running with `PYTHONUOPS` or [`-X uops`](1.%20命令行与环境.md#cmdoption-X) enabled.
 
   * [gh-104432](https://github.com/python/cpython/issues/104432): Fix potential unaligned memory access on C APIs involving returned sequences of `char *` pointers within the [`grp`](grp.md#module-grp "grp: The group database \(getgrnam\(\) and friends\). \(Unix\)") and [`socket`](socket.md#module-socket "socket: Low-level networking interface.") modules. These were revealed using a `-fsaniziter=alignment` build on ARM macOS. Patch by Christopher Chavez.
 
@@ -158,7 +158,7 @@ Fixes crash when tracing in recursive calls to Python classes.
 
   * [gh-105699](https://github.com/python/cpython/issues/105699): Python no longer crashes due to an infrequent race in setting `Py_FileSystemDefaultEncoding` and `Py_FileSystemDefaultEncodeErrors` (both deprecated), when simultaneously initializing two isolated subinterpreters. Now they are only set during runtime initialization.
 
-  * [gh-106908](https://github.com/python/cpython/issues/106908): Fix various hangs, reference leaks, test failures, and tracing/introspection bugs when running with `PYTHONUOPS` or [`-X uops`](cmdline.md#cmdoption-X) enabled.
+  * [gh-106908](https://github.com/python/cpython/issues/106908): Fix various hangs, reference leaks, test failures, and tracing/introspection bugs when running with `PYTHONUOPS` or [`-X uops`](1.%20命令行与环境.md#cmdoption-X) enabled.
 
   * [gh-106092](https://github.com/python/cpython/issues/106092): Fix a segmentation fault caused by a use-after-free bug in `frame_dealloc` when the trashcan delays the deallocation of a `PyFrameObject`.
 
@@ -266,7 +266,7 @@ Fixes crash when tracing in recursive calls to Python classes.
 
   * [gh-105162](https://github.com/python/cpython/issues/105162): Fixed bug in generator.close()/throw() where an inner iterator would be ignored when the outer iterator was instrumented.
 
-  * [gh-105164](https://github.com/python/cpython/issues/105164): Ensure annotations are set up correctly if the only annotation in a block is within a [`match`](compound_stmts.md#match) block. Patch by Jelle Zijlstra.
+  * [gh-105164](https://github.com/python/cpython/issues/105164): Ensure annotations are set up correctly if the only annotation in a block is within a [`match`](8.%20复合语句.md#match) block. Patch by Jelle Zijlstra.
 
   * [gh-105148](https://github.com/python/cpython/issues/105148): Make `_PyASTOptimizeState` internal to ast_opt.c. Make `_PyAST_Optimize` take two integers instead of a pointer to this struct. This avoids the need to include pycore_compile.h in ast_opt.c.
 
@@ -286,7 +286,7 @@ Fixes crash when tracing in recursive calls to Python classes.
 
   * [gh-104972](https://github.com/python/cpython/issues/104972): Ensure that the `line` attribute in `tokenize.TokenInfo` objects in the [`tokenize`](tokenize.md#module-tokenize "tokenize: Lexical scanner for Python source code.") module are always correct. Patch by Pablo Galindo
 
-  * [gh-104955](https://github.com/python/cpython/issues/104955): Fix signature for the new [`__release_buffer__()`](datamodel.md#object.__release_buffer__ "object.__release_buffer__") slot. Patch by Jelle Zijlstra.
+  * [gh-104955](https://github.com/python/cpython/issues/104955): Fix signature for the new [`__release_buffer__()`](3.%20数据模型.md#object.__release_buffer__ "object.__release_buffer__") slot. Patch by Jelle Zijlstra.
 
   * [gh-104690](https://github.com/python/cpython/issues/104690): Starting new threads and process creation through [`os.fork()`](os.md#os.fork "os.fork") during interpreter shutdown (such as from [`atexit`](atexit.md#module-atexit "atexit: Register and execute cleanup functions.") handlers) is no longer supported. It can lead to race condition between the main Python runtime thread freeing thread states while internal [`threading`](threading.md#module-threading "threading: Thread-based parallelism.") routines are trying to allocate and use the state of just created threads. Or forked children trying to use the mid-shutdown runtime and thread state in the child process.
 
@@ -294,9 +294,9 @@ Fixes crash when tracing in recursive calls to Python classes.
 
   * [gh-104825](https://github.com/python/cpython/issues/104825): Tokens emitted by the [`tokenize`](tokenize.md#module-tokenize "tokenize: Lexical scanner for Python source code.") module do not include an implicit `\n` character in the `line` attribute anymore. Patch by Pablo Galindo
 
-  * [gh-104770](https://github.com/python/cpython/issues/104770): If a generator returns a value upon being closed, the value is now returned by [`generator.close()`](expressions.md#generator.close "generator.close").
+  * [gh-104770](https://github.com/python/cpython/issues/104770): If a generator returns a value upon being closed, the value is now returned by [`generator.close()`](6.%20表达式.md#generator.close "generator.close").
 
-  * [gh-89091](https://github.com/python/cpython/issues/89091): Raise [`RuntimeWarning`](3.标准库/exceptions.md#RuntimeWarning "RuntimeWarning") for unawaited async generator methods like [`asend()`](expressions.md#agen.asend "agen.asend"), [`athrow()`](expressions.md#agen.athrow "agen.athrow") and [`aclose()`](expressions.md#agen.aclose "agen.aclose"). Patch by Kumar Aditya.
+  * [gh-89091](https://github.com/python/cpython/issues/89091): Raise [`RuntimeWarning`](3.标准库/exceptions.md#RuntimeWarning "RuntimeWarning") for unawaited async generator methods like [`asend()`](6.%20表达式.md#agen.asend "agen.asend"), [`athrow()`](6.%20表达式.md#agen.athrow "agen.athrow") and [`aclose()`](6.%20表达式.md#agen.aclose "agen.aclose"). Patch by Kumar Aditya.
 
   * [gh-96663](https://github.com/python/cpython/issues/96663): Add a better, more introspect-able error message when setting attributes on classes without a `__dict__` and no slot member for the attribute.
 
@@ -638,7 +638,7 @@ Two methods of creating `NamedTuple` classes with 0 fields using the functional 
 
   * [gh-105144](https://github.com/python/cpython/issues/105144): Fix a recent regression in the [`typing`](typing.md#module-typing "typing: Support for type hints \(see :pep:`484`\).") module. The regression meant that doing `class Foo(X, typing.Protocol)`, where `X` was a class that had [`abc.ABCMeta`](abc.md#abc.ABCMeta "abc.ABCMeta") as its metaclass, would then cause subsequent `isinstance(1, X)` calls to erroneously raise [`TypeError`](3.标准库/exceptions.md#TypeError "TypeError"). Patch by Alex Waygood.
 
-  * [gh-62948](https://github.com/python/cpython/issues/62948): The [`io.IOBase`](io.md#io.IOBase "io.IOBase") finalizer now logs the `close()` method errors with [`sys.unraisablehook`](3.标准库/sys.md#sys.unraisablehook "sys.unraisablehook"). Previously, errors were ignored silently by default, and only logged in [Python Development Mode](devmode.md#devmode) or on [Python built on debug mode](configure.md#debug-build). Patch by Victor Stinner.
+  * [gh-62948](https://github.com/python/cpython/issues/62948): The [`io.IOBase`](io.md#io.IOBase "io.IOBase") finalizer now logs the `close()` method errors with [`sys.unraisablehook`](3.标准库/sys.md#sys.unraisablehook "sys.unraisablehook"). Previously, errors were ignored silently by default, and only logged in [Python Development Mode](devmode.md#devmode) or on [Python built on debug mode](3.%20配置%20Python.md#debug-build). Patch by Victor Stinner.
 
   * [gh-105096](https://github.com/python/cpython/issues/105096): [`wave`](wave.md#module-wave "wave: Provide an interface to the WAV sound format."): Deprecate the `getmark()`, `setmark()` and `getmarkers()` methods of the [`wave.Wave_read`](wave.md#wave.Wave_read "wave.Wave_read") and [`wave.Wave_write`](wave.md#wave.Wave_write "wave.Wave_write") classes. They will be removed in Python 3.15. Patch by Victor Stinner.
 
@@ -664,7 +664,7 @@ Two methods of creating `NamedTuple` classes with 0 fields using the functional 
 
   * [gh-104773](https://github.com/python/cpython/issues/104773): [**PEP 594**](https://peps.python.org/pep-0594/): Remove the `nis` module, deprecated in Python 3.11. Patch by Victor Stinner.
 
-  * [gh-104898](https://github.com/python/cpython/issues/104898): Add missing [`__slots__`](datamodel.md#object.__slots__ "object.__slots__") to [`os.PathLike`](os.md#os.PathLike "os.PathLike").
+  * [gh-104898](https://github.com/python/cpython/issues/104898): Add missing [`__slots__`](3.%20数据模型.md#object.__slots__ "object.__slots__") to [`os.PathLike`](os.md#os.PathLike "os.PathLike").
 
   * [gh-104773](https://github.com/python/cpython/issues/104773): [**PEP 594**](https://peps.python.org/pep-0594/): Remove the `xdrlib` module, deprecated in Python 3.11. Patch by Victor Stinner.
 
@@ -744,7 +744,7 @@ Patch by Hugo van Kemenade.
 
   * [gh-102676](https://github.com/python/cpython/issues/102676): Add fields `start_offset`, `cache_offset`, `end_offset`, `baseopname`, `baseopcode`, `jump_target` and `oparg` to [`dis.Instruction`](dis.md#dis.Instruction "dis.Instruction").
 
-  * [gh-103558](https://github.com/python/cpython/issues/103558): Fixed `parent` argument validation mechanism of [`argparse`](3.标准库/argparse.md#module-argparse "argparse: Command-line option and argument parsing library."). Improved test coverage.
+  * [gh-103558](https://github.com/python/cpython/issues/103558): Fixed `parent` argument validation mechanism of [`argparse`](argparse.md#module-argparse "argparse: Command-line option and argument parsing library."). Improved test coverage.
 
   * [gh-103464](https://github.com/python/cpython/issues/103464): Provide helpful usage messages when parsing incorrect [`pdb`](pdb.md#module-pdb "pdb: The Python debugger for interactive interpreters.") commands.
 
@@ -816,7 +816,7 @@ Patch by Hugo van Kemenade.
 
   * [gh-104943](https://github.com/python/cpython/issues/104943): Remove mentions of old Python versions in [`typing.NamedTuple`](typing.md#typing.NamedTuple "typing.NamedTuple").
 
-  * [gh-54738](https://github.com/python/cpython/issues/54738): Add documentation on how to localize the [`argparse`](3.标准库/argparse.md#module-argparse "argparse: Command-line option and argument parsing library.") module.
+  * [gh-54738](https://github.com/python/cpython/issues/54738): Add documentation on how to localize the [`argparse`](argparse.md#module-argparse "argparse: Command-line option and argument parsing library.") module.
 
   * [gh-102823](https://github.com/python/cpython/issues/102823): Document the return type of `x // y` when `x` and `y` have type [`float`](functions.md#float "float").
 
@@ -898,7 +898,7 @@ Patch by Hugo van Kemenade.
 
   * [gh-108740](https://github.com/python/cpython/issues/108740): Fix a race condition in `make regen-all`. The `deepfreeze.c` source and files generated by Argument Clinic are now generated or updated before generating "global objects". Previously, some identifiers may miss depending on the order in which these files were generated. Patch by Victor Stinner.
 
-  * [gh-108634](https://github.com/python/cpython/issues/108634): Python built with `configure` [`--with-trace-refs`](configure.md#cmdoption-with-trace-refs) (tracing references) is now ABI compatible with Python release build and [debug build](configure.md#debug-build). Patch by Victor Stinner.
+  * [gh-108634](https://github.com/python/cpython/issues/108634): Python built with `configure` [`--with-trace-refs`](3.%20配置%20Python.md#cmdoption-with-trace-refs) (tracing references) is now ABI compatible with Python release build and [debug build](3.%20配置%20Python.md#debug-build). Patch by Victor Stinner.
 
   * [gh-108447](https://github.com/python/cpython/issues/108447): Fix x86_64 GNU/Hurd build
 
@@ -960,9 +960,9 @@ This ensures that `commoninstall` is completed before `bininstall` is started wh
 
 ### Tools/Demos¶
 
-  * [gh-108494](https://github.com/python/cpython/issues/108494): [Argument Clinic](clinic.md#howto-clinic) now has a partial support of the [Limited API](stable.md#limited-c-api): see [How to use the Limited C API](clinic.md#clinic-howto-limited-capi). Patch by Victor Stinner.
+  * [gh-108494](https://github.com/python/cpython/issues/108494): [Argument Clinic](16.Argument%20Clinic%20的用法.md#howto-clinic) now has a partial support of the [Limited API](stable.md#limited-c-api): see [How to use the Limited C API](16.Argument%20Clinic%20的用法.md#clinic-howto-limited-capi). Patch by Victor Stinner.
 
-  * [gh-107704](https://github.com/python/cpython/issues/107704): It is now possible to deprecate passing keyword arguments for keyword-or-positional parameters with Argument Clinic, using the new `/ [from X.Y]` syntax. (To be read as _" positional-only from Python version X.Y"_.) See [How to deprecate passing parameters positionally or by keyword](clinic.md#clinic-howto-deprecate-keyword) for more information.
+  * [gh-107704](https://github.com/python/cpython/issues/107704): It is now possible to deprecate passing keyword arguments for keyword-or-positional parameters with Argument Clinic, using the new `/ [from X.Y]` syntax. (To be read as _" positional-only from Python version X.Y"_.) See [How to deprecate passing parameters positionally or by keyword](16.Argument%20Clinic%20的用法.md#clinic-howto-deprecate-keyword) for more information.
 
   * [gh-107880](https://github.com/python/cpython/issues/107880): Argument Clinic can now clone `__init__()` and `__new__()` methods.
 
@@ -970,7 +970,7 @@ This ensures that `commoninstall` is completed before `bininstall` is started wh
 
   * [gh-104683](https://github.com/python/cpython/issues/104683): Add `--exclude` option to Argument Clinic CLI.
 
-  * [gh-95065](https://github.com/python/cpython/issues/95065): Argument Clinic now supports overriding automatically generated signature by using directive `@text_signature`. See [How to override the generated signature](clinic.md#clinic-howto-override-signature).
+  * [gh-95065](https://github.com/python/cpython/issues/95065): Argument Clinic now supports overriding automatically generated signature by using directive `@text_signature`. See [How to override the generated signature](16.Argument%20Clinic%20的用法.md#clinic-howto-override-signature).
 
   * [gh-107609](https://github.com/python/cpython/issues/107609): Fix duplicate module check in Argument Clinic. Previously, a duplicate definition would incorrectly be silently accepted. Patch by Erlend E. Aasland.
 
@@ -984,7 +984,7 @@ This ensures that `commoninstall` is completed before `bininstall` is started wh
 
   * [gh-103186](https://github.com/python/cpython/issues/103186): `freeze` now fetches `CONFIG_ARGS` from the original CPython instance the Makefile uses to call utility scripts. Patch by Ijtaba Hussain.
 
-  * [gh-95065](https://github.com/python/cpython/issues/95065): It is now possible to deprecate passing parameters positionally with Argument Clinic, using the new `* [from X.Y]` syntax. (To be read as _" keyword-only from Python version X.Y"_.) See [How to deprecate passing parameters positionally or by keyword](clinic.md#clinic-howto-deprecate-positional) for more information. Patch by Erlend E. Aasland with help from Alex Waygood, Nikita Sobolev, and Serhiy Storchaka.
+  * [gh-95065](https://github.com/python/cpython/issues/95065): It is now possible to deprecate passing parameters positionally with Argument Clinic, using the new `* [from X.Y]` syntax. (To be read as _" keyword-only from Python version X.Y"_.) See [How to deprecate passing parameters positionally or by keyword](16.Argument%20Clinic%20的用法.md#clinic-howto-deprecate-positional) for more information. Patch by Erlend E. Aasland with help from Alex Waygood, Nikita Sobolev, and Serhiy Storchaka.
 
 ### C API¶
 
@@ -996,7 +996,7 @@ This ensures that `commoninstall` is completed before `bininstall` is started wh
 
   * [gh-108765](https://github.com/python/cpython/issues/108765): `Python.h` no longer includes these standard header files: `<time.h>`, `<sys/select.h>` and `<sys/time.h>`. If needed, they should now be included explicitly. For example, `<time.h>` provides the `clock()` and `gmtime()` functions, `<sys/select.h>` provides the `select()` function, and `<sys/time.h>` provides the `futimes()`, `gettimeofday()` and `setitimer()` functions. Patch by Victor Stinner.
 
-  * [gh-108634](https://github.com/python/cpython/issues/108634): Python built with `configure` [`--with-trace-refs`](configure.md#cmdoption-with-trace-refs) (tracing references) now supports the [Limited API](stable.md#limited-c-api). Patch by Victor Stinner.
+  * [gh-108634](https://github.com/python/cpython/issues/108634): Python built with `configure` [`--with-trace-refs`](3.%20配置%20Python.md#cmdoption-with-trace-refs) (tracing references) now supports the [Limited API](stable.md#limited-c-api). Patch by Victor Stinner.
 
   * [gh-108014](https://github.com/python/cpython/issues/108014): Add [`PyLong_AsInt()`](long.md#c.PyLong_AsInt "PyLong_AsInt") function: similar to [`PyLong_AsLong()`](long.md#c.PyLong_AsLong "PyLong_AsLong"), but store the result in a C int instead of a C long. Previously, it was known as the the private function `_PyLong_AsInt()` (with an underscore prefix). Patch by Victor Stinner.
 
@@ -1030,7 +1030,7 @@ This ensures that `commoninstall` is completed before `bininstall` is started wh
 
   * [gh-106023](https://github.com/python/cpython/issues/106023): Remove private `_PyObject_FastCall()` function: use `PyObject_Vectorcall()` which is available since Python 3.8 ([ **PEP 590**](https://peps.python.org/pep-0590/)). Patch by Victor Stinner.
 
-  * [gh-106168](https://github.com/python/cpython/issues/106168): If Python is built in [debug mode](configure.md#debug-build) or [`with assertions`](configure.md#cmdoption-with-assertions), [`PyTuple_SET_ITEM()`](tuple.md#c.PyTuple_SET_ITEM "PyTuple_SET_ITEM") and [`PyList_SET_ITEM()`](list.md#c.PyList_SET_ITEM "PyList_SET_ITEM") now check the index argument with an assertion. If the assertion fails, make sure that the size is set before. Patch by Victor Stinner.
+  * [gh-106168](https://github.com/python/cpython/issues/106168): If Python is built in [debug mode](3.%20配置%20Python.md#debug-build) or [`with assertions`](3.%20配置%20Python.md#cmdoption-with-assertions), [`PyTuple_SET_ITEM()`](tuple.md#c.PyTuple_SET_ITEM "PyTuple_SET_ITEM") and [`PyList_SET_ITEM()`](list.md#c.PyList_SET_ITEM "PyList_SET_ITEM") now check the index argument with an assertion. If the assertion fails, make sure that the size is set before. Patch by Victor Stinner.
 
   * [gh-106084](https://github.com/python/cpython/issues/106084): Remove the old aliases to functions calling functions which were kept for backward compatibility with Python 3.8 provisional API:
 
@@ -1140,7 +1140,7 @@ Patch by Victor Stinner.
 
   * [gh-105115](https://github.com/python/cpython/issues/105115): `PyTypeObject.tp_bases` (and `tp_mro`) for builtin static types are now shared by all interpreters, whereas in 3.12-beta1 they were stored on `PyInterpreterState`. Also note that now the tuples are immortal objects.
 
-  * [gh-105071](https://github.com/python/cpython/issues/105071): Add `PyUnstable_Exc_PrepReraiseStar` to the unstable C api to expose the implementation of [`except*`](compound_stmts.md#except-star).
+  * [gh-105071](https://github.com/python/cpython/issues/105071): Add `PyUnstable_Exc_PrepReraiseStar` to the unstable C api to expose the implementation of [`except*`](8.%20复合语句.md#except-star).
 
   * [gh-104922](https://github.com/python/cpython/issues/104922): `PY_SSIZE_T_CLEAN` is no longer required to use `'#'` formats in APIs like [`PyArg_ParseTuple()`](arg.md#c.PyArg_ParseTuple "PyArg_ParseTuple") and [`Py_BuildValue()`](arg.md#c.Py_BuildValue "Py_BuildValue"). They uses `Py_ssize_t` for `'#'` regardless `PY_SSIZE_T_CLEAN`.
 
@@ -1234,7 +1234,7 @@ Patch by Eric Traut, Larry Hastings, and Jelle Zijlstra.
 
   * [gh-100530](https://github.com/python/cpython/issues/100530): Clarify the error message raised when the called part of a class pattern isn't actually a class.
 
-  * [gh-101517](https://github.com/python/cpython/issues/101517): Fix bug in line numbers of instructions emitted for [`except*`](compound_stmts.md#except-star).
+  * [gh-101517](https://github.com/python/cpython/issues/101517): Fix bug in line numbers of instructions emitted for [`except*`](8.%20复合语句.md#except-star).
 
   * [gh-103492](https://github.com/python/cpython/issues/103492): Clarify [`SyntaxWarning`](3.标准库/exceptions.md#SyntaxWarning "SyntaxWarning") with literal `is` comparison by specifying which literal is problematic, since comparisons using `is` with e.g. None and bool literals are idiomatic.
 
@@ -1484,7 +1484,7 @@ Patch by Eric Traut, Larry Hastings, and Jelle Zijlstra.
 
   * [gh-101688](https://github.com/python/cpython/issues/101688): Implement [`types.get_original_bases()`](types.md#types.get_original_bases "types.get_original_bases") to provide further introspection for types.
 
-  * [gh-101640](https://github.com/python/cpython/issues/101640): [`argparse.ArgumentParser`](3.标准库/argparse.md#argparse.ArgumentParser "argparse.ArgumentParser") now catches errors when writing messages, such as when [`sys.stderr`](3.标准库/sys.md#sys.stderr "sys.stderr") is `None`. Patch by Oleg Iarygin.
+  * [gh-101640](https://github.com/python/cpython/issues/101640): [`argparse.ArgumentParser`](argparse.md#argparse.ArgumentParser "argparse.ArgumentParser") now catches errors when writing messages, such as when [`sys.stderr`](3.标准库/sys.md#sys.stderr "sys.stderr") is `None`. Patch by Oleg Iarygin.
 
   * [gh-83861](https://github.com/python/cpython/issues/83861): Fix datetime.astimezone method return value when invoked on a naive datetime instance that represents local time falling in a timezone transition gap. PEP 495 requires that instances with fold=1 produce earlier times than those with fold=0 in this case.
 
@@ -1634,7 +1634,7 @@ Patch by Zhang Na.
 
   * [gh-103743](https://github.com/python/cpython/issues/103743): Add [`PyUnstable_Object_GC_NewWithExtraData()`](gcsupport.md#c.PyUnstable_Object_GC_NewWithExtraData "PyUnstable_Object_GC_NewWithExtraData") function that can be used to allocate additional memory after an object for data not managed by Python.
 
-  * [gh-103295](https://github.com/python/cpython/issues/103295): Introduced [`PyUnstable_WritePerfMapEntry()`](perfmaps.md#c.PyUnstable_WritePerfMapEntry "PyUnstable_WritePerfMapEntry"), [`PyUnstable_PerfMapState_Init()`](perfmaps.md#c.PyUnstable_PerfMapState_Init "PyUnstable_PerfMapState_Init") and [`PyUnstable_PerfMapState_Fini()`](perfmaps.md#c.PyUnstable_PerfMapState_Fini "PyUnstable_PerfMapState_Fini"). These allow extension modules (JIT compilers in particular) to write to perf-map files in a thread safe manner. The [Python 对 Linux perf 性能分析器的支持](perf_profiling.md) also uses these APIs to write entries in the perf-map file.
+  * [gh-103295](https://github.com/python/cpython/issues/103295): Introduced [`PyUnstable_WritePerfMapEntry()`](perfmaps.md#c.PyUnstable_WritePerfMapEntry "PyUnstable_WritePerfMapEntry"), [`PyUnstable_PerfMapState_Init()`](perfmaps.md#c.PyUnstable_PerfMapState_Init "PyUnstable_PerfMapState_Init") and [`PyUnstable_PerfMapState_Fini()`](perfmaps.md#c.PyUnstable_PerfMapState_Fini "PyUnstable_PerfMapState_Fini"). These allow extension modules (JIT compilers in particular) to write to perf-map files in a thread safe manner. The [Python 对 Linux perf 性能分析器的支持](18.Python%20对%20Linux%20`perf`%20性能分析器的支持.md) also uses these APIs to write entries in the perf-map file.
 
   * [gh-103509](https://github.com/python/cpython/issues/103509): Added C API for extending types whose instance memory layout is opaque: [`PyType_Spec.basicsize`](type.md#c.PyType_Spec.basicsize "PyType_Spec.basicsize") can now be zero or negative, [`PyObject_GetTypeData()`](object.md#c.PyObject_GetTypeData "PyObject_GetTypeData") can be used to get subclass-specific data, and [`Py_TPFLAGS_ITEMS_AT_END`](typeobj.md#c.Py_TPFLAGS_ITEMS_AT_END "Py_TPFLAGS_ITEMS_AT_END") can be used to safely extend variable-size objects. See [**PEP 697**](https://peps.python.org/pep-0697/) for details.
 
@@ -1714,7 +1714,7 @@ This makes a few operations slightly more efficient, and will enable a more comp
 
   * [gh-103046](https://github.com/python/cpython/issues/103046): Display current line label correctly in [`dis`](dis.md#module-dis "dis: Disassembler for Python bytecode.") when `show_caches` is False and `lasti` points to a CACHE entry.
 
-  * [gh-102433](https://github.com/python/cpython/issues/102433): [`isinstance()`](functions.md#isinstance "isinstance") checks against [`runtime-checkable protocols`](typing.md#typing.runtime_checkable "typing.runtime_checkable") now use [`inspect.getattr_static()`](inspect.md#inspect.getattr_static "inspect.getattr_static") rather than [`hasattr()`](functions.md#hasattr "hasattr") to lookup whether attributes exist. This means that descriptors and [`__getattr__()`](datamodel.md#object.__getattr__ "object.__getattr__") methods are no longer unexpectedly evaluated during `isinstance()` checks against runtime-checkable protocols. However, it may also mean that some objects which used to be considered instances of a runtime-checkable protocol may no longer be considered instances of that protocol on Python 3.12+, and vice versa. Most users are unlikely to be affected by this change. Patch by Alex Waygood.
+  * [gh-102433](https://github.com/python/cpython/issues/102433): [`isinstance()`](functions.md#isinstance "isinstance") checks against [`runtime-checkable protocols`](typing.md#typing.runtime_checkable "typing.runtime_checkable") now use [`inspect.getattr_static()`](inspect.md#inspect.getattr_static "inspect.getattr_static") rather than [`hasattr()`](functions.md#hasattr "hasattr") to lookup whether attributes exist. This means that descriptors and [`__getattr__()`](3.%20数据模型.md#object.__getattr__ "object.__getattr__") methods are no longer unexpectedly evaluated during `isinstance()` checks against runtime-checkable protocols. However, it may also mean that some objects which used to be considered instances of a runtime-checkable protocol may no longer be considered instances of that protocol on Python 3.12+, and vice versa. Most users are unlikely to be affected by this change. Patch by Alex Waygood.
 
   * [gh-103023](https://github.com/python/cpython/issues/103023): It's no longer possible to register expressions to display in [`Pdb`](pdb.md#pdb.Pdb "pdb.Pdb") that raise [`SyntaxError`](3.标准库/exceptions.md#SyntaxError "SyntaxError"). Patch by Tian Gao.
 
@@ -1886,7 +1886,7 @@ _Release date: 2023-03-07_
 
   * [gh-102302](https://github.com/python/cpython/issues/102302): Micro-optimise hashing of [`inspect.Parameter`](inspect.md#inspect.Parameter "inspect.Parameter"), reducing the time it takes to hash an instance by around 40%.
 
-  * [gh-101979](https://github.com/python/cpython/issues/101979): Fix a bug where parentheses in the `metavar` argument to [`argparse.ArgumentParser.add_argument()`](3.标准库/argparse.md#argparse.ArgumentParser.add_argument "argparse.ArgumentParser.add_argument") were dropped. Patch by Yeojin Kim.
+  * [gh-101979](https://github.com/python/cpython/issues/101979): Fix a bug where parentheses in the `metavar` argument to [`argparse.ArgumentParser.add_argument()`](argparse.md#argparse.ArgumentParser.add_argument "argparse.ArgumentParser.add_argument") were dropped. Patch by Yeojin Kim.
 
   * [gh-91038](https://github.com/python/cpython/issues/91038): [`platform.platform()`](platform.md#platform.platform "platform.platform") now has boolean default arguments.
 
@@ -1970,7 +1970,7 @@ A [`DeprecationWarning`](3.标准库/exceptions.md#DeprecationWarning "Deprecati
 
   * [gh-100221](https://github.com/python/cpython/issues/100221): Fix creating install directories in `make sharedinstall` if they exist outside `DESTDIR` already.
 
-  * [gh-96821](https://github.com/python/cpython/issues/96821): Explicitly mark C extension modules that need defined signed integer overflow, and add a configure option [`--with-strict-overflow`](configure.md#cmdoption-with-strict-overflow). Patch by Matthias Görgens and Shantanu Jain.
+  * [gh-96821](https://github.com/python/cpython/issues/96821): Explicitly mark C extension modules that need defined signed integer overflow, and add a configure option [`--with-strict-overflow`](3.%20配置%20Python.md#cmdoption-with-strict-overflow). Patch by Matthias Görgens and Shantanu Jain.
 
 ### Windows¶
 
@@ -2020,7 +2020,7 @@ _Release date: 2023-02-07_
 
   * [gh-59956](https://github.com/python/cpython/issues/59956): The GILState API is now partially compatible with subinterpreters. Previously, `PyThreadState_GET()` and `PyGILState_GetThisThreadState()` would get out of sync, causing inconsistent behavior and crashes.
 
-  * [gh-101400](https://github.com/python/cpython/issues/101400): Fix wrong lineno in exception message on [`continue`](simple_stmts.md#continue) or [`break`](simple_stmts.md#break) which are not in a loop. Patch by Dong-hee Na.
+  * [gh-101400](https://github.com/python/cpython/issues/101400): Fix wrong lineno in exception message on [`continue`](7.%20简单语句.md#continue) or [`break`](7.%20简单语句.md#break) which are not in a loop. Patch by Dong-hee Na.
 
   * [gh-101372](https://github.com/python/cpython/issues/101372): Fix [`is_normalized()`](unicodedata.md#unicodedata.is_normalized "unicodedata.is_normalized") to properly handle the UCD 3.2.0 cases. Patch by Dong-hee Na.
 
@@ -2300,7 +2300,7 @@ Now reassigning `b` in `[(b := 1) for a, b.prop in some_iter]` is allowed. Reass
 
   * [gh-89727](https://github.com/python/cpython/issues/89727): Fix issue with [`os.walk()`](os.md#os.walk "os.walk") where a [`RecursionError`](3.标准库/exceptions.md#RecursionError "RecursionError") would occur on deep directory structures by adjusting the implementation of [`os.walk()`](os.md#os.walk "os.walk") to be iterative instead of recursive.
 
-  * [gh-94943](https://github.com/python/cpython/issues/94943): Add [数据类支持](6.常用指引/enum.md#enum-dataclass-support) to the [`Enum`](3.标准库/enum.md#enum.Enum "enum.Enum") [`__repr__()`](3.标准库/enum.md#enum.Enum.__repr__ "enum.Enum.__repr__"). When inheriting from a [`dataclass`](dataclasses.md#dataclasses.dataclass "dataclasses.dataclass"), only show the field names in the value section of the member [`repr()`](functions.md#repr "repr"), and not the dataclass' class name.
+  * [gh-94943](https://github.com/python/cpython/issues/94943): Add [数据类支持](5.Enum%20指南.md#enum-dataclass-support) to the [`Enum`](3.标准库/enum.md#enum.Enum "enum.Enum") [`__repr__()`](3.标准库/enum.md#enum.Enum.__repr__ "enum.Enum.__repr__"). When inheriting from a [`dataclass`](dataclasses.md#dataclasses.dataclass "dataclasses.dataclass"), only show the field names in the value section of the member [`repr()`](functions.md#repr "repr"), and not the dataclass' class name.
 
   * [gh-83035](https://github.com/python/cpython/issues/83035): Fix [`inspect.getsource()`](inspect.md#inspect.getsource "inspect.getsource") handling of decorator calls with nested parentheses.
 
@@ -2562,7 +2562,7 @@ Previously, a reference leak in a typed C API-based extension module could leak 
 
   * [gh-98629](https://github.com/python/cpython/issues/98629): Fix initialization of [`sys.version`](3.标准库/sys.md#sys.version "sys.version") and `sys._git` on Windows
 
-  * [gh-99442](https://github.com/python/cpython/issues/99442): Fix handling in [适用于Windows的Python启动器](5.安装和使用/windows.md#launcher) when `argv[0]` does not include a file extension.
+  * [gh-99442](https://github.com/python/cpython/issues/99442): Fix handling in [适用于Windows的Python启动器](4.%20在Windows上使用%20Python.md#launcher) when `argv[0]` does not include a file extension.
 
   * [bpo-40882](https://bugs.python.org/issue?@action=redirect&bpo=40882): Fix a memory leak in [`multiprocessing.shared_memory.SharedMemory`](multiprocessing.shared_memory.md#multiprocessing.shared_memory.SharedMemory "multiprocessing.shared_memory.SharedMemory") on Windows.
 
@@ -2616,13 +2616,13 @@ Individual labels within an IDNA encoded DNS name will now raise an error early 
 
   * [gh-81057](https://github.com/python/cpython/issues/81057): The 18 global C variables holding the state of the allocators have been moved to `_PyRuntimeState`. This is a strictly internal change with no change in behavior.
 
-  * [gh-99181](https://github.com/python/cpython/issues/99181): Fix failure in [`except*`](compound_stmts.md#except-star) with unhashable exceptions.
+  * [gh-99181](https://github.com/python/cpython/issues/99181): Fix failure in [`except*`](8.%20复合语句.md#except-star) with unhashable exceptions.
 
   * [gh-99204](https://github.com/python/cpython/issues/99204): Fix calculation of `sys._base_executable` when inside a POSIX virtual environment using copies of the python binary when the base installation does not provide the executable name used by the venv. Calculation will fall back to alternative names ("python<MAJOR>", "python<MAJOR>.<MINOR>").
 
   * [gh-96055](https://github.com/python/cpython/issues/96055): Update [`faulthandler`](faulthandler.md#module-faulthandler "faulthandler: Dump the Python traceback.") to emit an error message with the proper unexpected signal number. Patch by Dong-hee Na.
 
-  * [gh-99153](https://github.com/python/cpython/issues/99153): Fix location of [`SyntaxError`](3.标准库/exceptions.md#SyntaxError "SyntaxError") for a [`try`](compound_stmts.md#try) block with both [`except`](compound_stmts.md#except) and [`except*`](compound_stmts.md#except-star).
+  * [gh-99153](https://github.com/python/cpython/issues/99153): Fix location of [`SyntaxError`](3.标准库/exceptions.md#SyntaxError "SyntaxError") for a [`try`](8.%20复合语句.md#try) block with both [`except`](8.%20复合语句.md#except) and [`except*`](8.%20复合语句.md#except-star).
 
   * [gh-98686](https://github.com/python/cpython/issues/98686): Merge the adaptive opcode logic into each instruction's unquickened variant, and merge the logic in `EXTENDED_ARG_QUICK` into [`EXTENDED_ARG`](dis.md#opcode-EXTENDED_ARG). With these changes, the quickening that happens at code object creation is now only responsible for initializing warmup counters and inserting superinstructions.
 
@@ -2648,15 +2648,15 @@ Individual labels within an IDNA encoded DNS name will now raise an error early 
 
   * [gh-96793](https://github.com/python/cpython/issues/96793): Add specialization of [`FOR_ITER`](dis.md#opcode-FOR_ITER) for generators. Saves multiple layers of dispatch and checking to get from the [`FOR_ITER`](dis.md#opcode-FOR_ITER) instruction in the caller to the [`RESUME`](dis.md#opcode-RESUME) in the generator.
 
-  * [gh-98762](https://github.com/python/cpython/issues/98762): Fix source locations of [`match`](compound_stmts.md#match) sub-patterns.
+  * [gh-98762](https://github.com/python/cpython/issues/98762): Fix source locations of [`match`](8.%20复合语句.md#match) sub-patterns.
 
   * [gh-98586](https://github.com/python/cpython/issues/98586): Added the methods [`PyObject_Vectorcall()`](call.md#c.PyObject_Vectorcall "PyObject_Vectorcall") and [`PyObject_VectorcallMethod()`](call.md#c.PyObject_VectorcallMethod "PyObject_VectorcallMethod") to the [Limited API](stable.md#stable) along with the auxiliary macro constant [`PY_VECTORCALL_ARGUMENTS_OFFSET`](call.md#c.PY_VECTORCALL_ARGUMENTS_OFFSET "PY_VECTORCALL_ARGUMENTS_OFFSET").
 
 The availability of these functions enables more efficient [**PEP 590**](https://peps.python.org/pep-0590/) vector calls from binary extension modules that avoid argument boxing/unboxing overheads.
 
-  * [gh-99257](https://github.com/python/cpython/issues/99257): Fix an issue where member descriptors (such as those for [`__slots__`](datamodel.md#object.__slots__ "object.__slots__")) could behave incorrectly or crash instead of raising a [`TypeError`](3.标准库/exceptions.md#TypeError "TypeError") when accessed via an instance of an invalid type.
+  * [gh-99257](https://github.com/python/cpython/issues/99257): Fix an issue where member descriptors (such as those for [`__slots__`](3.%20数据模型.md#object.__slots__ "object.__slots__")) could behave incorrectly or crash instead of raising a [`TypeError`](3.标准库/exceptions.md#TypeError "TypeError") when accessed via an instance of an invalid type.
 
-  * [gh-93143](https://github.com/python/cpython/issues/93143): Rather than changing `co_code`, the interpreter will now display a [`RuntimeWarning`](3.标准库/exceptions.md#RuntimeWarning "RuntimeWarning") and assign [`None`](constants.md#None "None") to any fast locals that are left unbound after jumps or [`del`](simple_stmts.md#del) statements executed while tracing.
+  * [gh-93143](https://github.com/python/cpython/issues/93143): Rather than changing `co_code`, the interpreter will now display a [`RuntimeWarning`](3.标准库/exceptions.md#RuntimeWarning "RuntimeWarning") and assign [`None`](constants.md#None "None") to any fast locals that are left unbound after jumps or [`del`](7.%20简单语句.md#del) statements executed while tracing.
 
   * [gh-96421](https://github.com/python/cpython/issues/96421): When calling into Python code from C code, through [`PyEval_EvalFrameEx()`](veryhigh.md#c.PyEval_EvalFrameEx "PyEval_EvalFrameEx") or a related C-API function, a shim frame in inserted into the call stack. This occurs in the `_PyEval_EvalFrameDefault()` function. The extra frame should be invisible to all Python and most C extensions, but out-of-process profilers and debuggers need to be aware of it. These shim frames can be detected by checking `frame->owner == FRAME_OWNED_BY_CSTACK`.
 
@@ -2754,7 +2754,7 @@ Extensions implementing their own interpreters using PEP 523 need to be aware of
 
   * [bpo-40358](https://bugs.python.org/issue?@action=redirect&bpo=40358): Add walk_up argument in [`pathlib.PurePath.relative_to()`](pathlib.md#pathlib.PurePath.relative_to "pathlib.PurePath.relative_to").
 
-  * [bpo-36267](https://bugs.python.org/issue?@action=redirect&bpo=36267): Fix IndexError in [`argparse.ArgumentParser`](3.标准库/argparse.md#argparse.ArgumentParser "argparse.ArgumentParser") when a `store_true` action is given an explicit argument.
+  * [bpo-36267](https://bugs.python.org/issue?@action=redirect&bpo=36267): Fix IndexError in [`argparse.ArgumentParser`](argparse.md#argparse.ArgumentParser "argparse.ArgumentParser") when a `store_true` action is given an explicit argument.
 
 ### Documentation¶
 
@@ -2792,7 +2792,7 @@ Extensions implementing their own interpreters using PEP 523 need to be aware of
 
   * [gh-98776](https://github.com/python/cpython/issues/98776): Fix `make regen-test-levenshtein` for out-of-tree builds.
 
-  * [gh-98707](https://github.com/python/cpython/issues/98707): Don't use vendored `libmpdec` headers if [`--with-system-libmpdec`](configure.md#cmdoption-with-system-libmpdec) is passed to **configure**. Don't use vendored `libexpat` headers if [`--with-system-expat`](configure.md#cmdoption-with-system-expat) is passed to **configure**.
+  * [gh-98707](https://github.com/python/cpython/issues/98707): Don't use vendored `libmpdec` headers if [`--with-system-libmpdec`](3.%20配置%20Python.md#cmdoption-with-system-libmpdec) is passed to **configure**. Don't use vendored `libexpat` headers if [`--with-system-expat`](3.%20配置%20Python.md#cmdoption-with-system-expat) is passed to **configure**.
 
 ### Windows¶
 
@@ -2802,7 +2802,7 @@ Extensions implementing their own interpreters using PEP 523 need to be aware of
 
   * [gh-98745](https://github.com/python/cpython/issues/98745): Update `py.exe` launcher to install 3.11 by default and 3.12 on request.
 
-  * [gh-98692](https://github.com/python/cpython/issues/98692): Fix the [适用于Windows的Python启动器](5.安装和使用/windows.md#launcher) ignoring unrecognized shebang lines instead of treating them as local paths
+  * [gh-98692](https://github.com/python/cpython/issues/98692): Fix the [适用于Windows的Python启动器](4.%20在Windows上使用%20Python.md#launcher) ignoring unrecognized shebang lines instead of treating them as local paths
 
   * [gh-94328](https://github.com/python/cpython/issues/94328): Update Windows installer to use SQLite 3.39.4.
 
@@ -2894,7 +2894,7 @@ Also remove `importlib.util.set_package()` which was scheduled for removal.
 
   * [gh-97591](https://github.com/python/cpython/issues/97591): Fixed a missing incref/decref pair in `Exception.__setstate__()`. Patch by Ofey Chan.
 
-  * [gh-97670](https://github.com/python/cpython/issues/97670): Remove the `sys.getdxp()` function and the `Tools/scripts/analyze_dxp.py` script. DXP stands for "dynamic execution pairs". They were related to `DYNAMIC_EXECUTION_PROFILE` and `DXPAIRS` macros which have been removed in Python 3.11. Python can now be built with [`./configure --enable-pystats`](configure.md#cmdoption-enable-pystats) to gather statistics on Python opcodes. Patch by Victor Stinner.
+  * [gh-97670](https://github.com/python/cpython/issues/97670): Remove the `sys.getdxp()` function and the `Tools/scripts/analyze_dxp.py` script. DXP stands for "dynamic execution pairs". They were related to `DYNAMIC_EXECUTION_PROFILE` and `DXPAIRS` macros which have been removed in Python 3.11. Python can now be built with [`./configure --enable-pystats`](3.%20配置%20Python.md#cmdoption-enable-pystats) to gather statistics on Python opcodes. Patch by Victor Stinner.
 
   * [gh-94526](https://github.com/python/cpython/issues/94526): Fix the Python path configuration used to initialized [`sys.path`](3.标准库/sys.md#sys.path "sys.path") at Python startup. Paths are no longer encoded to UTF-8/strict to avoid encoding errors if it contains surrogate characters (bytes paths are decoded with the surrogateescape error handler). Patch by Victor Stinner.
 
@@ -2902,7 +2902,7 @@ Also remove `importlib.util.set_package()` which was scheduled for removal.
 
   * [gh-96975](https://github.com/python/cpython/issues/96975): Fix a crash occurring when [`PyEval_GetFrame()`](reflection.md#c.PyEval_GetFrame "PyEval_GetFrame") is called while the topmost Python frame is in a partially-initialized state.
 
-  * [gh-96848](https://github.com/python/cpython/issues/96848): Fix command line parsing: reject [`-X int_max_str_digits`](cmdline.md#cmdoption-X) option with no value (invalid) when the [`PYTHONINTMAXSTRDIGITS`](cmdline.md#envvar-PYTHONINTMAXSTRDIGITS) environment variable is set to a valid limit. Patch by Victor Stinner.
+  * [gh-96848](https://github.com/python/cpython/issues/96848): Fix command line parsing: reject [`-X int_max_str_digits`](1.%20命令行与环境.md#cmdoption-X) option with no value (invalid) when the [`PYTHONINTMAXSTRDIGITS`](1.%20命令行与环境.md#envvar-PYTHONINTMAXSTRDIGITS) environment variable is set to a valid limit. Patch by Victor Stinner.
 
   * [gh-95921](https://github.com/python/cpython/issues/95921): Fix overly-broad source position information for chained comparisons used as branching conditions.
 
@@ -2954,13 +2954,13 @@ Also remove `importlib.util.set_package()` which was scheduled for removal.
 
   * [gh-93911](https://github.com/python/cpython/issues/93911): Fix an issue that could prevent [`LOAD_ATTR`](dis.md#opcode-LOAD_ATTR) from specializing properly when accessing properties.
 
-  * [gh-96348](https://github.com/python/cpython/issues/96348): Emit a DeprecationWarning when [`throw()`](expressions.md#generator.throw "generator.throw"), [`throw()`](datamodel.md#coroutine.throw "coroutine.throw") or [`athrow()`](expressions.md#agen.athrow "agen.athrow") are called with more than one argument.
+  * [gh-96348](https://github.com/python/cpython/issues/96348): Emit a DeprecationWarning when [`throw()`](6.%20表达式.md#generator.throw "generator.throw"), [`throw()`](3.%20数据模型.md#coroutine.throw "coroutine.throw") or [`athrow()`](6.%20表达式.md#agen.athrow "agen.athrow") are called with more than one argument.
 
   * [gh-95196](https://github.com/python/cpython/issues/95196): Disable incorrect pickling of the C implemented classmethod descriptors.
 
   * [gh-96364](https://github.com/python/cpython/issues/96364): Fix text signatures of `list.__getitem__` and `dict.__getitem__`.
 
-  * [gh-96352](https://github.com/python/cpython/issues/96352): Fix [`AttributeError`](3.标准库/exceptions.md#AttributeError "AttributeError") missing `name` and `obj` attributes in [`object.__getattribute__()`](datamodel.md#object.__getattribute__ "object.__getattribute__"). Patch by Philip Georgi.
+  * [gh-96352](https://github.com/python/cpython/issues/96352): Fix [`AttributeError`](3.标准库/exceptions.md#AttributeError "AttributeError") missing `name` and `obj` attributes in [`object.__getattribute__()`](3.%20数据模型.md#object.__getattribute__ "object.__getattribute__"). Patch by Philip Georgi.
 
   * [gh-93554](https://github.com/python/cpython/issues/93554): Change the jump opcodes so that all conditional jumps are forward jumps. Backward jumps are converted by the assembler into a conditional forward jump whose target is the fallthrough block (and with a reversed condition), followed by an unconditional backward jump. For example:
 
@@ -2990,9 +2990,9 @@ It is safest to treat the `_PyInterpreterFrame` struct as opaque.
 
   * [gh-95245](https://github.com/python/cpython/issues/95245): Reduces the size of a "simple" Python object from 8 to 6 words by moving the weakreflist pointer into the pre-header directly before the object's dict/values pointer.
 
-  * [gh-90997](https://github.com/python/cpython/issues/90997): Compile virtual [`try`](compound_stmts.md#try)/[`except`](compound_stmts.md#except) blocks to handle exceptions raised during [`close()`](expressions.md#generator.close "generator.close") or [`throw()`](expressions.md#generator.throw "generator.throw") calls through a suspended frame.
+  * [gh-90997](https://github.com/python/cpython/issues/90997): Compile virtual [`try`](8.%20复合语句.md#try)/[`except`](8.%20复合语句.md#except) blocks to handle exceptions raised during [`close()`](6.%20表达式.md#generator.close "generator.close") or [`throw()`](6.%20表达式.md#generator.throw "generator.throw") calls through a suspended frame.
 
-  * [gh-95977](https://github.com/python/cpython/issues/95977): Optimized calling [`__get__()`](datamodel.md#object.__get__ "object.__get__") with vectorcall. Patch by Kumar Aditya.
+  * [gh-95977](https://github.com/python/cpython/issues/95977): Optimized calling [`__get__()`](3.%20数据模型.md#object.__get__ "object.__get__") with vectorcall. Patch by Kumar Aditya.
 
   * [gh-91210](https://github.com/python/cpython/issues/91210): Improve error message when a parameter without a default value follows one with a default value, and show the same message, even when the non-default/default sequence is preceded by positional-only parameters.
 
@@ -3116,7 +3116,7 @@ It is safest to treat the `_PyInterpreterFrame` struct as opaque.
 
 `FileFinder` no longer inserts a dot in the path, e.g. `/egg/./spam` is now `/egg/spam`.
 
-  * [gh-93621](https://github.com/python/cpython/issues/93621): Change order of bytecode instructions emitted for [`with`](compound_stmts.md#with) and [`async with`](compound_stmts.md#async-with) to reduce the number of entries in the exception table.
+  * [gh-93621](https://github.com/python/cpython/issues/93621): Change order of bytecode instructions emitted for [`with`](8.%20复合语句.md#with) and [`async with`](8.%20复合语句.md#async-with) to reduce the number of entries in the exception table.
 
   * [gh-93533](https://github.com/python/cpython/issues/93533): Reduce the size of the inline cache for `LOAD_METHOD` by 2 bytes.
 
@@ -3560,7 +3560,7 @@ This makes [`inspect.iscoroutinefunction()`](inspect.md#inspect.iscoroutinefunct
 
   * [gh-93297](https://github.com/python/cpython/issues/93297): Make asyncio task groups prevent child tasks from being GCed
 
-  * [gh-85308](https://github.com/python/cpython/issues/85308): Changed [`argparse.ArgumentParser`](3.标准库/argparse.md#argparse.ArgumentParser "argparse.ArgumentParser") to use [filesystem encoding and error handler](../glossary.md#term-filesystem-encoding-and-error-handler) instead of default text encoding to read arguments from file (e.g. `fromfile_prefix_chars` option). This change affects Windows; argument file should be encoded with UTF-8 instead of ANSI Codepage.
+  * [gh-85308](https://github.com/python/cpython/issues/85308): Changed [`argparse.ArgumentParser`](argparse.md#argparse.ArgumentParser "argparse.ArgumentParser") to use [filesystem encoding and error handler](../glossary.md#term-filesystem-encoding-and-error-handler) instead of default text encoding to read arguments from file (e.g. `fromfile_prefix_chars` option). This change affects Windows; argument file should be encoded with UTF-8 instead of ANSI Codepage.
 
   * [gh-93156](https://github.com/python/cpython/issues/93156): Accessing the [`pathlib.PurePath.parents`](pathlib.md#pathlib.PurePath.parents "pathlib.PurePath.parents") sequence of an absolute path using negative index values produced incorrect results.
 
@@ -3620,7 +3620,7 @@ This makes [`inspect.iscoroutinefunction()`](inspect.md#inspect.iscoroutinefunct
 
   * [gh-92591](https://github.com/python/cpython/issues/92591): Allow [`logging`](3.标准库/logging.md#module-logging "logging: Flexible event logging system for applications.") filters to return a [`logging.LogRecord`](3.标准库/logging.md#logging.LogRecord "logging.LogRecord") instance so that filters attached to [`logging.Handler`](3.标准库/logging.md#logging.Handler "logging.Handler")s can enrich records without side effects on other handlers.
 
-  * [gh-92445](https://github.com/python/cpython/issues/92445): Fix a bug in [`argparse`](3.标准库/argparse.md#module-argparse "argparse: Command-line option and argument parsing library.") where `nargs="*"` would raise an error instead of returning an empty list when 0 arguments were supplied if choice was also defined in `parser.add_argument`.
+  * [gh-92445](https://github.com/python/cpython/issues/92445): Fix a bug in [`argparse`](argparse.md#module-argparse "argparse: Command-line option and argument parsing library.") where `nargs="*"` would raise an error instead of returning an empty list when 0 arguments were supplied if choice was also defined in `parser.add_argument`.
 
   * [gh-92547](https://github.com/python/cpython/issues/92547): Remove undocumented [`sqlite3`](sqlite3.md#module-sqlite3 "sqlite3: A DB-API 2.0 implementation using SQLite 3.x.") features deprecated in Python 3.10:
 
@@ -3638,7 +3638,7 @@ Patch by Erlend E. Aasland.
 
   * [gh-89336](https://github.com/python/cpython/issues/89336): Removed [`configparser`](configparser.md#module-configparser "configparser: Configuration file parser.") module APIs: the `SafeConfigParser` class alias, the `ParsingError.filename` property and parameter, and the `ConfigParser.readfp` method, all of which were deprecated since Python 3.2.
 
-  * [gh-92391](https://github.com/python/cpython/issues/92391): Add [`__class_getitem__()`](datamodel.md#object.__class_getitem__ "object.__class_getitem__") to [`csv.DictReader`](csv.md#csv.DictReader "csv.DictReader") and [`csv.DictWriter`](csv.md#csv.DictWriter "csv.DictWriter"), allowing them to be parameterized at runtime. Patch by Marc Mueller.
+  * [gh-92391](https://github.com/python/cpython/issues/92391): Add [`__class_getitem__()`](3.%20数据模型.md#object.__class_getitem__ "object.__class_getitem__") to [`csv.DictReader`](csv.md#csv.DictReader "csv.DictReader") and [`csv.DictWriter`](csv.md#csv.DictWriter "csv.DictWriter"), allowing them to be parameterized at runtime. Patch by Marc Mueller.
 
   * [gh-91968](https://github.com/python/cpython/issues/91968): Add `SO_RTABLE` and `SO_USER_COOKIE` constants to [`socket`](socket.md#module-socket "socket: Low-level networking interface.").
 
@@ -3756,7 +3756,7 @@ Patch by Erlend E. Aasland.
 
   * [gh-88831](https://github.com/python/cpython/issues/88831): Augmented documentation of asyncio.create_task(). Clarified the need to keep strong references to tasks and added a code snippet detailing how to do this.
 
-  * [gh-86438](https://github.com/python/cpython/issues/86438): Clarify that [`-W`](cmdline.md#cmdoption-W) and [`PYTHONWARNINGS`](cmdline.md#envvar-PYTHONWARNINGS) are matched literally and case-insensitively, rather than as regular expressions, in [`warnings`](warnings.md#module-warnings "warnings: Issue warning messages and control their disposition.").
+  * [gh-86438](https://github.com/python/cpython/issues/86438): Clarify that [`-W`](1.%20命令行与环境.md#cmdoption-W) and [`PYTHONWARNINGS`](1.%20命令行与环境.md#envvar-PYTHONWARNINGS) are matched literally and case-insensitively, rather than as regular expressions, in [`warnings`](warnings.md#module-warnings "warnings: Issue warning messages and control their disposition.").
 
   * [gh-93031](https://github.com/python/cpython/issues/93031): Update tutorial introduction output to use 3.10+ SyntaxError invalid range.
 
@@ -3920,7 +3920,7 @@ Patch by Erlend E. Aasland.
 
   * [gh-97728](https://github.com/python/cpython/issues/97728): Fix possible crashes caused by the use of uninitialized variables when pass invalid arguments in [`os.system()`](os.md#os.system "os.system") on Windows and in Windows-specific modules (like `winreg`).
 
-  * [gh-90989](https://github.com/python/cpython/issues/90989): Made [适用于Windows的Python启动器](5.安装和使用/windows.md#launcher) install per-user by default (unless an all users install already exists), and clarify some text in the installer.
+  * [gh-90989](https://github.com/python/cpython/issues/90989): Made [适用于Windows的Python启动器](4.%20在Windows上使用%20Python.md#launcher) install per-user by default (unless an all users install already exists), and clarify some text in the installer.
 
   * [gh-97649](https://github.com/python/cpython/issues/97649): The `Tools` directory is no longer installed on Windows
 
@@ -3940,13 +3940,13 @@ Patch by Erlend E. Aasland.
 
   * [gh-95587](https://github.com/python/cpython/issues/95587): Fixes some issues where the Windows installer would incorrectly detect certain features of an existing install when upgrading.
 
-  * [gh-94399](https://github.com/python/cpython/issues/94399): Restores the behaviour of [适用于Windows的Python启动器](5.安装和使用/windows.md#launcher) for `/usr/bin/env` shebang lines, which will now search `PATH` for an executable matching the given command. If none is found, the usual search process is used.
+  * [gh-94399](https://github.com/python/cpython/issues/94399): Restores the behaviour of [适用于Windows的Python启动器](4.%20在Windows上使用%20Python.md#launcher) for `/usr/bin/env` shebang lines, which will now search `PATH` for an executable matching the given command. If none is found, the usual search process is used.
 
   * [gh-95445](https://github.com/python/cpython/issues/95445): Fixes the unsuccessful removal of the HTML document directory when uninstalling with Windows msi.
 
-  * [gh-95359](https://github.com/python/cpython/issues/95359): Fix [适用于Windows的Python启动器](5.安装和使用/windows.md#launcher) handling of `py.ini` commands (it was incorrectly expecting a `py_` prefix on keys) and crashes when reading per-user configuration file.
+  * [gh-95359](https://github.com/python/cpython/issues/95359): Fix [适用于Windows的Python启动器](4.%20在Windows上使用%20Python.md#launcher) handling of `py.ini` commands (it was incorrectly expecting a `py_` prefix on keys) and crashes when reading per-user configuration file.
 
-  * [gh-95285](https://github.com/python/cpython/issues/95285): Fix [适用于Windows的Python启动器](5.安装和使用/windows.md#launcher) handling of command lines where it is only passed a short executable name.
+  * [gh-95285](https://github.com/python/cpython/issues/95285): Fix [适用于Windows的Python启动器](4.%20在Windows上使用%20Python.md#launcher) handling of command lines where it is only passed a short executable name.
 
   * [gh-90844](https://github.com/python/cpython/issues/90844): Allow virtual environments to correctly launch when they have spaces in the path.
 
@@ -4036,7 +4036,7 @@ Patch by Erlend E. Aasland.
 
   * [gh-95504](https://github.com/python/cpython/issues/95504): Fix sign placement when specifying width or precision in [`PyUnicode_FromFormat()`](10.C%20API接口/unicode.md#c.PyUnicode_FromFormat "PyUnicode_FromFormat") and [`PyUnicode_FromFormatV()`](10.C%20API接口/unicode.md#c.PyUnicode_FromFormatV "PyUnicode_FromFormatV"). Patch by Philip Georgi.
 
-  * [gh-93012](https://github.com/python/cpython/issues/93012): The [`Py_TPFLAGS_HAVE_VECTORCALL`](typeobj.md#c.Py_TPFLAGS_HAVE_VECTORCALL "Py_TPFLAGS_HAVE_VECTORCALL") flag is now removed from a class when the class's [`__call__()`](datamodel.md#object.__call__ "object.__call__") method is reassigned. This makes vectorcall safe to use with mutable types (i.e. heap types without the `immutable` flag). Mutable types that do not override [`tp_call`](typeobj.md#c.PyTypeObject.tp_call "PyTypeObject.tp_call") now inherit the [`Py_TPFLAGS_HAVE_VECTORCALL`](typeobj.md#c.Py_TPFLAGS_HAVE_VECTORCALL "Py_TPFLAGS_HAVE_VECTORCALL") flag.
+  * [gh-93012](https://github.com/python/cpython/issues/93012): The [`Py_TPFLAGS_HAVE_VECTORCALL`](typeobj.md#c.Py_TPFLAGS_HAVE_VECTORCALL "Py_TPFLAGS_HAVE_VECTORCALL") flag is now removed from a class when the class's [`__call__()`](3.%20数据模型.md#object.__call__ "object.__call__") method is reassigned. This makes vectorcall safe to use with mutable types (i.e. heap types without the `immutable` flag). Mutable types that do not override [`tp_call`](typeobj.md#c.PyTypeObject.tp_call "PyTypeObject.tp_call") now inherit the [`Py_TPFLAGS_HAVE_VECTORCALL`](typeobj.md#c.Py_TPFLAGS_HAVE_VECTORCALL "Py_TPFLAGS_HAVE_VECTORCALL") flag.
 
   * [gh-95388](https://github.com/python/cpython/issues/95388): Creating [`immutable types`](typeobj.md#c.Py_TPFLAGS_IMMUTABLETYPE "Py_TPFLAGS_IMMUTABLETYPE") with mutable bases is deprecated and is planned to be disabled in Python 3.14.
 
@@ -4110,7 +4110,7 @@ _Release date: 2022-05-06_
 
 ### Security¶
 
-  * [gh-57684](https://github.com/python/cpython/issues/57684): Add the [`-P`](cmdline.md#cmdoption-P) command line option and the [`PYTHONSAFEPATH`](cmdline.md#envvar-PYTHONSAFEPATH) environment variable to not prepend a potentially unsafe path to [`sys.path`](3.标准库/sys.md#sys.path "sys.path"). Patch by Victor Stinner.
+  * [gh-57684](https://github.com/python/cpython/issues/57684): Add the [`-P`](1.%20命令行与环境.md#cmdoption-P) command line option and the [`PYTHONSAFEPATH`](1.%20命令行与环境.md#envvar-PYTHONSAFEPATH) environment variable to not prepend a potentially unsafe path to [`sys.path`](3.标准库/sys.md#sys.path "sys.path"). Patch by Victor Stinner.
 
 ### Core and Builtins¶
 
@@ -4252,7 +4252,7 @@ Copying and pickling instances of subclasses of builtin types bytearray, set, fr
 
   * [gh-85984](https://github.com/python/cpython/issues/85984): New function os.login_tty() for Unix.
 
-  * [gh-92128](https://github.com/python/cpython/issues/92128): Add [`__class_getitem__()`](datamodel.md#object.__class_getitem__ "object.__class_getitem__") to [`logging.LoggerAdapter`](3.标准库/logging.md#logging.LoggerAdapter "logging.LoggerAdapter") and [`logging.StreamHandler`](logging.handlers.md#logging.StreamHandler "logging.StreamHandler"), allowing them to be parameterized at runtime. Patch by Alex Waygood.
+  * [gh-92128](https://github.com/python/cpython/issues/92128): Add [`__class_getitem__()`](3.%20数据模型.md#object.__class_getitem__ "object.__class_getitem__") to [`logging.LoggerAdapter`](3.标准库/logging.md#logging.LoggerAdapter "logging.LoggerAdapter") and [`logging.StreamHandler`](logging.handlers.md#logging.StreamHandler "logging.StreamHandler"), allowing them to be parameterized at runtime. Patch by Alex Waygood.
 
   * [gh-92049](https://github.com/python/cpython/issues/92049): Forbid pickling constants `re._constants.SUCCESS` etc. Previously, pickling did not fail, but the result could not be unpickled.
 
@@ -4286,11 +4286,11 @@ Patch by Kabir Kwatra.
 
   * [gh-91860](https://github.com/python/cpython/issues/91860): Add [`typing.dataclass_transform()`](typing.md#typing.dataclass_transform "typing.dataclass_transform"), implementing [**PEP 681**](https://peps.python.org/pep-0681/). Patch by Jelle Zijlstra.
 
-  * [gh-91832](https://github.com/python/cpython/issues/91832): Add `required` attribute to [`argparse.Action`](3.标准库/argparse.md#argparse.Action "argparse.Action") repr output.
+  * [gh-91832](https://github.com/python/cpython/issues/91832): Add `required` attribute to [`argparse.Action`](argparse.md#argparse.Action "argparse.Action") repr output.
 
   * [gh-91827](https://github.com/python/cpython/issues/91827): In the [`tkinter`](tkinter.md#module-tkinter "tkinter: Interface to Tcl/Tk for graphical user interfaces") module add method `info_patchlevel()` which returns the exact version of the Tcl library as a named tuple similar to [`sys.version_info`](3.标准库/sys.md#sys.version_info "sys.version_info").
 
-  * [gh-84461](https://github.com/python/cpython/issues/84461): Add [`--enable-wasm-pthreads`](configure.md#cmdoption-enable-wasm-pthreads) to enable pthreads support for WASM builds. `Emscripten/node` no longer has threading enabled by default. Include additional file systems.
+  * [gh-84461](https://github.com/python/cpython/issues/84461): Add [`--enable-wasm-pthreads`](3.%20配置%20Python.md#cmdoption-enable-wasm-pthreads) to enable pthreads support for WASM builds. `Emscripten/node` no longer has threading enabled by default. Include additional file systems.
 
   * [gh-91821](https://github.com/python/cpython/issues/91821): Fix unstable `test_from_tuple` test in `test_decimal.py`.
 
@@ -4446,7 +4446,7 @@ Patch by Kabir Kwatra.
 
   * [bpo-40676](https://bugs.python.org/issue?@action=redirect&bpo=40676): Convert [`csv`](csv.md#module-csv "csv: Write and read tabular data to and from delimited files.") to use Argument Clinic for [`csv.field_size_limit()`](csv.md#csv.field_size_limit "csv.field_size_limit"), [`csv.get_dialect()`](csv.md#csv.get_dialect "csv.get_dialect"), [`csv.unregister_dialect()`](csv.md#csv.unregister_dialect "csv.unregister_dialect") and [`csv.list_dialects()`](csv.md#csv.list_dialects "csv.list_dialects").
 
-  * [bpo-39716](https://bugs.python.org/issue?@action=redirect&bpo=39716): Raise an ArgumentError when the same subparser name is added twice to an [`argparse.ArgumentParser`](3.标准库/argparse.md#argparse.ArgumentParser "argparse.ArgumentParser"). This is consistent with the (default) behavior when the same option string is added twice to an ArgumentParser.
+  * [bpo-39716](https://bugs.python.org/issue?@action=redirect&bpo=39716): Raise an ArgumentError when the same subparser name is added twice to an [`argparse.ArgumentParser`](argparse.md#argparse.ArgumentParser "argparse.ArgumentParser"). This is consistent with the (default) behavior when the same option string is added twice to an ArgumentParser.
 
   * [bpo-36073](https://bugs.python.org/issue?@action=redirect&bpo=36073): Raise [`ProgrammingError`](sqlite3.md#sqlite3.ProgrammingError "sqlite3.ProgrammingError") instead of segfaulting on recursive usage of cursors in [`sqlite3`](sqlite3.md#module-sqlite3 "sqlite3: A DB-API 2.0 implementation using SQLite 3.x.") converters. Patch by Sergey Fedoseev.
 
@@ -4512,7 +4512,7 @@ Patch by Kabir Kwatra.
 
   * [bpo-46907](https://bugs.python.org/issue?@action=redirect&bpo=46907): Update Windows installer to use SQLite 3.38.3.
 
-  * [bpo-47239](https://bugs.python.org/issue?@action=redirect&bpo=47239): Fixed --list and --list-paths output for [适用于Windows的Python启动器](5.安装和使用/windows.md#launcher) when used in an active virtual environment.
+  * [bpo-47239](https://bugs.python.org/issue?@action=redirect&bpo=47239): Fixed --list and --list-paths output for [适用于Windows的Python启动器](4.%20在Windows上使用%20Python.md#launcher) when used in an active virtual environment.
 
   * [bpo-46907](https://bugs.python.org/issue?@action=redirect&bpo=46907): Update Windows installer to use SQLite 3.38.2.
 
@@ -4824,7 +4824,7 @@ This was potentially observable when using non-abstract AF_UNIX datagram sockets
 
   * [bpo-46033](https://bugs.python.org/issue?@action=redirect&bpo=46033): Clarify `for` statement execution in its doc.
 
-  * [bpo-45790](https://bugs.python.org/issue?@action=redirect&bpo=45790): Adjust inaccurate phrasing in [自定义扩展类型：教程](newtypes_tutorial.md) about the `ob_base` field and the macros used to access its contents.
+  * [bpo-45790](https://bugs.python.org/issue?@action=redirect&bpo=45790): Adjust inaccurate phrasing in [自定义扩展类型：教程](2.%20自定义扩展类型：教程.md) about the `ob_base` field and the macros used to access its contents.
 
   * [bpo-42340](https://bugs.python.org/issue?@action=redirect&bpo=42340): Document that in some circumstances [`KeyboardInterrupt`](3.标准库/exceptions.md#KeyboardInterrupt "KeyboardInterrupt") may cause the code to enter an inconsistent state. Provided a sample workaround to avoid it if needed.
 
@@ -4848,7 +4848,7 @@ This was potentially observable when using non-abstract AF_UNIX datagram sockets
 
 ### Build¶
 
-  * [bpo-40280](https://bugs.python.org/issue?@action=redirect&bpo=40280): Add configure option [`--enable-wasm-dynamic-linking`](configure.md#cmdoption-enable-wasm-dynamic-linking) to enable `dlopen` and MAIN_MODULE / SIDE_MODULE on `wasm32-emscripten`.
+  * [bpo-40280](https://bugs.python.org/issue?@action=redirect&bpo=40280): Add configure option [`--enable-wasm-dynamic-linking`](3.%20配置%20Python.md#cmdoption-enable-wasm-dynamic-linking) to enable `dlopen` and MAIN_MODULE / SIDE_MODULE on `wasm32-emscripten`.
 
   * [bpo-46023](https://bugs.python.org/issue?@action=redirect&bpo=46023): `makesetup` now detects and skips all duplicated module definitions. The first entry wins.
 
@@ -4872,7 +4872,7 @@ This was potentially observable when using non-abstract AF_UNIX datagram sockets
 
   * [bpo-47171](https://bugs.python.org/issue?@action=redirect&bpo=47171): Enables installing the `py.exe` launcher on Windows ARM64.
 
-  * [bpo-46566](https://bugs.python.org/issue?@action=redirect&bpo=46566): Upgraded [适用于Windows的Python启动器](5.安装和使用/windows.md#launcher) to support a new `-V:company/tag` argument for full [**PEP 514**](https://peps.python.org/pep-0514/) support and to detect ARM64 installs. The `-64` suffix on arguments is deprecated, but still selects any non-32-bit install. Setting `PYLAUNCHER_ALLOW_INSTALL` and specifying a version that is not installed will attempt to install the requested version from the Microsoft Store.
+  * [bpo-46566](https://bugs.python.org/issue?@action=redirect&bpo=46566): Upgraded [适用于Windows的Python启动器](4.%20在Windows上使用%20Python.md#launcher) to support a new `-V:company/tag` argument for full [**PEP 514**](https://peps.python.org/pep-0514/) support and to detect ARM64 installs. The `-64` suffix on arguments is deprecated, but still selects any non-32-bit install. Setting `PYLAUNCHER_ALLOW_INSTALL` and specifying a version that is not installed will attempt to install the requested version from the Microsoft Store.
 
   * [bpo-47086](https://bugs.python.org/issue?@action=redirect&bpo=47086): The installer for Windows now includes documentation as loose HTML files rather than a single compiled `.chm` file.
 
@@ -4998,7 +4998,7 @@ There is no change in semantics.
 
   * [bpo-46724](https://bugs.python.org/issue?@action=redirect&bpo=46724): Make sure that all backwards jumps use the `JUMP_ABSOLUTE` instruction, rather than `JUMP_FORWARD` with an argument of `(2**32)+offset`.
 
-  * [bpo-46732](https://bugs.python.org/issue?@action=redirect&bpo=46732): Correct the docstring for the [`__bool__()`](datamodel.md#object.__bool__ "object.__bool__") method. Patch by Jelle Zijlstra.
+  * [bpo-46732](https://bugs.python.org/issue?@action=redirect&bpo=46732): Correct the docstring for the [`__bool__()`](3.%20数据模型.md#object.__bool__ "object.__bool__") method. Patch by Jelle Zijlstra.
 
   * [bpo-46072](https://bugs.python.org/issue?@action=redirect&bpo=46072): Add more detailed specialization failure statistics for [`BINARY_OP`](dis.md#opcode-BINARY_OP).
 
@@ -5194,7 +5194,7 @@ _Release date: 2022-02-03_
 
   * [bpo-44977](https://bugs.python.org/issue?@action=redirect&bpo=44977): The delegation of [`int()`](functions.md#int "int") to `__trunc__()` is now deprecated. Calling `int(a)` when `type(a)` implements `__trunc__()` but not `__int__()` or `__index__()` now raises a [`DeprecationWarning`](3.标准库/exceptions.md#DeprecationWarning "DeprecationWarning").
 
-  * [bpo-46458](https://bugs.python.org/issue?@action=redirect&bpo=46458): Reorder code emitted by the compiler for a [`try`](compound_stmts.md#try)-[`except`](compound_stmts.md#except) block so that the [`else`](compound_stmts.md#else) block's code immediately follows the [`try`](compound_stmts.md#try) body (without a jump). This is more optimal for the happy path.
+  * [bpo-46458](https://bugs.python.org/issue?@action=redirect&bpo=46458): Reorder code emitted by the compiler for a [`try`](8.%20复合语句.md#try)-[`except`](8.%20复合语句.md#except) block so that the [`else`](8.%20复合语句.md#else) block's code immediately follows the [`try`](8.%20复合语句.md#try) body (without a jump). This is more optimal for the happy path.
 
   * [bpo-46527](https://bugs.python.org/issue?@action=redirect&bpo=46527): Allow passing `iterable` as a keyword argument to [`enumerate()`](functions.md#enumerate "enumerate") again. Patch by Jelle Zijlstra.
 
@@ -5270,7 +5270,7 @@ Also add `JUMP_NO_INTERRUPT` bytecode that acts like `JUMP_ABSOLUTE`, but does n
 
   * [bpo-46491](https://bugs.python.org/issue?@action=redirect&bpo=46491): Allow [`typing.Annotated`](typing.md#typing.Annotated "typing.Annotated") to wrap [`typing.Final`](typing.md#typing.Final "typing.Final") and [`typing.ClassVar`](typing.md#typing.ClassVar "typing.ClassVar"). Patch by Gregory Beauregard.
 
-  * [bpo-46483](https://bugs.python.org/issue?@action=redirect&bpo=46483): Remove [`__class_getitem__()`](datamodel.md#object.__class_getitem__ "object.__class_getitem__") from [`pathlib.PurePath`](pathlib.md#pathlib.PurePath "pathlib.PurePath") as this class was not supposed to be generic.
+  * [bpo-46483](https://bugs.python.org/issue?@action=redirect&bpo=46483): Remove [`__class_getitem__()`](3.%20数据模型.md#object.__class_getitem__ "object.__class_getitem__") from [`pathlib.PurePath`](pathlib.md#pathlib.PurePath "pathlib.PurePath") as this class was not supposed to be generic.
 
   * [bpo-46436](https://bugs.python.org/issue?@action=redirect&bpo=46436): Fix command-line option `-d`/`--directory` in module [`http.server`](http.server.md#module-http.server "http.server: HTTP server and request handlers.") which is ignored when combined with command-line option `--cgi`. Patch by Géry Ogam.
 
@@ -5550,7 +5550,7 @@ Now all constants (`MONDAY` ... `SUNDAY`) are documented, tested, and added to `
 
 These features were never supported and do not always work correctly. The functions exist on the API by accident through inheritance and will be removed in the future.
 
-  * [bpo-26952](https://bugs.python.org/issue?@action=redirect&bpo=26952): [`argparse`](3.标准库/argparse.md#module-argparse "argparse: Command-line option and argument parsing library.") raises [`ValueError`](3.标准库/exceptions.md#ValueError "ValueError") with clear message when trying to render usage for an empty mutually exclusive group. Previously it raised a cryptic [`IndexError`](3.标准库/exceptions.md#IndexError "IndexError").
+  * [bpo-26952](https://bugs.python.org/issue?@action=redirect&bpo=26952): [`argparse`](argparse.md#module-argparse "argparse: Command-line option and argument parsing library.") raises [`ValueError`](3.标准库/exceptions.md#ValueError "ValueError") with clear message when trying to render usage for an empty mutually exclusive group. Previously it raised a cryptic [`IndexError`](3.标准库/exceptions.md#IndexError "IndexError").
 
   * [bpo-45615](https://bugs.python.org/issue?@action=redirect&bpo=45615): Functions in the [`traceback`](traceback.md#module-traceback "traceback: Print or retrieve a stack traceback.") module raise [`TypeError`](3.标准库/exceptions.md#TypeError "TypeError") rather than [`AttributeError`](3.标准库/exceptions.md#AttributeError "AttributeError") when an exception argument is not of type [`BaseException`](3.标准库/exceptions.md#BaseException "BaseException").
 
@@ -5614,9 +5614,9 @@ These features were never supported and do not always work correctly. The functi
 
 ### Build¶
 
-  * [bpo-44133](https://bugs.python.org/issue?@action=redirect&bpo=44133): When Python is configured with [`--without-static-libpython`](configure.md#cmdoption-without-static-libpython), the Python static library (libpython.a) is no longer built. Patch by Victor Stinner.
+  * [bpo-44133](https://bugs.python.org/issue?@action=redirect&bpo=44133): When Python is configured with [`--without-static-libpython`](3.%20配置%20Python.md#cmdoption-without-static-libpython), the Python static library (libpython.a) is no longer built. Patch by Victor Stinner.
 
-  * [bpo-44133](https://bugs.python.org/issue?@action=redirect&bpo=44133): When Python is built without [`--enable-shared`](configure.md#cmdoption-enable-shared), the `python` program is now linked to object files, rather than being linked to the Python static library (libpython.a), to make sure that all symbols are exported. Previously, the linker omitted some symbols like the `Py_FrozenMain()` function. Patch by Victor Stinner.
+  * [bpo-44133](https://bugs.python.org/issue?@action=redirect&bpo=44133): When Python is built without [`--enable-shared`](3.%20配置%20Python.md#cmdoption-enable-shared), the `python` program is now linked to object files, rather than being linked to the Python static library (libpython.a), to make sure that all symbols are exported. Previously, the linker omitted some symbols like the `Py_FrozenMain()` function. Patch by Victor Stinner.
 
   * [bpo-40280](https://bugs.python.org/issue?@action=redirect&bpo=40280): The `configure` script has a new option `--with-emscripten-target` to select browser or node as Emscripten build target.
 
@@ -5965,7 +5965,7 @@ _Release date: 2021-11-05_
 
   * [bpo-45530](https://bugs.python.org/issue?@action=redirect&bpo=45530): Cases of sorting using tuples as keys may now be significantly faster in some cases. Patch by Tim Peters.
 
-The order of the result may differ from earlier releases if the tuple elements don't define a total ordering (see [值比较](expressions.md#expressions-value-comparisons) for information on total ordering). It's generally true that the result of sorting simply isn't well-defined in the absence of a total ordering on list elements.
+The order of the result may differ from earlier releases if the tuple elements don't define a total ordering (see [值比较](6.%20表达式.md#expressions-value-comparisons) for information on total ordering). It's generally true that the result of sorting simply isn't well-defined in the absence of a total ordering on list elements.
 
   * [bpo-45526](https://bugs.python.org/issue?@action=redirect&bpo=45526): In obmalloc, set ADDRESS_BITS to not ignore any bits (ignored 16 before). That is safer in the case that the kernel gives user-space virtual addresses that span a range greater than 48 bits.
 
@@ -5975,7 +5975,7 @@ The order of the result may differ from earlier releases if the tuple elements d
 
   * [bpo-45494](https://bugs.python.org/issue?@action=redirect&bpo=45494): Fix parser crash when reporting errors involving invalid continuation characters. Patch by Pablo Galindo.
 
-  * [bpo-45445](https://bugs.python.org/issue?@action=redirect&bpo=45445): Python now fails to initialize if it finds an invalid [`-X`](cmdline.md#cmdoption-X) option in the command line. Patch by Pablo Galindo.
+  * [bpo-45445](https://bugs.python.org/issue?@action=redirect&bpo=45445): Python now fails to initialize if it finds an invalid [`-X`](1.%20命令行与环境.md#cmdoption-X) option in the command line. Patch by Pablo Galindo.
 
   * [bpo-45340](https://bugs.python.org/issue?@action=redirect&bpo=45340): Object attributes are held in an array instead of a dictionary. An object's dictionary are created lazily, only when needed. Reduces the memory consumption of a typical Python object by about 30%. Patch by Mark Shannon.
 
@@ -6104,7 +6104,7 @@ Patch by Kyungmin Lee.
 
   * [bpo-24139](https://bugs.python.org/issue?@action=redirect&bpo=24139): Add support for SQLite extended result codes in [`sqlite3.Error`](sqlite3.md#sqlite3.Error "sqlite3.Error"). Patch by Erlend E. Aasland.
 
-  * [bpo-24444](https://bugs.python.org/issue?@action=redirect&bpo=24444): Fixed an error raised in [`argparse`](3.标准库/argparse.md#module-argparse "argparse: Command-line option and argument parsing library.") help display when help for an option is set to 1+ blank spaces or when _choices_ arg is an empty container.
+  * [bpo-24444](https://bugs.python.org/issue?@action=redirect&bpo=24444): Fixed an error raised in [`argparse`](argparse.md#module-argparse "argparse: Command-line option and argument parsing library.") help display when help for an option is set to 1+ blank spaces or when _choices_ arg is an empty container.
 
   * [bpo-44547](https://bugs.python.org/issue?@action=redirect&bpo=44547): Implement `Fraction.__int__`, so that a [`fractions.Fraction`](fractions.md#fractions.Fraction "fractions.Fraction") instance `f` passes an `isinstance(f, typing.SupportsInt)` check.
 
@@ -6276,7 +6276,7 @@ _Release date: 2021-10-05_
 
   * [bpo-42278](https://bugs.python.org/issue?@action=redirect&bpo=42278): Replaced usage of [`tempfile.mktemp()`](tempfile.md#tempfile.mktemp "tempfile.mktemp") with [`TemporaryDirectory`](tempfile.md#tempfile.TemporaryDirectory "tempfile.TemporaryDirectory") to avoid a potential race condition.
 
-  * [bpo-44600](https://bugs.python.org/issue?@action=redirect&bpo=44600): Fix incorrect line numbers while tracing some failed patterns in [match](compound_stmts.md#match) statements. Patch by Charles Burkland.
+  * [bpo-44600](https://bugs.python.org/issue?@action=redirect&bpo=44600): Fix incorrect line numbers while tracing some failed patterns in [match](8.%20复合语句.md#match) statements. Patch by Charles Burkland.
 
   * [bpo-41180](https://bugs.python.org/issue?@action=redirect&bpo=41180): Add auditing events to the [`marshal`](3.标准库/marshal.md#module-marshal "marshal: Convert Python objects to streams of bytes and back \(with different constraints\).") module, and stop raising `code.__init__` events for every unmarshalled code object. Directly instantiated code objects will continue to raise an event, and audit event handlers should inspect or collect the raw marshal data. This reduces a significant performance overhead when loading from `.pyc` files.
 
@@ -6364,7 +6364,7 @@ This means that a version tag serves as a unique identifier for the state of a c
 
   * [bpo-44698](https://bugs.python.org/issue?@action=redirect&bpo=44698): Restore behaviour of complex exponentiation with integer-valued exponent of type [`float`](functions.md#float "float") or [`complex`](functions.md#complex "complex").
 
-  * [bpo-44895](https://bugs.python.org/issue?@action=redirect&bpo=44895): A debug variable `PYTHONDUMPREFSFILE` is added for creating a dump file which is generated by [`--with-trace-refs`](configure.md#cmdoption-with-trace-refs). Patch by Dong-hee Na.
+  * [bpo-44895](https://bugs.python.org/issue?@action=redirect&bpo=44895): A debug variable `PYTHONDUMPREFSFILE` is added for creating a dump file which is generated by [`--with-trace-refs`](3.%20配置%20Python.md#cmdoption-with-trace-refs). Patch by Dong-hee Na.
 
   * [bpo-44900](https://bugs.python.org/issue?@action=redirect&bpo=44900): Add five superinstructions for PEP 659 quickening:
 
@@ -6500,7 +6500,7 @@ Contributed by Pablo Galindo, Batuhan Taskaya and Ammar Askar as part of [**PEP 
 
   * [bpo-44472](https://bugs.python.org/issue?@action=redirect&bpo=44472): Fix ltrace functionality when exceptions are raised. Patch by Pablo Galindo
 
-  * [bpo-12022](https://bugs.python.org/issue?@action=redirect&bpo=12022): A [`TypeError`](3.标准库/exceptions.md#TypeError "TypeError") is now raised instead of an [`AttributeError`](3.标准库/exceptions.md#AttributeError "AttributeError") in [`with`](compound_stmts.md#with) and [`async with`](compound_stmts.md#async-with) statements for objects which do not support the [context manager](../glossary.md#term-context-manager) or [asynchronous context manager](../glossary.md#term-asynchronous-context-manager) protocols correspondingly.
+  * [bpo-12022](https://bugs.python.org/issue?@action=redirect&bpo=12022): A [`TypeError`](3.标准库/exceptions.md#TypeError "TypeError") is now raised instead of an [`AttributeError`](3.标准库/exceptions.md#AttributeError "AttributeError") in [`with`](8.%20复合语句.md#with) and [`async with`](8.%20复合语句.md#async-with) statements for objects which do not support the [context manager](../glossary.md#term-context-manager) or [asynchronous context manager](../glossary.md#term-asynchronous-context-manager) protocols correspondingly.
 
   * [bpo-44297](https://bugs.python.org/issue?@action=redirect&bpo=44297): Make sure that the line number is set when entering a comprehension scope. Ensures that backtraces inclusing generator expressions show the correct line number.
 
@@ -6764,7 +6764,7 @@ Updated code and docs to better distinguish frame and FrameSummary.
 
   * [bpo-44524](https://bugs.python.org/issue?@action=redirect&bpo=44524): Make exception message more useful when subclass from typing special form alias. Patch provided by Yurii Karabas.
 
-  * [bpo-38956](https://bugs.python.org/issue?@action=redirect&bpo=38956): `argparse.BooleanOptionalAction`'s default value is no longer printed twice when used with [`argparse.ArgumentDefaultsHelpFormatter`](3.标准库/argparse.md#argparse.ArgumentDefaultsHelpFormatter "argparse.ArgumentDefaultsHelpFormatter").
+  * [bpo-38956](https://bugs.python.org/issue?@action=redirect&bpo=38956): `argparse.BooleanOptionalAction`'s default value is no longer printed twice when used with [`argparse.ArgumentDefaultsHelpFormatter`](argparse.md#argparse.ArgumentDefaultsHelpFormatter "argparse.ArgumentDefaultsHelpFormatter").
 
   * [bpo-44860](https://bugs.python.org/issue?@action=redirect&bpo=44860): Fix the `posix_user` scheme in [`sysconfig`](sysconfig.md#module-sysconfig "sysconfig: Python's configuration information") to not depend on [`sys.platlibdir`](3.标准库/sys.md#sys.platlibdir "sys.platlibdir").
 
@@ -7342,7 +7342,7 @@ ncurses-devel package in CentOS 7 had a older version ncurses resulted in compil
 
   * [bpo-41611](https://bugs.python.org/issue?@action=redirect&bpo=41611): Fix IDLE sometimes freezing upon tab-completion on macOS.
 
-  * [bpo-44010](https://bugs.python.org/issue?@action=redirect&bpo=44010): Highlight the new [match](compound_stmts.md#match) statement's [soft keywords](lexical_analysis.md#soft-keywords): [`match`](compound_stmts.md#match), [`case`](compound_stmts.md#match), and [`_`](compound_stmts.md#wildcard-patterns). However, this highlighting is not perfect and will be incorrect in some rare cases, including some `_`-s in `case` patterns.
+  * [bpo-44010](https://bugs.python.org/issue?@action=redirect&bpo=44010): Highlight the new [match](8.%20复合语句.md#match) statement's [soft keywords](2.%20词法分析.md#soft-keywords): [`match`](8.%20复合语句.md#match), [`case`](8.%20复合语句.md#match), and [`_`](8.%20复合语句.md#wildcard-patterns). However, this highlighting is not perfect and will be incorrect in some rare cases, including some `_`-s in `case` patterns.
 
   * [bpo-44026](https://bugs.python.org/issue?@action=redirect&bpo=44026): Include interpreter's typo fix suggestions in message line for NameErrors and AttributeErrors. Patch by E. Paine.
 
@@ -7534,7 +7534,7 @@ Following the controlling specification for URLs defined by WHATWG [`urllib.pars
 
   * [bpo-43751](https://bugs.python.org/issue?@action=redirect&bpo=43751): Fixed a bug where `anext(ait, default)` would erroneously return None.
 
-  * [bpo-42128](https://bugs.python.org/issue?@action=redirect&bpo=42128): [`__match_args__`](datamodel.md#object.__match_args__ "object.__match_args__") is no longer allowed to be a list.
+  * [bpo-42128](https://bugs.python.org/issue?@action=redirect&bpo=42128): [`__match_args__`](3.%20数据模型.md#object.__match_args__ "object.__match_args__") is no longer allowed to be a list.
 
   * [bpo-43683](https://bugs.python.org/issue?@action=redirect&bpo=43683): Add GEN_START opcode. Marks start of generator, including async, or coroutine and handles sending values to a newly created generator or coroutine.
 
@@ -7642,7 +7642,7 @@ Following the controlling specification for URLs defined by WHATWG [`urllib.pars
 
   * [bpo-38659](https://bugs.python.org/issue?@action=redirect&bpo=38659): A `simple_enum` decorator is added to the `enum` module to convert a normal class into an Enum. `test_simple_enum` added to test simple enums against a corresponding normal Enum. Standard library modules updated to use `simple_enum`.
 
-  * [bpo-43764](https://bugs.python.org/issue?@action=redirect&bpo=43764): Fix an issue where [`__match_args__`](datamodel.md#object.__match_args__ "object.__match_args__") generation could fail for some [`dataclasses`](dataclasses.md#module-dataclasses "dataclasses: Generate special methods on user-defined classes.").
+  * [bpo-43764](https://bugs.python.org/issue?@action=redirect&bpo=43764): Fix an issue where [`__match_args__`](3.%20数据模型.md#object.__match_args__ "object.__match_args__") generation could fail for some [`dataclasses`](dataclasses.md#module-dataclasses "dataclasses: Generate special methods on user-defined classes.").
 
   * [bpo-43752](https://bugs.python.org/issue?@action=redirect&bpo=43752): Fix [`sqlite3`](sqlite3.md#module-sqlite3 "sqlite3: A DB-API 2.0 implementation using SQLite 3.x.") regression for zero-sized blobs with converters, where `b""` was returned instead of `None`. The regression was introduced by PR 24723. Patch by Erlend E. Aasland.
 
@@ -7922,7 +7922,7 @@ Co-authored-by: Tim Peters <[tim.peters@gmail.com](mailto:tim.peters%40gmail.com
 
   * [bpo-40645](https://bugs.python.org/issue?@action=redirect&bpo=40645): The [`hmac`](hmac.md#module-hmac "hmac: Keyed-Hashing for Message Authentication \(HMAC\) implementation") module now uses OpenSSL's HMAC implementation when digestmod argument is a hash name or builtin hash function.
 
-  * [bpo-43510](https://bugs.python.org/issue?@action=redirect&bpo=43510): Implement [**PEP 597**](https://peps.python.org/pep-0597/): Add `EncodingWarning` warning, `-X warn_default_encoding` option, [`PYTHONWARNDEFAULTENCODING`](cmdline.md#envvar-PYTHONWARNDEFAULTENCODING) environment variable and `encoding="locale"` argument value.
+  * [bpo-43510](https://bugs.python.org/issue?@action=redirect&bpo=43510): Implement [**PEP 597**](https://peps.python.org/pep-0597/): Add `EncodingWarning` warning, `-X warn_default_encoding` option, [`PYTHONWARNDEFAULTENCODING`](1.%20命令行与环境.md#envvar-PYTHONWARNDEFAULTENCODING) environment variable and `encoding="locale"` argument value.
 
   * [bpo-43521](https://bugs.python.org/issue?@action=redirect&bpo=43521): `ast.unparse` can now render NaNs and empty sets.
 
@@ -8136,7 +8136,7 @@ _Release date: 2021-03-01_
 
   * [bpo-40692](https://bugs.python.org/issue?@action=redirect&bpo=40692): In the [`concurrent.futures.ProcessPoolExecutor`](concurrent.futures.md#concurrent.futures.ProcessPoolExecutor "concurrent.futures.ProcessPoolExecutor"), validate that `multiprocess.synchronize()` is available on a given platform and rely on that check in the [`concurrent.futures`](concurrent.futures.md#module-concurrent.futures "concurrent.futures: Execute computations concurrently using threads or processes.") test suite so we can run tests that are unrelated to `ProcessPoolExecutor` on those platforms.
 
-  * [bpo-38302](https://bugs.python.org/issue?@action=redirect&bpo=38302): If [`object.__ipow__()`](datamodel.md#object.__ipow__ "object.__ipow__") returns [`NotImplemented`](constants.md#NotImplemented "NotImplemented"), the operator will correctly fall back to [`object.__pow__()`](datamodel.md#object.__pow__ "object.__pow__") and [`object.__rpow__()`](datamodel.md#object.__rpow__ "object.__rpow__") as expected.
+  * [bpo-38302](https://bugs.python.org/issue?@action=redirect&bpo=38302): If [`object.__ipow__()`](3.%20数据模型.md#object.__ipow__ "object.__ipow__") returns [`NotImplemented`](constants.md#NotImplemented "NotImplemented"), the operator will correctly fall back to [`object.__pow__()`](3.%20数据模型.md#object.__pow__ "object.__pow__") and [`object.__rpow__()`](3.%20数据模型.md#object.__rpow__ "object.__rpow__") as expected.
 
 ### Library¶
 
@@ -8412,7 +8412,7 @@ _Release date: 2021-01-04_
 
   * [bpo-42246](https://bugs.python.org/issue?@action=redirect&bpo=42246): Make sure that the `f_lasti` and `f_lineno` attributes of a frame are set correctly when an exception is raised or re-raised. Required for PEP 626.
 
-  * [bpo-32381](https://bugs.python.org/issue?@action=redirect&bpo=32381): The coding cookie (ex: `# coding: latin1`) is now ignored in the command passed to the [`-c`](cmdline.md#cmdoption-c) command line option. Patch by Victor Stinner.
+  * [bpo-32381](https://bugs.python.org/issue?@action=redirect&bpo=32381): The coding cookie (ex: `# coding: latin1`) is now ignored in the command passed to the [`-c`](1.%20命令行与环境.md#cmdoption-c) command line option. Patch by Victor Stinner.
 
   * [bpo-30858](https://bugs.python.org/issue?@action=redirect&bpo=30858): Improve error location in expressions that contain assignments. Patch by Pablo Galindo and Lysandros Nikolaou.
 
@@ -8658,7 +8658,7 @@ Previously, they could have become untracked by a prior garbage collection. Patc
 
   * [bpo-42246](https://bugs.python.org/issue?@action=redirect&bpo=42246): PEP 626: After a return, the f_lineno attribute of a frame is always the last line executed.
 
-  * [bpo-42435](https://bugs.python.org/issue?@action=redirect&bpo=42435): Speed up comparison of bytes objects with non-bytes objects when option [`-b`](cmdline.md#cmdoption-b) is specified. Speed up comparison of bytarray objects with non-buffer object.
+  * [bpo-42435](https://bugs.python.org/issue?@action=redirect&bpo=42435): Speed up comparison of bytes objects with non-bytes objects when option [`-b`](1.%20命令行与环境.md#cmdoption-b) is specified. Speed up comparison of bytarray objects with non-buffer object.
 
   * [bpo-1635741](https://bugs.python.org/issue?@action=redirect&bpo=1635741): Port the `_warnings` extension module to the multi-phase initialization API ([ **PEP 489**](https://peps.python.org/pep-0489/)). Patch by Victor Stinner.
 
@@ -8788,7 +8788,7 @@ The overflow occurs under some circumstances when a Task or Future recursively r
 
   * [bpo-42140](https://bugs.python.org/issue?@action=redirect&bpo=42140): Improve asyncio.wait function to create the futures set just one time.
 
-  * [bpo-42133](https://bugs.python.org/issue?@action=redirect&bpo=42133): Update various modules in the stdlib to fall back on `__spec__.loader` when [`__loader__`](4.语言参考/import.md#loader__ "__loader__") isn't defined on a module.
+  * [bpo-42133](https://bugs.python.org/issue?@action=redirect&bpo=42133): Update various modules in the stdlib to fall back on `__spec__.loader` when [`__loader__`](5.%20导入系统.md#loader__ "__loader__") isn't defined on a module.
 
   * [bpo-26131](https://bugs.python.org/issue?@action=redirect&bpo=26131): The `load_module()` methods found in importlib now trigger a DeprecationWarning.
 
@@ -9102,7 +9102,7 @@ Additionally, the HTTP Only attribute is persisted in the object, and will be co
 
   * [bpo-42061](https://bugs.python.org/issue?@action=redirect&bpo=42061): Document __format__ functionality for IP addresses.
 
-  * [bpo-41910](https://bugs.python.org/issue?@action=redirect&bpo=41910): Document the default implementation of [`object.__eq__`](datamodel.md#object.__eq__ "object.__eq__").
+  * [bpo-41910](https://bugs.python.org/issue?@action=redirect&bpo=41910): Document the default implementation of [`object.__eq__`](3.%20数据模型.md#object.__eq__ "object.__eq__").
 
   * [bpo-42010](https://bugs.python.org/issue?@action=redirect&bpo=42010): Clarify that subscription expressions are also valid for certain [classes](../glossary.md#term-class) and [types](../glossary.md#term-type) in the standard library, and for user-defined classes and types if the classmethod `__class_getitem__()` is provided.
 
@@ -9340,7 +9340,7 @@ _Release date: 2020-10-05_
 
   * [bpo-40870](https://bugs.python.org/issue?@action=redirect&bpo=40870): Raise [`ValueError`](3.标准库/exceptions.md#ValueError "ValueError") when validating custom AST's where the constants `True`, `False` and `None` are used within a [`ast.Name`](ast.md#ast.Name "ast.Name") node.
 
-  * [bpo-40854](https://bugs.python.org/issue?@action=redirect&bpo=40854): Allow overriding [`sys.platlibdir`](3.标准库/sys.md#sys.platlibdir "sys.platlibdir") via a new [`PYTHONPLATLIBDIR`](cmdline.md#envvar-PYTHONPLATLIBDIR) environment variable.
+  * [bpo-40854](https://bugs.python.org/issue?@action=redirect&bpo=40854): Allow overriding [`sys.platlibdir`](3.标准库/sys.md#sys.platlibdir "sys.platlibdir") via a new [`PYTHONPLATLIBDIR`](1.%20命令行与环境.md#envvar-PYTHONPLATLIBDIR) environment variable.
 
   * [bpo-40826](https://bugs.python.org/issue?@action=redirect&bpo=40826): Fix GIL usage in `PyOS_Readline()`: lock the GIL to set an exception and pass the Python thread state when checking if there is a pending signal.
 
@@ -9348,7 +9348,7 @@ _Release date: 2020-10-05_
 
   * [bpo-19468](https://bugs.python.org/issue?@action=redirect&bpo=19468): Delete unnecessary instance check in importlib.reload(). Patch by Furkan Önder.
 
-  * [bpo-40824](https://bugs.python.org/issue?@action=redirect&bpo=40824): Unexpected errors in calling the `__iter__` method are no longer masked by `TypeError` in the [`in`](expressions.md#in) operator and functions [`contains()`](operator.md#operator.contains "operator.contains"), [`indexOf()`](operator.md#operator.indexOf "operator.indexOf") and [`countOf()`](operator.md#operator.countOf "operator.countOf") of the [`operator`](operator.md#module-operator "operator: Functions corresponding to the standard operators.") module.
+  * [bpo-40824](https://bugs.python.org/issue?@action=redirect&bpo=40824): Unexpected errors in calling the `__iter__` method are no longer masked by `TypeError` in the [`in`](6.%20表达式.md#in) operator and functions [`contains()`](operator.md#operator.contains "operator.contains"), [`indexOf()`](operator.md#operator.indexOf "operator.indexOf") and [`countOf()`](operator.md#operator.countOf "operator.countOf") of the [`operator`](operator.md#module-operator "operator: Functions corresponding to the standard operators.") module.
 
   * [bpo-40792](https://bugs.python.org/issue?@action=redirect&bpo=40792): Attributes `start`, `stop` and `step` of the [`range`](stdtypes.md#range "range") object now always has exact type [`int`](functions.md#int "int"). Previously, they could have been an instance of a subclass of `int`.
 
@@ -9362,7 +9362,7 @@ _Release date: 2020-10-05_
 
   * [bpo-39573](https://bugs.python.org/issue?@action=redirect&bpo=39573): [`Py_TYPE()`](structures.md#c.Py_TYPE "Py_TYPE") is changed to the inline static function. Patch by Dong-hee Na.
 
-  * [bpo-40696](https://bugs.python.org/issue?@action=redirect&bpo=40696): Fix a hang that can arise after [`generator.throw()`](expressions.md#generator.throw "generator.throw") due to a cycle in the exception context chain.
+  * [bpo-40696](https://bugs.python.org/issue?@action=redirect&bpo=40696): Fix a hang that can arise after [`generator.throw()`](6.%20表达式.md#generator.throw "generator.throw") due to a cycle in the exception context chain.
 
   * [bpo-40521](https://bugs.python.org/issue?@action=redirect&bpo=40521): Each interpreter now its has own free lists, singletons and caches:
 
@@ -9376,7 +9376,7 @@ They are no longer shared by all interpreters.
 
   * [bpo-40679](https://bugs.python.org/issue?@action=redirect&bpo=40679): Certain [`TypeError`](3.标准库/exceptions.md#TypeError "TypeError") messages about missing or extra arguments now include the function's [qualified name](../glossary.md#term-qualified-name). Patch by Dennis Sweeney.
 
-  * [bpo-29590](https://bugs.python.org/issue?@action=redirect&bpo=29590): Make the stack trace correct after calling [`generator.throw()`](expressions.md#generator.throw "generator.throw") on a generator that has yielded from a `yield from`.
+  * [bpo-29590](https://bugs.python.org/issue?@action=redirect&bpo=29590): Make the stack trace correct after calling [`generator.throw()`](6.%20表达式.md#generator.throw "generator.throw") on a generator that has yielded from a `yield from`.
 
   * [bpo-4022](https://bugs.python.org/issue?@action=redirect&bpo=4022): Improve performance of generators by not raising internal StopIteration.
 
@@ -9384,7 +9384,7 @@ They are no longer shared by all interpreters.
 
   * [bpo-1635741](https://bugs.python.org/issue?@action=redirect&bpo=1635741): Port `_lzma` to multiphase initialization.
 
-  * [bpo-37999](https://bugs.python.org/issue?@action=redirect&bpo=37999): Builtin and extension functions that take integer arguments no longer accept [`Decimal`](decimal.md#decimal.Decimal "decimal.Decimal")s, [`Fraction`](fractions.md#fractions.Fraction "fractions.Fraction")s and other objects that can be converted to integers only with a loss (e.g. that have the [`__int__()`](datamodel.md#object.__int__ "object.__int__") method but do not have the [`__index__()`](datamodel.md#object.__index__ "object.__index__") method).
+  * [bpo-37999](https://bugs.python.org/issue?@action=redirect&bpo=37999): Builtin and extension functions that take integer arguments no longer accept [`Decimal`](decimal.md#decimal.Decimal "decimal.Decimal")s, [`Fraction`](fractions.md#fractions.Fraction "fractions.Fraction")s and other objects that can be converted to integers only with a loss (e.g. that have the [`__int__()`](3.%20数据模型.md#object.__int__ "object.__int__") method but do not have the [`__index__()`](3.%20数据模型.md#object.__index__ "object.__index__") method).
 
   * [bpo-29882](https://bugs.python.org/issue?@action=redirect&bpo=29882): Add [`int.bit_count()`](stdtypes.md#int.bit_count "int.bit_count"), counting the number of ones in the binary representation of an integer. Patch by Niklas Fiekas.
 
@@ -9936,7 +9936,7 @@ _Release date: 2020-05-19_
 
   * [bpo-1635741](https://bugs.python.org/issue?@action=redirect&bpo=1635741): Port _stat module to multiphase initialization ([ **PEP 489**](https://peps.python.org/pep-0489/)).
 
-  * [bpo-29587](https://bugs.python.org/issue?@action=redirect&bpo=29587): Enable implicit exception chaining when calling [`generator.throw()`](expressions.md#generator.throw "generator.throw").
+  * [bpo-29587](https://bugs.python.org/issue?@action=redirect&bpo=29587): Enable implicit exception chaining when calling [`generator.throw()`](6.%20表达式.md#generator.throw "generator.throw").
 
   * [bpo-40328](https://bugs.python.org/issue?@action=redirect&bpo=40328): Add tools for generating mappings headers for CJKCodecs.
 
@@ -10318,7 +10318,7 @@ Initial patch by Ed Maste (emaste), Conrad Meyer (cem), Kyle Evans (kevans) and 
 
   * [bpo-27635](https://bugs.python.org/issue?@action=redirect&bpo=27635): The pickle documentation incorrectly claimed that `__new__` isn't called by default when unpickling.
 
-  * [bpo-39879](https://bugs.python.org/issue?@action=redirect&bpo=39879): Updated [数据模型](datamodel.md#datamodel) docs to include [`dict()`](stdtypes.md#dict "dict") insertion order preservation. Patch by Furkan Onder and Samy Lahfa.
+  * [bpo-39879](https://bugs.python.org/issue?@action=redirect&bpo=39879): Updated [数据模型](3.%20数据模型.md#datamodel) docs to include [`dict()`](stdtypes.md#dict "dict") insertion order preservation. Patch by Furkan Onder and Samy Lahfa.
 
   * [bpo-38387](https://bugs.python.org/issue?@action=redirect&bpo=38387): Document [`PyDoc_STRVAR`](10.C%20API接口/intro.md#c.PyDoc_STRVAR "PyDoc_STRVAR") macro in the C-API reference.
 
@@ -10546,7 +10546,7 @@ This affects consumers of tstate->id like the contextvar caching machinery, whic
 
   * [bpo-36144](https://bugs.python.org/issue?@action=redirect&bpo=36144): [`types.MappingProxyType`](types.md#types.MappingProxyType "types.MappingProxyType") objects now support the merge (`|`) operator from [**PEP 584**](https://peps.python.org/pep-0584/).
 
-  * [bpo-38691](https://bugs.python.org/issue?@action=redirect&bpo=38691): The [`importlib`](importlib.md#module-importlib "importlib: The implementation of the import machinery.") module now ignores the [`PYTHONCASEOK`](cmdline.md#envvar-PYTHONCASEOK) environment variable when the [`-E`](cmdline.md#cmdoption-E) or [`-I`](cmdline.md#cmdoption-I) command line options are being used.
+  * [bpo-38691](https://bugs.python.org/issue?@action=redirect&bpo=38691): The [`importlib`](importlib.md#module-importlib "importlib: The implementation of the import machinery.") module now ignores the [`PYTHONCASEOK`](1.%20命令行与环境.md#envvar-PYTHONCASEOK) environment variable when the [`-E`](1.%20命令行与环境.md#cmdoption-E) or [`-I`](1.%20命令行与环境.md#cmdoption-I) command line options are being used.
 
   * [bpo-39719](https://bugs.python.org/issue?@action=redirect&bpo=39719): Remove `tempfile.SpooledTemporaryFile.softspace()` as files no longer have the `softspace` attribute in Python 3. Patch by Shantanu.
 
@@ -10778,7 +10778,7 @@ _Release date: 2020-02-25_
 
   * [bpo-38149](https://bugs.python.org/issue?@action=redirect&bpo=38149): [`sys.audit()`](3.标准库/sys.md#sys.audit "sys.audit") is now called only once per call of [`glob.glob()`](glob.md#glob.glob "glob.glob") and [`glob.iglob()`](glob.md#glob.iglob "glob.iglob").
 
-  * [bpo-39546](https://bugs.python.org/issue?@action=redirect&bpo=39546): Fix a regression in [`ArgumentParser`](3.标准库/argparse.md#argparse.ArgumentParser "argparse.ArgumentParser") where `allow_abbrev=False` was ignored for long options that used a prefix character other than "-".
+  * [bpo-39546](https://bugs.python.org/issue?@action=redirect&bpo=39546): Fix a regression in [`ArgumentParser`](argparse.md#argparse.ArgumentParser "argparse.ArgumentParser") where `allow_abbrev=False` was ignored for long options that used a prefix character other than "-".
 
   * [bpo-39450](https://bugs.python.org/issue?@action=redirect&bpo=39450): Striped whitespace from docstring before returning it from `unittest.case.shortDescription()`.
 
@@ -10962,7 +10962,7 @@ This improves the clarity of the interpreter and should provide a modest speedup
 
   * [bpo-38588](https://bugs.python.org/issue?@action=redirect&bpo=38588): Fix possible crashes in dict and list when calling [`PyObject_RichCompareBool()`](object.md#c.PyObject_RichCompareBool "PyObject_RichCompareBool").
 
-  * [bpo-13601](https://bugs.python.org/issue?@action=redirect&bpo=13601): By default, `sys.stderr` is line-buffered now, even if `stderr` is redirected to a file. You can still make `sys.stderr` unbuffered by passing the [`-u`](cmdline.md#cmdoption-u) command-line option or setting the [`PYTHONUNBUFFERED`](cmdline.md#envvar-PYTHONUNBUFFERED) environment variable.
+  * [bpo-13601](https://bugs.python.org/issue?@action=redirect&bpo=13601): By default, `sys.stderr` is line-buffered now, even if `stderr` is redirected to a file. You can still make `sys.stderr` unbuffered by passing the [`-u`](1.%20命令行与环境.md#cmdoption-u) command-line option or setting the [`PYTHONUNBUFFERED`](1.%20命令行与环境.md#envvar-PYTHONUNBUFFERED) environment variable.
 
 (Contributed by Jendrik Seipp in [bpo-13601](https://bugs.python.org/issue?@action=redirect&bpo=13601).)
 
@@ -11220,7 +11220,7 @@ The previous code was raising a [`KeyError`](3.标准库/exceptions.md#KeyError 
 
   * [bpo-38834](https://bugs.python.org/issue?@action=redirect&bpo=38834): [`typing.TypedDict`](typing.md#typing.TypedDict "typing.TypedDict") subclasses now track which keys are optional using the `__required_keys__` and `__optional_keys__` attributes, to enable runtime validation by downstream projects. Patch by Zac Hatfield-Dodds.
 
-  * [bpo-38821](https://bugs.python.org/issue?@action=redirect&bpo=38821): Fix unhandled exceptions in [`argparse`](3.标准库/argparse.md#module-argparse "argparse: Command-line option and argument parsing library.") when internationalizing error messages for arguments with `nargs` set to special (non-integer) values. Patch by Federico Bond.
+  * [bpo-38821](https://bugs.python.org/issue?@action=redirect&bpo=38821): Fix unhandled exceptions in [`argparse`](argparse.md#module-argparse "argparse: Command-line option and argument parsing library.") when internationalizing error messages for arguments with `nargs` set to special (non-integer) values. Patch by Federico Bond.
 
   * [bpo-38820](https://bugs.python.org/issue?@action=redirect&bpo=38820): Make Python compatible with OpenSSL 3.0.0. [`ssl.SSLSocket.getpeercert()`](ssl.md#ssl.SSLSocket.getpeercert "ssl.SSLSocket.getpeercert") no longer returns IPv6 addresses with a trailing new line.
 
@@ -11336,7 +11336,7 @@ _Release date: 2019-11-19_
 
   * [bpo-37461](https://bugs.python.org/issue?@action=redirect&bpo=37461): Fix an infinite loop when parsing specially crafted email headers. Patch by Abhilash Raj.
 
-  * [bpo-37363](https://bugs.python.org/issue?@action=redirect&bpo=37363): Adds audit events for the range of supported run commands (see [命令行与环境](cmdline.md#using-on-general)).
+  * [bpo-37363](https://bugs.python.org/issue?@action=redirect&bpo=37363): Adds audit events for the range of supported run commands (see [命令行与环境](1.%20命令行与环境.md#using-on-general)).
 
   * [bpo-37463](https://bugs.python.org/issue?@action=redirect&bpo=37463): ssl.match_hostname() no longer accepts IPv4 addresses with additional text after the address and only quad-dotted notation without trailing whitespaces. Some inet_aton() implementations ignore whitespace and all data after whitespace, e.g. '127.0.0.1 whatever'.
 
@@ -11434,7 +11434,7 @@ _Release date: 2019-11-19_
 
   * [bpo-37751](https://bugs.python.org/issue?@action=redirect&bpo=37751): Fix [`codecs.lookup()`](codecs.md#codecs.lookup "codecs.lookup") to normalize the encoding name the same way than `encodings.normalize_encoding()`, except that [`codecs.lookup()`](codecs.md#codecs.lookup "codecs.lookup") also converts the name to lower case.
 
-  * [bpo-37830](https://bugs.python.org/issue?@action=redirect&bpo=37830): Fixed compilation of [`break`](simple_stmts.md#break) and [`continue`](simple_stmts.md#continue) in the [`finally`](compound_stmts.md#finally) block when the corresponding [`try`](compound_stmts.md#try) block contains [`return`](simple_stmts.md#return) with a non-constant value.
+  * [bpo-37830](https://bugs.python.org/issue?@action=redirect&bpo=37830): Fixed compilation of [`break`](7.%20简单语句.md#break) and [`continue`](7.%20简单语句.md#continue) in the [`finally`](8.%20复合语句.md#finally) block when the corresponding [`try`](8.%20复合语句.md#try) block contains [`return`](7.%20简单语句.md#return) with a non-constant value.
 
   * [bpo-20490](https://bugs.python.org/issue?@action=redirect&bpo=20490): Improve import error message for partially initialized module on circular `from` imports - by Anthony Sottile.
 
@@ -11454,7 +11454,7 @@ The `TargetScopeError` subclass originally proposed by the PEP has been removed 
 
   * [bpo-36311](https://bugs.python.org/issue?@action=redirect&bpo=36311): Decoding bytes objects larger than 2GiB is faster and no longer fails when a multibyte characters spans a chunk boundary.
 
-  * [bpo-34880](https://bugs.python.org/issue?@action=redirect&bpo=34880): The [`assert`](simple_stmts.md#assert) statement now works properly if the [`AssertionError`](3.标准库/exceptions.md#AssertionError "AssertionError") exception is being shadowed. Patch by Zackery Spytz.
+  * [bpo-34880](https://bugs.python.org/issue?@action=redirect&bpo=34880): The [`assert`](7.%20简单语句.md#assert) statement now works properly if the [`AssertionError`](3.标准库/exceptions.md#AssertionError "AssertionError") exception is being shadowed. Patch by Zackery Spytz.
 
   * [bpo-37340](https://bugs.python.org/issue?@action=redirect&bpo=37340): Removed object cache (`free_list`) for bound method objects. Temporary bound method objects are less used than before thanks to the `LOAD_METHOD` opcode and the `_PyObject_VectorcallMethod` C API.
 
@@ -11550,7 +11550,7 @@ By default, for best performances, the _errors_ argument is only checked at the 
 
   * [bpo-27805](https://bugs.python.org/issue?@action=redirect&bpo=27805): Allow opening pipes and other non-seekable files in append mode with [`open()`](functions.md#open "open").
 
-  * [bpo-38438](https://bugs.python.org/issue?@action=redirect&bpo=38438): Simplify the [`argparse`](3.标准库/argparse.md#module-argparse "argparse: Command-line option and argument parsing library.") usage message for `nargs="*"`.
+  * [bpo-38438](https://bugs.python.org/issue?@action=redirect&bpo=38438): Simplify the [`argparse`](argparse.md#module-argparse "argparse: Command-line option and argument parsing library.") usage message for `nargs="*"`.
 
   * [bpo-38761](https://bugs.python.org/issue?@action=redirect&bpo=38761): WeakSet is now registered as a collections.abc.MutableSet.
 
@@ -11778,7 +11778,7 @@ Patch by blhsing
 
   * [bpo-18578](https://bugs.python.org/issue?@action=redirect&bpo=18578): Renamed and documented `test.bytecode_helper` as [`test.support.bytecode_helper`](test.md#module-test.support.bytecode_helper "test.support.bytecode_helper: Support tools for testing correct bytecode generation."). Patch by Joannah Nanjekye.
 
-  * [bpo-37785](https://bugs.python.org/issue?@action=redirect&bpo=37785): Fix xgettext warnings in [`argparse`](3.标准库/argparse.md#module-argparse "argparse: Command-line option and argument parsing library.").
+  * [bpo-37785](https://bugs.python.org/issue?@action=redirect&bpo=37785): Fix xgettext warnings in [`argparse`](argparse.md#module-argparse "argparse: Command-line option and argument parsing library.").
 
   * [bpo-34488](https://bugs.python.org/issue?@action=redirect&bpo=34488): `writelines()` method of [`io.BytesIO`](io.md#io.BytesIO "io.BytesIO") is now slightly faster when many small lines are passed. Patch by Sergey Fedoseev.
 
@@ -11810,7 +11810,7 @@ Patch by blhsing
 
   * [bpo-37689](https://bugs.python.org/issue?@action=redirect&bpo=37689): Add `is_relative_to()` in `PurePath` to determine whether or not one path is relative to another.
 
-  * [bpo-29553](https://bugs.python.org/issue?@action=redirect&bpo=29553): Fixed [`argparse.ArgumentParser.format_usage()`](3.标准库/argparse.md#argparse.ArgumentParser.format_usage "argparse.ArgumentParser.format_usage") for mutually exclusive groups. Patch by Andrew Nester.
+  * [bpo-29553](https://bugs.python.org/issue?@action=redirect&bpo=29553): Fixed [`argparse.ArgumentParser.format_usage()`](argparse.md#argparse.ArgumentParser.format_usage "argparse.ArgumentParser.format_usage") for mutually exclusive groups. Patch by Andrew Nester.
 
   * [bpo-37691](https://bugs.python.org/issue?@action=redirect&bpo=37691): Let math.dist() accept coordinates as sequences (or iterables) rather than just tuples.
 
@@ -11886,7 +11886,7 @@ Patch by blhsing
 
   * [bpo-37376](https://bugs.python.org/issue?@action=redirect&bpo=37376): [`pprint`](pprint.md#module-pprint "pprint: Data pretty printer.") now has support for [`types.SimpleNamespace`](types.md#types.SimpleNamespace "types.SimpleNamespace"). Patch by Carl Bordum Hansen.
 
-  * [bpo-26967](https://bugs.python.org/issue?@action=redirect&bpo=26967): An [`ArgumentParser`](3.标准库/argparse.md#argparse.ArgumentParser "argparse.ArgumentParser") with `allow_abbrev=False` no longer disables grouping of short flags, such as `-vv`, but only disables abbreviation of long flags as documented. Patch by Zac Hatfield-Dodds.
+  * [bpo-26967](https://bugs.python.org/issue?@action=redirect&bpo=26967): An [`ArgumentParser`](argparse.md#argparse.ArgumentParser "argparse.ArgumentParser") with `allow_abbrev=False` no longer disables grouping of short flags, such as `-vv`, but only disables abbreviation of long flags as documented. Patch by Zac Hatfield-Dodds.
 
   * [bpo-37212](https://bugs.python.org/issue?@action=redirect&bpo=37212): [`unittest.mock.call()`](unittest.mock.md#unittest.mock.call "unittest.mock.call") now preserves the order of keyword arguments in repr output. Patch by Karthikeyan Singaravelan.
 
@@ -12516,7 +12516,7 @@ _Release date: 2019-06-04_
 
   * [bpo-37122](https://bugs.python.org/issue?@action=redirect&bpo=37122): Make the _co_argcount_ attribute of code objects represent the total number of positional arguments (including positional-only arguments). The value of _co_posonlyargcount_ can be used to distinguish which arguments are positional only, and the difference ( _co_argcount_ \- _co_posonlyargcount_ ) is the number of positional-or-keyword arguments. Patch by Pablo Galindo.
 
-  * [bpo-20092](https://bugs.python.org/issue?@action=redirect&bpo=20092): Constructors of [`int`](functions.md#int "int"), [`float`](functions.md#float "float") and [`complex`](functions.md#complex "complex") will now use the [`__index__()`](datamodel.md#object.__index__ "object.__index__") special method, if available and the corresponding method [`__int__()`](datamodel.md#object.__int__ "object.__int__"), [`__float__()`](datamodel.md#object.__float__ "object.__float__") or [`__complex__()`](datamodel.md#object.__complex__ "object.__complex__") is not available.
+  * [bpo-20092](https://bugs.python.org/issue?@action=redirect&bpo=20092): Constructors of [`int`](functions.md#int "int"), [`float`](functions.md#float "float") and [`complex`](functions.md#complex "complex") will now use the [`__index__()`](3.%20数据模型.md#object.__index__ "object.__index__") special method, if available and the corresponding method [`__int__()`](3.%20数据模型.md#object.__int__ "object.__int__"), [`__float__()`](3.%20数据模型.md#object.__float__ "object.__float__") or [`__complex__()`](3.%20数据模型.md#object.__complex__ "object.__complex__") is not available.
 
   * [bpo-37087](https://bugs.python.org/issue?@action=redirect&bpo=37087): Add native thread ID (TID) support to OpenBSD.
 
@@ -13016,7 +13016,7 @@ _Release date: 2019-05-06_
 
   * [bpo-36598](https://bugs.python.org/issue?@action=redirect&bpo=36598): Fix `isinstance` check for Mock objects with spec when the code is executed under tracing. Patch by Karthikeyan Singaravelan.
 
-  * [bpo-18748](https://bugs.python.org/issue?@action=redirect&bpo=18748): In development mode ([`-X`](cmdline.md#cmdoption-X) `dev`) and in debug build, the [`io.IOBase`](io.md#io.IOBase "io.IOBase") destructor now logs `close()` exceptions. These exceptions are silent by default in release mode.
+  * [bpo-18748](https://bugs.python.org/issue?@action=redirect&bpo=18748): In development mode ([`-X`](1.%20命令行与环境.md#cmdoption-X) `dev`) and in debug build, the [`io.IOBase`](io.md#io.IOBase "io.IOBase") destructor now logs `close()` exceptions. These exceptions are silent by default in release mode.
 
   * [bpo-36575](https://bugs.python.org/issue?@action=redirect&bpo=36575): The `_lsprof` module now uses internal timer same to `time.perf_counter()` by default. `gettimeofday(2)` was used on Unix. New timer has better resolution on most Unix platforms and timings are no longer impacted by system clock updates since `perf_counter()` is monotonic. Patch by Inada Naoki.
 
@@ -13168,7 +13168,7 @@ distutils, python-config and python-config.py have been modified.
 
   * [bpo-36605](https://bugs.python.org/issue?@action=redirect&bpo=36605): `make tags` and `make TAGS` now also parse `Modules/_io/*.c` and `Modules/_io/*.h`.
 
-  * [bpo-36465](https://bugs.python.org/issue?@action=redirect&bpo=36465): Release builds and debug builds are now ABI compatible: defining the `Py_DEBUG` macro no longer implies the `Py_TRACE_REFS` macro, which introduces the only ABI incompatibility. The `Py_TRACE_REFS` macro, which adds the `sys.getobjects()` function and the [`PYTHONDUMPREFS`](cmdline.md#envvar-PYTHONDUMPREFS) environment variable, can be set using the new `./configure --with-trace-refs` build option.
+  * [bpo-36465](https://bugs.python.org/issue?@action=redirect&bpo=36465): Release builds and debug builds are now ABI compatible: defining the `Py_DEBUG` macro no longer implies the `Py_TRACE_REFS` macro, which introduces the only ABI incompatibility. The `Py_TRACE_REFS` macro, which adds the `sys.getobjects()` function and the [`PYTHONDUMPREFS`](1.%20命令行与环境.md#envvar-PYTHONDUMPREFS) environment variable, can be set using the new `./configure --with-trace-refs` build option.
 
   * [bpo-36577](https://bugs.python.org/issue?@action=redirect&bpo=36577): setup.py now correctly reports missing OpenSSL headers and libraries again.
 
@@ -13282,7 +13282,7 @@ _Release date: 2019-03-25_
 
   * [bpo-31904](https://bugs.python.org/issue?@action=redirect&bpo=31904): Use UTF-8 as the system encoding on VxWorks.
 
-  * [bpo-36048](https://bugs.python.org/issue?@action=redirect&bpo=36048): The [`__index__()`](datamodel.md#object.__index__ "object.__index__") special method will be used instead of [`__int__()`](datamodel.md#object.__int__ "object.__int__") for implicit conversion of Python numbers to C integers. Using the `__int__()` method in implicit conversions has been deprecated.
+  * [bpo-36048](https://bugs.python.org/issue?@action=redirect&bpo=36048): The [`__index__()`](3.%20数据模型.md#object.__index__ "object.__index__") special method will be used instead of [`__int__()`](3.%20数据模型.md#object.__int__ "object.__int__") for implicit conversion of Python numbers to C integers. Using the `__int__()` method in implicit conversions has been deprecated.
 
   * [bpo-35808](https://bugs.python.org/issue?@action=redirect&bpo=35808): Retire pgen and use a modified version of pgen2 to generate the parser. Patch by Pablo Galindo.
 
@@ -13560,7 +13560,7 @@ _Release date: 2019-02-03_
 
   * [bpo-35746](https://bugs.python.org/issue?@action=redirect&bpo=35746): [CVE-2019-5010] Fix a NULL pointer deref in ssl module. The cert parser did not handle CRL distribution points with empty DP or URI correctly. A malicious or buggy certificate can result into segfault. Vulnerability (TALOS-2018-0758) reported by Colin Read and Nicolas Edet of Cisco.
 
-  * [bpo-34812](https://bugs.python.org/issue?@action=redirect&bpo=34812): The [`-I`](cmdline.md#cmdoption-I) command line option (run Python in isolated mode) is now also copied by the [`multiprocessing`](multiprocessing.md#module-multiprocessing "multiprocessing: Process-based parallelism.") and `distutils` modules when spawning child processes. Previously, only [`-E`](cmdline.md#cmdoption-E) and [`-s`](cmdline.md#cmdoption-s) options (enabled by [`-I`](cmdline.md#cmdoption-I)) were copied.
+  * [bpo-34812](https://bugs.python.org/issue?@action=redirect&bpo=34812): The [`-I`](1.%20命令行与环境.md#cmdoption-I) command line option (run Python in isolated mode) is now also copied by the [`multiprocessing`](multiprocessing.md#module-multiprocessing "multiprocessing: Process-based parallelism.") and `distutils` modules when spawning child processes. Previously, only [`-E`](1.%20命令行与环境.md#cmdoption-E) and [`-s`](1.%20命令行与环境.md#cmdoption-s) options (enabled by [`-I`](1.%20命令行与环境.md#cmdoption-I)) were copied.
 
   * [bpo-34791](https://bugs.python.org/issue?@action=redirect&bpo=34791): The xml.sax and xml.dom.domreg no longer use environment variables to override parser implementations when sys.flags.ignore_environment is set by -E or -I arguments.
 
@@ -13796,7 +13796,7 @@ _Release date: 2019-02-03_
 
   * [bpo-23722](https://bugs.python.org/issue?@action=redirect&bpo=23722): A [`RuntimeError`](3.标准库/exceptions.md#RuntimeError "RuntimeError") is now raised when the custom metaclass doesn't provide the `__classcell__` entry in the namespace passed to `type.__new__`. A [`DeprecationWarning`](3.标准库/exceptions.md#DeprecationWarning "DeprecationWarning") was emitted in Python 3.6--3.7.
 
-  * [bpo-33499](https://bugs.python.org/issue?@action=redirect&bpo=33499): Add [`PYTHONPYCACHEPREFIX`](cmdline.md#envvar-PYTHONPYCACHEPREFIX) environment variable and [`-X`](cmdline.md#cmdoption-X) `pycache_prefix` command-line option to set an alternate root directory for writing module bytecode cache files.
+  * [bpo-33499](https://bugs.python.org/issue?@action=redirect&bpo=33499): Add [`PYTHONPYCACHEPREFIX`](1.%20命令行与环境.md#envvar-PYTHONPYCACHEPREFIX) environment variable and [`-X`](1.%20命令行与环境.md#cmdoption-X) `pycache_prefix` command-line option to set an alternate root directory for writing module bytecode cache files.
 
   * [bpo-25711](https://bugs.python.org/issue?@action=redirect&bpo=25711): The [`zipimport`](zipimport.md#module-zipimport "zipimport: Support for importing Python modules from ZIP archives.") module has been rewritten in pure Python.
 
@@ -13888,9 +13888,9 @@ _Release date: 2019-02-03_
 
   * [bpo-32583](https://bugs.python.org/issue?@action=redirect&bpo=32583): Fix possible crashing in builtin Unicode decoders caused by write out-of-bound errors when using customized decode error handlers.
 
-  * [bpo-32489](https://bugs.python.org/issue?@action=redirect&bpo=32489): A [`continue`](simple_stmts.md#continue) statement is now allowed in the [`finally`](compound_stmts.md#finally) clause.
+  * [bpo-32489](https://bugs.python.org/issue?@action=redirect&bpo=32489): A [`continue`](7.%20简单语句.md#continue) statement is now allowed in the [`finally`](8.%20复合语句.md#finally) clause.
 
-  * [bpo-17611](https://bugs.python.org/issue?@action=redirect&bpo=17611): Simplified the interpreter loop by moving the logic of unrolling the stack of blocks into the compiler. The compiler emits now explicit instructions for adjusting the stack of values and calling the cleaning up code for [`break`](simple_stmts.md#break), [`continue`](simple_stmts.md#continue) and [`return`](simple_stmts.md#return).
+  * [bpo-17611](https://bugs.python.org/issue?@action=redirect&bpo=17611): Simplified the interpreter loop by moving the logic of unrolling the stack of blocks into the compiler. The compiler emits now explicit instructions for adjusting the stack of values and calling the cleaning up code for [`break`](7.%20简单语句.md#break), [`continue`](7.%20简单语句.md#continue) and [`return`](7.%20简单语句.md#return).
 
 Removed opcodes `BREAK_LOOP`, `CONTINUE_LOOP`, `SETUP_LOOP` and `SETUP_EXCEPT`. Added new opcodes `ROT_FOUR`, `BEGIN_FINALLY` and `CALL_FINALLY` and `POP_FINALLY`. Changed the behavior of `END_FINALLY` and `WITH_CLEANUP_START`.
 
@@ -14576,7 +14576,7 @@ Removed opcodes `BREAK_LOOP`, `CONTINUE_LOOP`, `SETUP_LOOP` and `SETUP_EXCEPT`. 
 
   * [bpo-33144](https://bugs.python.org/issue?@action=redirect&bpo=33144): `random.Random()` and its subclassing mechanism got optimized to check only once at class/subclass instantiation time whether its `getrandbits()` method can be relied on by other methods, including `randrange()`, for the generation of arbitrarily large random integers. Patch by Wolfgang Maier.
 
-  * [bpo-33185](https://bugs.python.org/issue?@action=redirect&bpo=33185): Fixed regression when running pydoc with the [`-m`](cmdline.md#cmdoption-m) switch. (The regression was introduced in 3.7.0b3 by the resolution of [bpo-33053](https://bugs.python.org/issue?@action=redirect&bpo=33053))
+  * [bpo-33185](https://bugs.python.org/issue?@action=redirect&bpo=33185): Fixed regression when running pydoc with the [`-m`](1.%20命令行与环境.md#cmdoption-m) switch. (The regression was introduced in 3.7.0b3 by the resolution of [bpo-33053](https://bugs.python.org/issue?@action=redirect&bpo=33053))
 
 This fix also changed pydoc to add `os.getcwd()` to [`sys.path`](3.标准库/sys.md#sys.path "sys.path") when necessary, rather than adding `"."`.
 
@@ -15274,7 +15274,7 @@ Applicable to Python2-2.7 and later
 
   * [bpo-33204](https://bugs.python.org/issue?@action=redirect&bpo=33204): IDLE: consistently color invalid string prefixes. A 'u' string prefix cannot be paired with either 'r' or 'f'. Consistently color as much of the prefix, starting at the right, as is valid. Revise and extend colorizer test.
 
-  * [bpo-32984](https://bugs.python.org/issue?@action=redirect&bpo=32984): Set `__file__` while running a startup file. Like Python, IDLE optionally runs one startup file in the Shell window before presenting the first interactive input prompt. For IDLE, `-s` runs a file named in environmental variable `IDLESTARTUP` or [`PYTHONSTARTUP`](cmdline.md#envvar-PYTHONSTARTUP); `-r file` runs `file`. Python sets `__file__` to the startup file name before running the file and unsets it before the first prompt. IDLE now does the same when run normally, without the `-n` option.
+  * [bpo-32984](https://bugs.python.org/issue?@action=redirect&bpo=32984): Set `__file__` while running a startup file. Like Python, IDLE optionally runs one startup file in the Shell window before presenting the first interactive input prompt. For IDLE, `-s` runs a file named in environmental variable `IDLESTARTUP` or [`PYTHONSTARTUP`](1.%20命令行与环境.md#envvar-PYTHONSTARTUP); `-r file` runs `file`. Python sets `__file__` to the startup file name before running the file and unsets it before the first prompt. IDLE now does the same when run normally, without the `-n` option.
 
   * [bpo-32940](https://bugs.python.org/issue?@action=redirect&bpo=32940): Simplify and rename StringTranslatePseudoMapping in pyparse.
 
@@ -15628,7 +15628,7 @@ _Release date: 2018-05-02_
 
   * [bpo-33256](https://bugs.python.org/issue?@action=redirect&bpo=33256): Fix display of `<module>` call in the html produced by `cgitb.md()`. Patch by Stéphane Blondon.
 
-  * [bpo-33185](https://bugs.python.org/issue?@action=redirect&bpo=33185): Fixed regression when running pydoc with the [`-m`](cmdline.md#cmdoption-m) switch. (The regression was introduced in 3.7.0b3 by the resolution of [bpo-33053](https://bugs.python.org/issue?@action=redirect&bpo=33053)) This fix also changed pydoc to add `os.getcwd()` to [`sys.path`](3.标准库/sys.md#sys.path "sys.path") when necessary, rather than adding `"."`.
+  * [bpo-33185](https://bugs.python.org/issue?@action=redirect&bpo=33185): Fixed regression when running pydoc with the [`-m`](1.%20命令行与环境.md#cmdoption-m) switch. (The regression was introduced in 3.7.0b3 by the resolution of [bpo-33053](https://bugs.python.org/issue?@action=redirect&bpo=33053)) This fix also changed pydoc to add `os.getcwd()` to [`sys.path`](3.标准库/sys.md#sys.path "sys.path") when necessary, rather than adding `"."`.
 
   * [bpo-33169](https://bugs.python.org/issue?@action=redirect&bpo=33169): Delete entries of `None` in [`sys.path_importer_cache`](3.标准库/sys.md#sys.path_importer_cache "sys.path_importer_cache") when `importlib.machinery.invalidate_caches()` is called.
 
@@ -15822,7 +15822,7 @@ _Release date: 2018-03-29_
 
 ### IDLE¶
 
-  * [bpo-32984](https://bugs.python.org/issue?@action=redirect&bpo=32984): Set `__file__` while running a startup file. Like Python, IDLE optionally runs one startup file in the Shell window before presenting the first interactive input prompt. For IDLE, `-s` runs a file named in environmental variable `IDLESTARTUP` or [`PYTHONSTARTUP`](cmdline.md#envvar-PYTHONSTARTUP); `-r file` runs `file`. Python sets `__file__` to the startup file name before running the file and unsets it before the first prompt. IDLE now does the same when run normally, without the `-n` option.
+  * [bpo-32984](https://bugs.python.org/issue?@action=redirect&bpo=32984): Set `__file__` while running a startup file. Like Python, IDLE optionally runs one startup file in the Shell window before presenting the first interactive input prompt. For IDLE, `-s` runs a file named in environmental variable `IDLESTARTUP` or [`PYTHONSTARTUP`](1.%20命令行与环境.md#envvar-PYTHONSTARTUP); `-r file` runs `file`. Python sets `__file__` to the startup file name before running the file and unsets it before the first prompt. IDLE now does the same when run normally, without the `-n` option.
 
   * [bpo-32940](https://bugs.python.org/issue?@action=redirect&bpo=32940): Simplify and rename StringTranslatePseudoMapping in pyparse.
 
@@ -16202,7 +16202,7 @@ _Release date: 2018-01-08_
 
   * [bpo-27169](https://bugs.python.org/issue?@action=redirect&bpo=27169): The `__debug__` constant is now optimized out at compile time. This fixes also [bpo-22091](https://bugs.python.org/issue?@action=redirect&bpo=22091).
 
-  * [bpo-32329](https://bugs.python.org/issue?@action=redirect&bpo=32329): The [`-R`](cmdline.md#cmdoption-R) option now turns on hash randomization when the [`PYTHONHASHSEED`](cmdline.md#envvar-PYTHONHASHSEED) environment variable is set to `0`. Previously, the option was ignored. Moreover, `sys.flags.hash_randomization` is now properly set to 0 when hash randomization is turned off by `PYTHONHASHSEED=0`.
+  * [bpo-32329](https://bugs.python.org/issue?@action=redirect&bpo=32329): The [`-R`](1.%20命令行与环境.md#cmdoption-R) option now turns on hash randomization when the [`PYTHONHASHSEED`](1.%20命令行与环境.md#envvar-PYTHONHASHSEED) environment variable is set to `0`. Previously, the option was ignored. Moreover, `sys.flags.hash_randomization` is now properly set to 0 when hash randomization is turned off by `PYTHONHASHSEED=0`.
 
   * [bpo-30416](https://bugs.python.org/issue?@action=redirect&bpo=30416): The optimizer is now protected from spending much time doing complex calculations and consuming much memory for creating large constants in constant folding. Increased limits for constants that can be produced in constant folding.
 
@@ -16738,7 +16738,7 @@ _Release date: 2017-10-16_
 
   * [bpo-31336](https://bugs.python.org/issue?@action=redirect&bpo=31336): Speed up class creation by 10-20% by reducing the overhead in the necessary special method lookups. Patch by Stefan Behnel.
 
-  * [bpo-31415](https://bugs.python.org/issue?@action=redirect&bpo=31415): Add `-X importtime` option to show how long each import takes. It can be used to optimize application's startup time. Support the [`PYTHONPROFILEIMPORTTIME`](cmdline.md#envvar-PYTHONPROFILEIMPORTTIME) as an equivalent way to enable this.
+  * [bpo-31415](https://bugs.python.org/issue?@action=redirect&bpo=31415): Add `-X importtime` option to show how long each import takes. It can be used to optimize application's startup time. Support the [`PYTHONPROFILEIMPORTTIME`](1.%20命令行与环境.md#envvar-PYTHONPROFILEIMPORTTIME) as an equivalent way to enable this.
 
   * [bpo-31410](https://bugs.python.org/issue?@action=redirect&bpo=31410): Optimized calling wrapper and classmethod descriptors.
 
@@ -18552,7 +18552,7 @@ _Release date: 2018-03-13_
 
 ### IDLE¶
 
-  * [bpo-32984](https://bugs.python.org/issue?@action=redirect&bpo=32984): Set `__file__` while running a startup file. Like Python, IDLE optionally runs one startup file in the Shell window before presenting the first interactive input prompt. For IDLE, `-s` runs a file named in environmental variable `IDLESTARTUP` or [`PYTHONSTARTUP`](cmdline.md#envvar-PYTHONSTARTUP); `-r file` runs `file`. Python sets `__file__` to the startup file name before running the file and unsets it before the first prompt. IDLE now does the same when run normally, without the `-n` option.
+  * [bpo-32984](https://bugs.python.org/issue?@action=redirect&bpo=32984): Set `__file__` while running a startup file. Like Python, IDLE optionally runs one startup file in the Shell window before presenting the first interactive input prompt. For IDLE, `-s` runs a file named in environmental variable `IDLESTARTUP` or [`PYTHONSTARTUP`](1.%20命令行与环境.md#envvar-PYTHONSTARTUP); `-r file` runs `file`. Python sets `__file__` to the startup file name before running the file and unsets it before the first prompt. IDLE now does the same when run normally, without the `-n` option.
 
   * [bpo-32940](https://bugs.python.org/issue?@action=redirect&bpo=32940): Simplify and rename StringTranslatePseudoMapping in pyparse.
 
@@ -20866,11 +20866,11 @@ _Release date: 2016-05-16_
 
   * [bpo-26558](https://bugs.python.org/issue?@action=redirect&bpo=26558): The debug hooks on Python memory allocator [`PyObject_Malloc()`](memory.md#c.PyObject_Malloc "PyObject_Malloc") now detect when functions are called without holding the GIL.
 
-  * [bpo-26516](https://bugs.python.org/issue?@action=redirect&bpo=26516): Add [`PYTHONMALLOC`](cmdline.md#envvar-PYTHONMALLOC) environment variable to set the Python memory allocators and/or install debug hooks.
+  * [bpo-26516](https://bugs.python.org/issue?@action=redirect&bpo=26516): Add [`PYTHONMALLOC`](1.%20命令行与环境.md#envvar-PYTHONMALLOC) environment variable to set the Python memory allocators and/or install debug hooks.
 
   * [bpo-26516](https://bugs.python.org/issue?@action=redirect&bpo=26516): The [`PyMem_SetupDebugHooks()`](memory.md#c.PyMem_SetupDebugHooks "PyMem_SetupDebugHooks") function can now also be used on Python compiled in release mode.
 
-  * [bpo-26516](https://bugs.python.org/issue?@action=redirect&bpo=26516): The [`PYTHONMALLOCSTATS`](cmdline.md#envvar-PYTHONMALLOCSTATS) environment variable can now also be used on Python compiled in release mode. It now has no effect if set to an empty string.
+  * [bpo-26516](https://bugs.python.org/issue?@action=redirect&bpo=26516): The [`PYTHONMALLOCSTATS`](1.%20命令行与环境.md#envvar-PYTHONMALLOCSTATS) environment variable can now also be used on Python compiled in release mode. It now has no effect if set to an empty string.
 
   * [bpo-26516](https://bugs.python.org/issue?@action=redirect&bpo=26516): In debug mode, debug hooks are now also installed on Python memory allocators when Python is configured without pymalloc.
 

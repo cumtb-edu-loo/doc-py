@@ -6,7 +6,7 @@
 
 * * *
 
-本模块提供了一套管理工具，用于创建包含 Python 代码的压缩文件，这些文件可以 [直接由 Python 解释器执行](cmdline.md#using-on-interface-options)。 本模块提供 命令行接口 和 Python API。
+本模块提供了一套管理工具，用于创建包含 Python 代码的压缩文件，这些文件可以 [直接由 Python 解释器执行](1.%20命令行与环境.md#using-on-interface-options)。 本模块提供 命令行接口 和 Python API。
 
 ## 简单示例¶
 

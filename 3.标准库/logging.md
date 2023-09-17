@@ -6,11 +6,11 @@ Important
 
 此页面仅包含 API 参考信息。教程信息和更多高级用法的讨论，请参阅
 
-  * [基础教程](6.常用指引/logging.md#logging-basic-tutorial)
+  * [基础教程](7.日志指南.md#logging-basic-tutorial)
 
-  * [进阶教程](6.常用指引/logging.md#logging-advanced-tutorial)
+  * [进阶教程](7.日志指南.md#logging-advanced-tutorial)
 
-  * [日志记录操作手册](logging-cookbook.md#logging-cookbook)
+  * [日志记录操作手册](8.日志专题手册.md#logging-cookbook)
 
 * * *
 
@@ -833,7 +833,7 @@ msg
 
 |
 
-在原始日志记录调用中传入的格式字符串。 与 `args` 合并以产生 `message`，或是一个任意对象 (参见 [使用任意对象作为消息](6.常用指引/logging.md#arbitrary-object-messages))。  
+在原始日志记录调用中传入的格式字符串。 与 `args` 合并以产生 `message`，或是一个任意对象 (参见 [使用任意对象作为消息](7.日志指南.md#arbitrary-object-messages))。  
   
 name
 
@@ -931,7 +931,7 @@ taskName
 
 ## LoggerAdapter 对象¶
 
-`LoggerAdapter` 实例会被用来方便地将上下文信息传入日志记录调用。 要获取用法示例，请参阅 [添加上下文信息到你的日志记录输出](logging-cookbook.md#context-info) 部分。
+`LoggerAdapter` 实例会被用来方便地将上下文信息传入日志记录调用。 要获取用法示例，请参阅 [添加上下文信息到你的日志记录输出](8.日志专题手册.md#context-info) 部分。
 
 _class _logging.LoggerAdapter( _logger_ , _extra_ , _merge_extra =False_)¶
 

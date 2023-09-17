@@ -10,9 +10,9 @@
 
 ## 逻辑值检测¶
 
-任何对象都可以进行逻辑值的检测，以便在 [`if`](compound_stmts.md#if) 或 [`while`](compound_stmts.md#while) 作为条件或是作为下文所述布尔运算的操作数来使用。
+任何对象都可以进行逻辑值的检测，以便在 [`if`](8.%20复合语句.md#if) 或 [`while`](8.%20复合语句.md#while) 作为条件或是作为下文所述布尔运算的操作数来使用。
 
-在默认情况下，一个对象会被视为具有真值，除非其所属的类定义了 [`__bool__()`](datamodel.md#object.__bool__ "object.__bool__") 方法且在调用时返回 `False` 或是定义了 `__len__()` 方法且在调用时返回零。 [1] 这里基本完整地列出了会被视为假值的内置对象:
+在默认情况下，一个对象会被视为具有真值，除非其所属的类定义了 [`__bool__()`](3.%20数据模型.md#object.__bool__ "object.__bool__") 方法且在调用时返回 `False` 或是定义了 `__len__()` 方法且在调用时返回零。 [1] 这里基本完整地列出了会被视为假值的内置对象:
 
 >   * 被定义为假值的常量: `None` 和 `False`
 
@@ -138,15 +138,15 @@ if _x_ is false, then `True`, else `False`
 
 否定的对象标识  
   
-除不同的数字类型外，不同类型的对象不能进行相等比较。`==` 运算符总有定义，但对于某些对象类型（例如，类对象），它等于 [`is`](expressions.md#is) 。其他 `<`、`<=`、`>` 和 `>=` 运算符仅在有意义的地方定义。例如，当参与比较的参数之一为复数时，它们会抛出 [`TypeError`](3.标准库/exceptions.md#TypeError "TypeError") 异常。
+除不同的数字类型外，不同类型的对象不能进行相等比较。`==` 运算符总有定义，但对于某些对象类型（例如，类对象），它等于 [`is`](6.%20表达式.md#is) 。其他 `<`、`<=`、`>` 和 `>=` 运算符仅在有意义的地方定义。例如，当参与比较的参数之一为复数时，它们会抛出 [`TypeError`](3.标准库/exceptions.md#TypeError "TypeError") 异常。
 
-具有不同标识的类的实例比较结果通常为不相等，除非类定义了 [`__eq__()`](datamodel.md#object.__eq__ "object.__eq__") 方法。
+具有不同标识的类的实例比较结果通常为不相等，除非类定义了 [`__eq__()`](3.%20数据模型.md#object.__eq__ "object.__eq__") 方法。
 
-一个类的实例不能与相同类的其他实例或其他类型的对象进行排序，除非定义该类定义了足够多的方法，包括 [`__lt__()`](datamodel.md#object.__lt__ "object.__lt__"), [`__le__()`](datamodel.md#object.__le__ "object.__le__"), [`__gt__()`](datamodel.md#object.__gt__ "object.__gt__") 以及 [`__ge__()`](datamodel.md#object.__ge__ "object.__ge__") (而如果你想实现常规意义上的比较操作，通常只要有 [`__lt__()`](datamodel.md#object.__lt__ "object.__lt__") 和 [`__eq__()`](datamodel.md#object.__eq__ "object.__eq__") 就可以了)。
+一个类的实例不能与相同类的其他实例或其他类型的对象进行排序，除非定义该类定义了足够多的方法，包括 [`__lt__()`](3.%20数据模型.md#object.__lt__ "object.__lt__"), [`__le__()`](3.%20数据模型.md#object.__le__ "object.__le__"), [`__gt__()`](3.%20数据模型.md#object.__gt__ "object.__gt__") 以及 [`__ge__()`](3.%20数据模型.md#object.__ge__ "object.__ge__") (而如果你想实现常规意义上的比较操作，通常只要有 [`__lt__()`](3.%20数据模型.md#object.__lt__ "object.__lt__") 和 [`__eq__()`](3.%20数据模型.md#object.__eq__ "object.__eq__") 就可以了)。
 
-[`is`](expressions.md#is) 和 [`is not`](expressions.md#is-not) 运算符无法自定义；并且它们可以被应用于任意两个对象而不会引发异常。
+[`is`](6.%20表达式.md#is) 和 [`is not`](6.%20表达式.md#is-not) 运算符无法自定义；并且它们可以被应用于任意两个对象而不会引发异常。
 
-还有两种具有相同语法优先级的运算 [`in`](expressions.md#in) 和 [`not in`](expressions.md#not-in)，它们被 [iterable](../glossary.md#term-iterable) 或实现了 `__contains__()` 方法的类型所支持。
+还有两种具有相同语法优先级的运算 [`in`](6.%20表达式.md#in) 和 [`not in`](6.%20表达式.md#not-in)，它们被 [iterable](../glossary.md#term-iterable) 或实现了 `__contains__()` 方法的类型所支持。
 
 ## 数字类型 --- [`int`](functions.md#int "int"), [`float`](functions.md#float "float"), [`complex`](functions.md#complex "complex")¶
 
@@ -158,7 +158,7 @@ Python 完全支持混合运算：当一个二元算术运算符的操作数有�
 
 构造函数 [`int()`](functions.md#int "int")、 [`float()`](functions.md#float "float") 和 [`complex()`](functions.md#complex "complex") 可以用来构造特定类型的数字。
 
-所有数字类型（复数除外）都支持下列运算（有关运算优先级，请参阅：[运算符优先级](expressions.md#operator-summary)）:
+所有数字类型（复数除外）都支持下列运算（有关运算优先级，请参阅：[运算符优先级](6.%20表达式.md#operator-summary)）:
 
 运算
 
@@ -757,7 +757,7 @@ _classmethod _float.fromhex( _s_ )¶
 
 ### 数字类型的哈希运算¶
 
-对于可能为不同类型的数字 `x` 和 `y`，要求 `x == y` 时必定 `hash(x) == hash(y)` (详情参见 [`__hash__()`](datamodel.md#object.__hash__ "object.__hash__") 方法的文档)。 为了便于在各种数字类型 (包括 [`int`](functions.md#int "int"), [`float`](functions.md#float "float"), [`decimal.Decimal`](decimal.md#decimal.Decimal "decimal.Decimal") 和 [`fractions.Fraction`](fractions.md#fractions.Fraction "fractions.Fraction")) 上实现并保证效率，Python 对数字类型的哈希运算是基于为任意有理数定义统一的数学函数，因此该运算对 [`int`](functions.md#int "int") 和 [`fractions.Fraction`](fractions.md#fractions.Fraction "fractions.Fraction") 的全部实例，以及 [`float`](functions.md#float "float") 和 [`decimal.Decimal`](decimal.md#decimal.Decimal "decimal.Decimal") 的全部有限实例均可用。 从本质上说，此函数是通过以一个固定质数 `P` 进行 `P` 降模给出的。 `P` 的值在 Python 中可以 [`sys.hash_info`](3.标准库/sys.md#sys.hash_info "sys.hash_info") 的 `modulus` 属性的形式被访问。
+对于可能为不同类型的数字 `x` 和 `y`，要求 `x == y` 时必定 `hash(x) == hash(y)` (详情参见 [`__hash__()`](3.%20数据模型.md#object.__hash__ "object.__hash__") 方法的文档)。 为了便于在各种数字类型 (包括 [`int`](functions.md#int "int"), [`float`](functions.md#float "float"), [`decimal.Decimal`](decimal.md#decimal.Decimal "decimal.Decimal") 和 [`fractions.Fraction`](fractions.md#fractions.Fraction "fractions.Fraction")) 上实现并保证效率，Python 对数字类型的哈希运算是基于为任意有理数定义统一的数学函数，因此该运算对 [`int`](functions.md#int "int") 和 [`fractions.Fraction`](fractions.md#fractions.Fraction "fractions.Fraction") 的全部实例，以及 [`float`](functions.md#float "float") 和 [`decimal.Decimal`](decimal.md#decimal.Decimal "decimal.Decimal") 的全部有限实例均可用。 从本质上说，此函数是通过以一个固定质数 `P` 进行 `P` 降模给出的。 `P` 的值在 Python 中可以 [`sys.hash_info`](3.标准库/sys.md#sys.hash_info "sys.hash_info") 的 `modulus` 属性的形式被访问。
 
 **CPython 实现细节：** 目前所用的质数设定，在 C long 为 32 位的机器上 `P = 2**31 - 1` 而在 C long 为 64 位的机器上 `P = 2**61 - 1`。
 
@@ -1232,7 +1232,7 @@ _x_ 在 _s_ 中出现的总次数
 
 在 3.3 版本加入: `clear()` 和 `copy()` 方法。
 
-  6. _n_ 值为一个整数，或是一个实现了 [`__index__()`](datamodel.md#object.__index__ "object.__index__") 的对象。 _n_ 值为零或负数将清空序列。 序列中的项不会被拷贝；它们会被多次引用，正如 通用序列操作 中有关 `s * n` 的说明。
+  6. _n_ 值为一个整数，或是一个实现了 [`__index__()`](3.%20数据模型.md#object.__index__ "object.__index__") 的对象。 _n_ 值为零或负数将清空序列。 序列中的项不会被拷贝；它们会被多次引用，正如 通用序列操作 中有关 `s * n` 的说明。
 
 ### 列表¶
 
@@ -1424,7 +1424,7 @@ range(0, 10, 2)
 
 作为单一表达式组成部分，之间只由空格分隔的多个字符串字面值会被隐式地转换为单个字符串字面值。 也就是说，`("spam " "eggs") == "spam eggs"`。
 
-请参阅 [字符串与字节串字面值](lexical_analysis.md#strings) 了解有关不同字符串字面值的更多信息，包括所支持的转义序列，以及使用 `r` ("raw") 前缀来禁用大多数转义序列的处理。
+请参阅 [字符串与字节串字面值](2.%20词法分析.md#strings) 了解有关不同字符串字面值的更多信息，包括所支持的转义序列，以及使用 `r` ("raw") 前缀来禁用大多数转义序列的处理。
 
 字符串也可以通过使用 `str` 构造器从其他对象创建。
 
@@ -1456,7 +1456,7 @@ _class _str( _object =b''_, _encoding ='utf-8'_, _errors ='strict'_)
 "b'Zoot!'"
 ~~~
 
-有关 `str` 类及其方法的更多信息，请参阅下面的 文本序列类型 --- str 和 字符串的方法 小节。 要输出格式化字符串，请参阅 [格式字符串字面值](lexical_analysis.md#f-strings) 和 [格式字符串语法](string.md#formatstrings) 小节。 此外还可以参阅 [文本处理服务](text.md#stringservices) 小节。
+有关 `str` 类及其方法的更多信息，请参阅下面的 文本序列类型 --- str 和 字符串的方法 小节。 要输出格式化字符串，请参阅 [格式字符串字面值](2.%20词法分析.md#f-strings) 和 [格式字符串语法](string.md#formatstrings) 小节。 此外还可以参阅 [文本处理服务](text.md#stringservices) 小节。
 
 ### 字符串的方法¶
 
@@ -2181,7 +2181,7 @@ str.zfill( _width_ )¶
 
 备注
 
-此处介绍的格式化操作具有多种怪异特性，可能导致许多常见错误（例如无法正确显示元组和字典）。 使用较新的 [格式化字符串字面值](lexical_analysis.md#f-strings)，`str.format()` 接口或 [模板字符串](string.md#template-strings) 有助于避免这样的错误。 这些替代方案中的每一种都更好地权衡并提供了简单、灵活以及可扩展性优势。
+此处介绍的格式化操作具有多种怪异特性，可能导致许多常见错误（例如无法正确显示元组和字典）。 使用较新的 [格式化字符串字面值](2.%20词法分析.md#f-strings)，`str.format()` 接口或 [模板字符串](string.md#template-strings) 有助于避免这样的错误。 这些替代方案中的每一种都更好地权衡并提供了简单、灵活以及可扩展性优势。
 
 字符串具有一种特殊的内置操作：使用 `%` (取模) 运算符。 这也被称为字符串的 _格式化_ 或 _插值_ 运算符。 对于 `format % values` (其中 _format_ 为一个字符串)，在 _format_ 中的 `%` 转换标记符将被替换为零个或多个 _values_ 条目。 其效果类似于在 C 语言中使用 `sprintf()`。
 
@@ -4889,7 +4889,7 @@ mappingproxy({'bacon': 1, 'spam': 500})
 
 ## 上下文管理器类型¶
 
-Python 的 [`with`](compound_stmts.md#with) 语句支持通过上下文管理器所定义的运行时上下文这一概念。 此对象的实现使用了一对专门方法，允许用户自定义类来定义运行时上下文，在语句体被执行前进入该上下文，并在语句执行完毕时退出该上下文：
+Python 的 [`with`](8.%20复合语句.md#with) 语句支持通过上下文管理器所定义的运行时上下文这一概念。 此对象的实现使用了一对专门方法，允许用户自定义类来定义运行时上下文，在语句体被执行前进入该上下文，并在语句执行完毕时退出该上下文：
 
 contextmanager.__enter__()¶
 
@@ -5013,7 +5013,7 @@ Python 运行时不会强制执行 [类型标注](../glossary.md#term-annotation
 'list[int]'
 ~~~
 
-调用泛型容器的 [`__getitem__()`](datamodel.md#object.__getitem__ "object.__getitem__") 方法将引发异常以防出现 `dict[str][str]` 之类的错误:
+调用泛型容器的 [`__getitem__()`](3.%20数据模型.md#object.__getitem__ "object.__getitem__") 方法将引发异常以防出现 `dict[str][str]` 之类的错误:
 
     
     
@@ -5366,7 +5366,7 @@ int | __main__.C
 
 ### 模块¶
 
-模块唯一的特殊操作是属性访问: `m.name`，这里 _m_ 为一个模块而 _name_ 访问定义在 _m_ 的符号表中的一个名称。 模块属性可以被赋值。 （请注意 [`import`](simple_stmts.md#import) 语句严格来说也是对模块对象的一种操作；`import foo` 不要求存在一个名为 _foo_ 的模块对象，而是要求存在一个对于名为 _foo_ 的模块的 (永久性) _定义_ 。）
+模块唯一的特殊操作是属性访问: `m.name`，这里 _m_ 为一个模块而 _name_ 访问定义在 _m_ 的符号表中的一个名称。 模块属性可以被赋值。 （请注意 [`import`](7.%20简单语句.md#import) 语句严格来说也是对模块对象的一种操作；`import foo` 不要求存在一个名为 _foo_ 的模块对象，而是要求存在一个对于名为 _foo_ 的模块的 (永久性) _定义_ 。）
 
 每个模块都有一个特殊属性 `__dict__`。 这是包含模块的符号表的字典。 修改此字典将实际改变模块的符号表，但是无法直接对 `__dict__` 赋值 (你可以写 `m.__dict__['a'] = 1`，这会将 `m.a` 定义为 `1`，但是你不能写 `m.__dict__ = {}`)。 不建议直接修改 `__dict__`。
 
@@ -5374,7 +5374,7 @@ int | __main__.C
 
 ### 类与类实例¶
 
-关于这些类型请参阅 [对象、值与类型](datamodel.md#objects) 和 [类定义](compound_stmts.md#class)。
+关于这些类型请参阅 [对象、值与类型](3.%20数据模型.md#objects) 和 [类定义](8.%20复合语句.md#class)。
 
 ### 函数¶
 
@@ -5382,7 +5382,7 @@ int | __main__.C
 
 实际上存在两种不同的函数对象：内置函数和用户自定义函数。 两者支持同样的操作（调用函数），但实现方式不同，因此对象类型也不同。
 
-更多信息请参阅 [函数定义](compound_stmts.md#function)。
+更多信息请参阅 [函数定义](8.%20复合语句.md#function)。
 
 ### 方法¶
 
@@ -5409,7 +5409,7 @@ AttributeError: 'method' object has no attribute 'whoami'
 'my name is method'
 ~~~
 
-更多信息请参阅 [标准类型层级结构](datamodel.md#types)。
+更多信息请参阅 [标准类型层级结构](3.%20数据模型.md#types)。
 
 ### 代码对象¶
 
@@ -5419,7 +5419,7 @@ AttributeError: 'method' object has no attribute 'whoami'
 
 可以通过将代码对象（而非源码字符串）传给 [`exec()`](functions.md#exec "exec") 或 [`eval()`](functions.md#eval "eval") 内置函数来执行或求值。
 
-更多信息请参阅 [标准类型层级结构](datamodel.md#types)。
+更多信息请参阅 [标准类型层级结构](3.%20数据模型.md#types)。
 
 ### 类型对象¶
 
@@ -5435,19 +5435,19 @@ AttributeError: 'method' object has no attribute 'whoami'
 
 ### 省略符对象¶
 
-此对象常被用于切片 (参见 [切片](expressions.md#slicings))。 它不支持任何特殊的操作。 省略符对象只有一种值 [`Ellipsis`](constants.md#Ellipsis "Ellipsis") (这是个内置名称)。 `type(Ellipsis)()` 会生成 [`Ellipsis`](constants.md#Ellipsis "Ellipsis") 单例。
+此对象常被用于切片 (参见 [切片](6.%20表达式.md#slicings))。 它不支持任何特殊的操作。 省略符对象只有一种值 [`Ellipsis`](constants.md#Ellipsis "Ellipsis") (这是个内置名称)。 `type(Ellipsis)()` 会生成 [`Ellipsis`](constants.md#Ellipsis "Ellipsis") 单例。
 
 该对象的写法为 `Ellipsis` 或 `...`。
 
 ### 未实现对象¶
 
-此对象会被作为比较和二元运算被应用于它们所不支持的类型时的返回值。 请参阅 [比较运算](expressions.md#comparisons) 了解更多信息。 未实现对象只有一种值 `NotImplemented`。 `type(NotImplemented)()` 会生成这个单例。
+此对象会被作为比较和二元运算被应用于它们所不支持的类型时的返回值。 请参阅 [比较运算](6.%20表达式.md#comparisons) 了解更多信息。 未实现对象只有一种值 `NotImplemented`。 `type(NotImplemented)()` 会生成这个单例。
 
 该对象的写法为 `NotImplemented`。
 
 ### 内部对象¶
 
-有关此对象的信息请参阅 [标准类型层级结构](datamodel.md#types)。 其中描述了栈帧对象、回溯对象以及切片对象等等。
+有关此对象的信息请参阅 [标准类型层级结构](3.%20数据模型.md#types)。 其中描述了栈帧对象、回溯对象以及切片对象等等。
 
 ## 特殊属性¶
 
@@ -5611,11 +5611,11 @@ ValueError: Exceeds the limit (4300 digits) for integer string conversion; use s
 
 在 Python 启动之前你可以使用环境变量或解释器命令行旗标来配置限制值:
 
-  * [`PYTHONINTMAXSTRDIGITS`](cmdline.md#envvar-PYTHONINTMAXSTRDIGITS)，例如 `PYTHONINTMAXSTRDIGITS=640 python3` 是将限制设为 640 而 `PYTHONINTMAXSTRDIGITS=0 python3` 是禁用此限制。
+  * [`PYTHONINTMAXSTRDIGITS`](1.%20命令行与环境.md#envvar-PYTHONINTMAXSTRDIGITS)，例如 `PYTHONINTMAXSTRDIGITS=640 python3` 是将限制设为 640 而 `PYTHONINTMAXSTRDIGITS=0 python3` 是禁用此限制。
 
-  * [`-X int_max_str_digits`](cmdline.md#cmdoption-X)，例如 `python3 -X int_max_str_digits=640`
+  * [`-X int_max_str_digits`](1.%20命令行与环境.md#cmdoption-X)，例如 `python3 -X int_max_str_digits=640`
 
-  * [`sys.flags.int_max_str_digits`](3.标准库/sys.md#sys.flags.int_max_str_digits "sys.flags.int_max_str_digits") 包含 [`PYTHONINTMAXSTRDIGITS`](cmdline.md#envvar-PYTHONINTMAXSTRDIGITS) 或 [`-X int_max_str_digits`](cmdline.md#cmdoption-X) 的值。 如果环境变量和 `-X` 选项均有设置，则 `-X` 选项优先。 值为 _-1_ 表示两者均未设置，因此会在初始化时使用 [`sys.int_info.default_max_str_digits`](3.标准库/sys.md#sys.int_info.default_max_str_digits "sys.int_info.default_max_str_digits") 的值。
+  * [`sys.flags.int_max_str_digits`](3.标准库/sys.md#sys.flags.int_max_str_digits "sys.flags.int_max_str_digits") 包含 [`PYTHONINTMAXSTRDIGITS`](1.%20命令行与环境.md#envvar-PYTHONINTMAXSTRDIGITS) 或 [`-X int_max_str_digits`](1.%20命令行与环境.md#cmdoption-X) 的值。 如果环境变量和 `-X` 选项均有设置，则 `-X` 选项优先。 值为 _-1_ 表示两者均未设置，因此会在初始化时使用 [`sys.int_info.default_max_str_digits`](3.标准库/sys.md#sys.int_info.default_max_str_digits "sys.int_info.default_max_str_digits") 的值。
 
 从代码中，你可以检查当前的限制并使用这些 [`sys`](3.标准库/sys.md#module-sys "sys: Access system-specific parameters and functions.") API 来设置新值:
 
@@ -5661,7 +5661,7 @@ ValueError: Exceeds the limit (4300 digits) for integer string conversion; use s
 
 [1]
 
-有关这些特殊方法的额外信息可参看 Python 参考指南 ([基本定制](datamodel.md#customization))。
+有关这些特殊方法的额外信息可参看 Python 参考指南 ([基本定制](3.%20数据模型.md#customization))。
 
 [2]
 

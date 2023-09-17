@@ -4,9 +4,9 @@
 
 开发模式下的 Python 加入了额外的运行时检查，由于开销太大，并非默认启用的。如果代码能够正确执行，默认的调试级别足矣，不应再提高了；仅当觉察到问题时再提升警告触发的级别。
 
-使用 [`-X dev`](cmdline.md#cmdoption-X) 命令行参数或将环境变量 [`PYTHONDEVMODE`](cmdline.md#envvar-PYTHONDEVMODE) 置为 `1` ，可以启用开发模式。
+使用 [`-X dev`](1.%20命令行与环境.md#cmdoption-X) 命令行参数或将环境变量 [`PYTHONDEVMODE`](1.%20命令行与环境.md#envvar-PYTHONDEVMODE) 置为 `1` ，可以启用开发模式。
 
-另请参考 [Python debug build](configure.md#debug-build) 。
+另请参考 [Python debug build](3.%20配置%20Python.md#debug-build) 。
 
 ## Python 开发模式的效果¶
 
@@ -32,9 +32,9 @@ Python 开发模式的效果：
 
 通常上述警告是由默认的 [warning filters](warnings.md#describing-warning-filters) 负责处理的。
 
-效果类似于采用了 [`-W default`](cmdline.md#cmdoption-W) 命令行参数。
+效果类似于采用了 [`-W default`](1.%20命令行与环境.md#cmdoption-W) 命令行参数。
 
-使用命令行参数 [`-W error`](cmdline.md#cmdoption-W) 或将环境变量 [`PYTHONWARNINGS`](cmdline.md#envvar-PYTHONWARNINGS) 设为 `error`，可将警告视为错误。
+使用命令行参数 [`-W error`](1.%20命令行与环境.md#cmdoption-W) 或将环境变量 [`PYTHONWARNINGS`](1.%20命令行与环境.md#envvar-PYTHONWARNINGS) 设为 `error`，可将警告视为错误。
 
   * 在内存分配程序中安装调试钩子，用以查看：
 
@@ -48,17 +48,17 @@ Python 开发模式的效果：
 
 参见 C 函数 [`PyMem_SetupDebugHooks()`](memory.md#c.PyMem_SetupDebugHooks "PyMem_SetupDebugHooks") 。
 
-效果如同将环境变量 [`PYTHONMALLOC`](cmdline.md#envvar-PYTHONMALLOC) 设为 `debug`。
+效果如同将环境变量 [`PYTHONMALLOC`](1.%20命令行与环境.md#envvar-PYTHONMALLOC) 设为 `debug`。
 
-若要启用 Python 开发模式，却又不要在内存分配程序中安装调试钩子，请将 环境变量 [`PYTHONMALLOC`](cmdline.md#envvar-PYTHONMALLOC) 设为 `default`。
+若要启用 Python 开发模式，却又不要在内存分配程序中安装调试钩子，请将 环境变量 [`PYTHONMALLOC`](1.%20命令行与环境.md#envvar-PYTHONMALLOC) 设为 `default`。
 
   * 在启动 Python 时调用 [`faulthandler.enable()`](faulthandler.md#faulthandler.enable "faulthandler.enable") ，会安装 `SIGSEGV` 、 `SIGFPE` 、 `SIGABRT` 、 `SIGBUS` 和 `SIGILL` 信号的处理程序，以便在程序崩溃时将 Python 跟踪信息转储下来。
 
-其行为如同使用了 [`-X faulthandler`](cmdline.md#cmdoption-X) 命令行选项或将 [`PYTHONFAULTHANDLER`](cmdline.md#envvar-PYTHONFAULTHANDLER) 环境变量设为 `1`。
+其行为如同使用了 [`-X faulthandler`](1.%20命令行与环境.md#cmdoption-X) 命令行选项或将 [`PYTHONFAULTHANDLER`](1.%20命令行与环境.md#envvar-PYTHONFAULTHANDLER) 环境变量设为 `1`。
 
   * 启用 [asyncio debug mode](asyncio-dev.md#asyncio-debug-mode)。比如 [`asyncio`](asyncio.md#module-asyncio "asyncio: Asynchronous I/O.") 会检查没有等待的协程并记录下来。
 
-效果如同将环境变量 [`PYTHONASYNCIODEBUG`](cmdline.md#envvar-PYTHONASYNCIODEBUG) 设为 `1`。
+效果如同将环境变量 [`PYTHONASYNCIODEBUG`](1.%20命令行与环境.md#envvar-PYTHONASYNCIODEBUG) 设为 `1`。
 
   * 检查字符串编码和解码函数的 _encoding_ 和 _errors_ 参数。例如： [`open()`](functions.md#open "open") 、 [`str.encode()`](stdtypes.md#str.encode "str.encode") 和 [`bytes.decode()`](stdtypes.md#bytes.decode "bytes.decode")。
 
@@ -70,7 +70,7 @@ Python 开发模式的效果：
 
 Python 开发模式下，默认不会启用 [`tracemalloc`](tracemalloc.md#module-tracemalloc "tracemalloc: Trace memory allocations.") 模块，因为其性能和内存开销太大。启用 [`tracemalloc`](tracemalloc.md#module-tracemalloc "tracemalloc: Trace memory allocations.") 模块后，能够提供有关错误来源的一些额外信息。例如，[`ResourceWarning`](3.标准库/exceptions.md#ResourceWarning "ResourceWarning") 记录了资源分配的跟踪信息，而缓冲区溢出错误记录了内存块分配的跟踪信息。
 
-Python 开发模式不会阻止命令行参数 [`-O`](cmdline.md#cmdoption-O) 删除 [`assert`](simple_stmts.md#assert) 语句，也不会阻止将 [`__debug__`](constants.md#debug__ "__debug__") 设为 `False`。
+Python 开发模式不会阻止命令行参数 [`-O`](1.%20命令行与环境.md#cmdoption-O) 删除 [`assert`](7.%20简单语句.md#assert) 语句，也不会阻止将 [`__debug__`](constants.md#debug__ "__debug__") 设为 `False`。
 
 Python 开发模式只能在 Python 启动时启用。其参数值可从 [`sys.flags.dev_mode`](3.标准库/sys.md#sys.flags "sys.flags") 读取。
 

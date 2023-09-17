@@ -2,7 +2,7 @@
 
 **源代码：** [Lib/optparse.py](https://github.com/python/cpython/tree/3.12/Lib/optparse.py)
 
-自 3.2 版本弃用: The `optparse` module is [soft deprecated](../glossary.md#term-soft-deprecated) and will not be developed further; development will continue with the [`argparse`](3.标准库/argparse.md#module-argparse "argparse: Command-line option and argument parsing library.") module.
+自 3.2 版本弃用: The `optparse` module is [soft deprecated](../glossary.md#term-soft-deprecated) and will not be developed further; development will continue with the [`argparse`](argparse.md#module-argparse "argparse: Command-line option and argument parsing library.") module.
 
 * * *
 

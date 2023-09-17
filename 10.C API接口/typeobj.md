@@ -2957,7 +2957,7 @@ This function corresponds to the [`__init__()`](../reference/datamodel.md#object
 int tp_init(PyObject *self, PyObject *args, PyObject *kwds);
 ~~~
 
-The self argument is the instance to be initialized; the _args_ and _kwds_ arguments represent positional and keyword arguments of the call to [`__init__()`](datamodel.md#object.__init__ "object.__init__").
+The self argument is the instance to be initialized; the _args_ and _kwds_ arguments represent positional and keyword arguments of the call to [`__init__()`](3.%20数据模型.md#object.__init__ "object.__init__").
 
 The `tp_init` function, if not `NULL`, is called when an instance is created normally by calling its type, after the type's `tp_new` function has returned an instance of the type. If the `tp_new` function returns an instance of some other type that is not a subtype of the original type, no `tp_init` function is called; if `tp_new` returns an instance of a subtype of the original type, the subtype's `tp_init` is called.
 
@@ -3725,7 +3725,7 @@ The signature of this function is:
 PyObject *am_aiter(PyObject *self);
 ~~~
 
-Must return an [asynchronous iterator](../glossary.md#term-asynchronous-iterator) object. See [`__anext__()`](datamodel.md#object.__anext__ "object.__anext__") for details.
+Must return an [asynchronous iterator](../glossary.md#term-asynchronous-iterator) object. See [`__anext__()`](3.%20数据模型.md#object.__anext__ "object.__anext__") for details.
 
 This slot may be set to `NULL` if an object does not implement asynchronous iteration protocol.
 
@@ -3742,7 +3742,7 @@ The signature of this function is:
 PyObject *am_anext(PyObject *self);
 ~~~
 
-Must return an [awaitable](../glossary.md#term-awaitable) object. See [`__anext__()`](datamodel.md#object.__anext__ "object.__anext__") for details. This slot may be set to `NULL`.
+Must return an [awaitable](../glossary.md#term-awaitable) object. See [`__anext__()`](3.%20数据模型.md#object.__anext__ "object.__anext__") for details. This slot may be set to `NULL`.
 
 sendfunc PyAsyncMethods.am_send¶  
 

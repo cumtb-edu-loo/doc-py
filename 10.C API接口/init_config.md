@@ -1510,7 +1510,7 @@ done:
 
 环境变量和命令行参数将被用于配置 Python，而全局配置变量将被忽略。
 
-此函数将根据 LC_CTYPE 语言区域、[`PYTHONUTF8`](cmdline.md#envvar-PYTHONUTF8) 和 [`PYTHONCOERCECLOCALE`](cmdline.md#envvar-PYTHONCOERCECLOCALE) 环境变量启用 C 语言区域强制转换 ([ **PEP 538**](https://peps.python.org/pep-0538/)) 和 [Python UTF-8 模式](os.md#utf8-mode) ([ **PEP 540**](https://peps.python.org/pep-0540/))。
+此函数将根据 LC_CTYPE 语言区域、[`PYTHONUTF8`](1.%20命令行与环境.md#envvar-PYTHONUTF8) 和 [`PYTHONCOERCECLOCALE`](1.%20命令行与环境.md#envvar-PYTHONCOERCECLOCALE) 环境变量启用 C 语言区域强制转换 ([ **PEP 538**](https://peps.python.org/pep-0538/)) 和 [Python UTF-8 模式](os.md#utf8-mode) ([ **PEP 540**](https://peps.python.org/pep-0540/))。
 
 ## Python 路径配置¶
 

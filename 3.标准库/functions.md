@@ -458,11 +458,11 @@ class C:
     def f(cls, arg1, arg2): ...
 ~~~
 
-`@classmethod` 这样的形式称为函数的 [decorator](../glossary.md#term-decorator) \-- 详情参阅 [函数定义](compound_stmts.md#function)。
+`@classmethod` 这样的形式称为函数的 [decorator](../glossary.md#term-decorator) \-- 详情参阅 [函数定义](8.%20复合语句.md#function)。
 
 类方法的调用可以在类上进行 (例如 `C.f()`) 也可以在实例上进行 (例如 `C().f()`)。 其所属类以外的类实例会被忽略。 如果类方法在其所属类的派生类上调用，则该派生类对象会被作为隐含的第一个参数被传入。
 
-类方法与 C++ 或 Java 中的静态方法不同。 如果你需要后者，请参阅本节中的 `staticmethod()`。 有关类方法的更多信息，请参阅 [标准类型层级结构](datamodel.md#types)。
+类方法与 C++ 或 Java 中的静态方法不同。 如果你需要后者，请参阅本节中的 `staticmethod()`。 有关类方法的更多信息，请参阅 [标准类型层级结构](3.%20数据模型.md#types)。
 
 在 3.9 版本发生变更: 类方法现在可以包装其他 [描述器](../glossary.md#term-descriptor) 例如 `property()`。
 
@@ -722,7 +722,7 @@ _class _float( _x =0.0_)¶
 
 另一方面，如果实参是整数或浮点数，则返回具有相同值（在 Python 浮点精度范围内）的浮点数。如果实参在 Python 浮点精度范围外，则会触发 [`OverflowError`](3.标准库/exceptions.md#OverflowError "OverflowError")。
 
-对于一个普通 Python 对象 `x`，`float(x)` 会委托给 `x.__float__()`。 如果 [`__float__()`](datamodel.md#object.__float__ "object.__float__") 未定义则将回退至 [`__index__()`](datamodel.md#object.__index__ "object.__index__")。
+对于一个普通 Python 对象 `x`，`float(x)` 会委托给 `x.__float__()`。 如果 [`__float__()`](3.%20数据模型.md#object.__float__ "object.__float__") 未定义则将回退至 [`__index__()`](3.%20数据模型.md#object.__index__ "object.__index__")。
 
 如果没有实参，则返回 `0.0` 。
 
@@ -749,7 +749,7 @@ _class _float( _x =0.0_)¶
 
 在 3.7 版本发生变更: _x_ 现在只能作为位置参数。
 
-在 3.8 版本发生变更: 如果 [`__float__()`](datamodel.md#object.__float__ "object.__float__") 未定义则回退至 [`__index__()`](datamodel.md#object.__index__ "object.__index__")。
+在 3.8 版本发生变更: 如果 [`__float__()`](3.%20数据模型.md#object.__float__ "object.__float__") 未定义则回退至 [`__index__()`](3.%20数据模型.md#object.__index__ "object.__index__")。
 
 format( _value_ , _format_spec =''_)¶
 
@@ -1104,7 +1104,7 @@ oct( _x_ )¶
 > open( _file_ , _mode ='r'_, _buffering =-1_, _encoding =None_, _errors =None_, _newline =None_, _closefd =True_, _opener =None_)¶
     
 
-打开 _file_ 并返回对应的 [file object](../glossary.md#term-file-object)。 如果该文件不能被打开，则引发 [`OSError`](3.标准库/exceptions.md#OSError "OSError")。 请参阅 [读写文件](inputoutput.md#tut-files) 获取此函数的更多用法示例。
+打开 _file_ 并返回对应的 [file object](../glossary.md#term-file-object)。 如果该文件不能被打开，则引发 [`OSError`](3.标准库/exceptions.md#OSError "OSError")。 请参阅 [读写文件](7.%20输入与输出.md#tut-files) 获取此函数的更多用法示例。
 
 _file_ 是一个 [path-like object](../glossary.md#term-path-like-object)，表示将要打开的文件的路径（绝对路径或者相对当前工作目录的路径），也可以是要封装文件对应的整数类型文件描述符。（如果给出的是文件描述符，则当返回的 I/O 对象关闭时它也会关闭，除非将 _closefd_ 设为 `False` 。）
 
@@ -1493,7 +1493,7 @@ class C:
     def f(arg1, arg2, argN): ...
 ~~~
 
-`@staticmethod` 这样的形式称为函数的 [decorator](../glossary.md#term-decorator) \-- 详情参阅 [函数定义](compound_stmts.md#function)。
+`@staticmethod` 这样的形式称为函数的 [decorator](../glossary.md#term-decorator) \-- 详情参阅 [函数定义](8.%20复合语句.md#function)。
 
 静态方法既可以由类中调用（如 `C.f()`），也可以由实例中调用（如 ``C().f()`）。此外，还可以作为普通的函数进行调用（如 `f()`）。
 
@@ -1511,7 +1511,7 @@ class C:
     method = staticmethod(regular_function)
 ~~~
 
-想了解更多有关静态方法的信息，请参阅 [标准类型层级结构](datamodel.md#types) 。
+想了解更多有关静态方法的信息，请参阅 [标准类型层级结构](3.%20数据模型.md#types) 。
 
 在 3.10 版本发生变更: 静态方法继承了方法的多个属性（ `__module__`、 `__name__`、 `__qualname__`、 `__doc__` 和 `__annotations__`），还拥有一个新的 `__wrapped__` 属性，并且现在还可以作为普通函数进行调用。
 
@@ -1612,9 +1612,9 @@ _class _type( _name_ , _bases_ , _dict_ , _** kwds_)
 
 另请参阅 [类型对象](stdtypes.md#bltin-type-objects)。
 
-提供给三参数形式的关键字参数会被传递给适当的元类机制 (通常为 [`__init_subclass__()`](datamodel.md#object.__init_subclass__ "object.__init_subclass__"))，相当于类定义中关键字 (除了 _metaclass_ ) 的行为方式。
+提供给三参数形式的关键字参数会被传递给适当的元类机制 (通常为 [`__init_subclass__()`](3.%20数据模型.md#object.__init_subclass__ "object.__init_subclass__"))，相当于类定义中关键字 (除了 _metaclass_ ) 的行为方式。
 
-另请参阅 [自定义类创建](datamodel.md#class-customization)。
+另请参阅 [自定义类创建](3.%20数据模型.md#class-customization)。
 
 在 3.6 版本发生变更: `type` 的子类如果未重载 `type.__new__`，将不再能使用一个参数的形式来获取对象的类型。
 
@@ -1743,7 +1743,7 @@ spam = __import__('spam', globals(), locals(), [], 0)
 spam = __import__('spam.ham', globals(), locals(), [], 0)
 ~~~
 
-请注意在这里 `__import__()` 是如何返回顶层模块的，因为这是通过 [`import`](simple_stmts.md#import) 语句被绑定到特定名称的对象。
+请注意在这里 `__import__()` 是如何返回顶层模块的，因为这是通过 [`import`](7.%20简单语句.md#import) 语句被绑定到特定名称的对象。
 
 另一方面，语句 `from spam.ham import eggs, sausage as saus` 的结果将为
 
@@ -1761,7 +1761,7 @@ saus = _temp.sausage
 
 在 3.3 版本发生变更: _level_ 的值不再支持负数（默认值也修改为0）。
 
-在 3.9 版本发生变更: 当使用了命令行参数 [`-E`](cmdline.md#cmdoption-E) 或 [`-I`](cmdline.md#cmdoption-I) 时，环境变量 [`PYTHONCASEOK`](cmdline.md#envvar-PYTHONCASEOK) 现在将被忽略。
+在 3.9 版本发生变更: 当使用了命令行参数 [`-E`](1.%20命令行与环境.md#cmdoption-E) 或 [`-I`](1.%20命令行与环境.md#cmdoption-I) 时，环境变量 [`PYTHONCASEOK`](1.%20命令行与环境.md#envvar-PYTHONCASEOK) 现在将被忽略。
 
 备注
 

@@ -6,7 +6,7 @@
 
 `tokenize` 模块为 Python 源代码提供了一个词法扫描器，用 Python 实现。该模块中的扫描器也将注释作为标记返回，这使得它对于实现“漂亮的输出器”非常有用，包括用于屏幕显示的着色器。
 
-为了简化标记流的处理，所有的 [运算符](lexical_analysis.md#operators) 和 [定界符](lexical_analysis.md#delimiters) 以及 [`Ellipsis`](constants.md#Ellipsis "Ellipsis") 返回时都会打上通用的 [`OP`](token.md#token.OP "token.OP") 标记。 可以通过 `tokenize.tokenize()` 返回的 [named tuple](../glossary.md#term-named-tuple) 对象的 `exact_type` 属性来获得确切的标记类型。
+为了简化标记流的处理，所有的 [运算符](2.%20词法分析.md#operators) 和 [定界符](2.%20词法分析.md#delimiters) 以及 [`Ellipsis`](constants.md#Ellipsis "Ellipsis") 返回时都会打上通用的 [`OP`](token.md#token.OP "token.OP") 标记。 可以通过 `tokenize.tokenize()` 返回的 [named tuple](../glossary.md#term-named-tuple) 对象的 `exact_type` 属性来获得确切的标记类型。
 
 警告
 

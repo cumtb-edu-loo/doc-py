@@ -1,18 +1,18 @@
 # 内置异常¶
 
-在 Python 中，所有异常必须为一个派生自 `BaseException` 的类的实例。 在带有提及一个特定类的 [`except`](compound_stmts.md#except) 子句的 [`try`](compound_stmts.md#try) 语句中，该子句也会处理任何派生自该类的异常类（但不处理 _它_ 所派生出的异常类）。 通过子类化创建的两个不相关异常类永远是不等效的，既使它们具有相同的名称。
+在 Python 中，所有异常必须为一个派生自 `BaseException` 的类的实例。 在带有提及一个特定类的 [`except`](8.%20复合语句.md#except) 子句的 [`try`](8.%20复合语句.md#try) 语句中，该子句也会处理任何派生自该类的异常类（但不处理 _它_ 所派生出的异常类）。 通过子类化创建的两个不相关异常类永远是不等效的，既使它们具有相同的名称。
 
 下面列出的内置异常可通过解释器或内置函数来生成。除非另有说明，它们都会具有一个提示导致错误详细原因的“关联值”。 这可以是一个字符串或由多个信息项（例如一个错误码和一个解释错误的字符串）组成的元组。 关联值通常会作为参数被传递给异常类的构造器。
 
 用户代码可以引发内置异常。 这可被用于测试异常处理程序或报告错误条件，“就像” 在解释器引发了相同异常的情况时一样；但是请注意，没有任何机制能防止用户代码引发不适当的错误。
 
-内置异常类可以被子类化以定义新的异常；鼓励程序员从 `Exception` 类或它的某个子类而不是从 `BaseException` 来派生新的异常。 关于定义异常的更多信息可以在 Python 教程的 [用户自定义异常](errors.md#tut-userexceptions) 部分查看。
+内置异常类可以被子类化以定义新的异常；鼓励程序员从 `Exception` 类或它的某个子类而不是从 `BaseException` 来派生新的异常。 关于定义异常的更多信息可以在 Python 教程的 [用户自定义异常](8.%20错误和异常.md#tut-userexceptions) 部分查看。
 
 ## 异常上下文¶
 
-当有其他异常已经被处理的情况下又引发一个新异常的时候，新异常的 `__context__` 属性会被自动设为已经被处理的异常。 异常可以在使用了 [`except`](compound_stmts.md#except) 或 [`finally`](compound_stmts.md#finally) 子句，或者 [`with`](compound_stmts.md#with) 语句的时候被处理。
+当有其他异常已经被处理的情况下又引发一个新异常的时候，新异常的 `__context__` 属性会被自动设为已经被处理的异常。 异常可以在使用了 [`except`](8.%20复合语句.md#except) 或 [`finally`](8.%20复合语句.md#finally) 子句，或者 [`with`](8.%20复合语句.md#with) 语句的时候被处理。
 
-这个隐式异常上下文可以通过使用 `from` 配合 [`raise`](simple_stmts.md#raise) 来补充一个显式的原因:
+这个隐式异常上下文可以通过使用 `from` 配合 [`raise`](7.%20简单语句.md#raise) 来补充一个显式的原因:
 
     
     
@@ -20,7 +20,7 @@
 raise new_exc from original_exc
 ~~~
 
-跟在 [`from`](simple_stmts.md#raise) 之后一表达式必须为一个异常或 `None`。 它将在所引发的异常上被设置为 `__cause__`。 设置 `__cause__` 还会隐式地将 `__suppress_context__` 属性设为 `True`，这样使用 `raise new_exc from None` 可以有效地将旧异常替换为新异常来显示其目的 (例如将 `KeyError` 转换为 `AttributeError`)，同时让旧异常在 `__context__` 中保持可用状态以便在调试时进行内省。
+跟在 [`from`](7.%20简单语句.md#raise) 之后一表达式必须为一个异常或 `None`。 它将在所引发的异常上被设置为 `__cause__`。 设置 `__cause__` 还会隐式地将 `__suppress_context__` 属性设为 `True`，这样使用 `raise new_exc from None` 可以有效地将旧异常替换为新异常来显示其目的 (例如将 `KeyError` 转换为 `AttributeError`)，同时让旧异常在 `__context__` 中保持可用状态以便在调试时进行内省。
 
 除了异常本身的回溯以外，默认的回溯还会显示这些串连的异常。 `__cause__` 中的显式串连异常如果存在将总是显示。 `__context__` 中的隐式串连异常仅在 `__cause__` 为 [`None`](constants.md#None "None") 并且 `__suppress_context__` 为假值时显示。
 

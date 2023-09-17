@@ -35,9 +35,9 @@ Python.h 所定义的全部用户可见名称（由包含的标准头文件所�
 
 用户代码永远不应该定义以 `Py` 或 `_Py` 开头的名称。这会使读者感到困惑，并危及用户代码对未来Python版本的可移植性，这些版本可能会定义以这些前缀之一开头的其他名称。
 
-头文件通常会与 Python 一起安装。 在 Unix 上，它们位于 `_prefix_ /include/pythonversion/` 和 `_exec_prefix_ /include/pythonversion/` 目录，其中 [`prefix`](configure.md#cmdoption-prefix) 和 [`exec_prefix`](configure.md#cmdoption-exec-prefix) 是由向 Python 的 **configure** 脚本传入的对应形参定义，而 _version_ 则为 `'%d.%d' % sys.version_info[:2]`。 在 Windows 上，头文件安装于 `_prefix_ /include`，其中 `prefix` 是为安装程序指定的安装目录。
+头文件通常会与 Python 一起安装。 在 Unix 上，它们位于 `_prefix_ /include/pythonversion/` 和 `_exec_prefix_ /include/pythonversion/` 目录，其中 [`prefix`](3.%20配置%20Python.md#cmdoption-prefix) 和 [`exec_prefix`](3.%20配置%20Python.md#cmdoption-exec-prefix) 是由向 Python 的 **configure** 脚本传入的对应形参定义，而 _version_ 则为 `'%d.%d' % sys.version_info[:2]`。 在 Windows 上，头文件安装于 `_prefix_ /include`，其中 `prefix` 是为安装程序指定的安装目录。
 
-要包括这些头文件，请将两个目录（如果不同）都放到你所用编译器用于包括头文件的搜索目录中。 请 _不要_ 将父目录放入搜索路径然后使用 `#include <pythonX.Y/Python.h>`；这将使得多平台编译不可用，因为 [`prefix`](configure.md#cmdoption-prefix) 下与平台无关的头文件包括了来自 [`exec_prefix`](configure.md#cmdoption-exec-prefix) 的平台专属头文件。
+要包括这些头文件，请将两个目录（如果不同）都放到你所用编译器用于包括头文件的搜索目录中。 请 _不要_ 将父目录放入搜索路径然后使用 `#include <pythonX.Y/Python.h>`；这将使得多平台编译不可用，因为 [`prefix`](3.%20配置%20Python.md#cmdoption-prefix) 下与平台无关的头文件包括了来自 [`exec_prefix`](3.%20配置%20Python.md#cmdoption-exec-prefix) 的平台专属头文件。
 
 C++ 用户应该注意，尽管 API 是完全使用 C 来定义的，但头文件正确地将入口点声明为 `extern "C"`，因此 API 在 C++ 中使用此 API 不必再做任何特殊处理。
 
@@ -258,7 +258,7 @@ static PyMethodDef pysqlite_row_methods[] = {
 
 多数 Python/C API 函数都有一个或多个参数以及一个 [PyObject](structures.md#c.PyObject "PyObject")* 类型的返回值。 这种类型是指向任意 Python 对象的不透明数据类型的指针。 由于所有 Python 对象类型在大多数情况下都被 Python 语言用相同的方式处理（例如，赋值、作用域规则和参数传递等），因此用单个 C 类型来表示它们是很适宜的。 几乎所有 Python 对象都存在于堆中：你不可声明一个类型为 [`PyObject`](structures.md#c.PyObject "PyObject") 的自动或静态的变量，只能声明类型为 [PyObject](structures.md#c.PyObject "PyObject")* 的指针变量。 唯一的例外是 type 对象；因为这种对象永远不能被释放，所以它们通常都是静态的 [`PyTypeObject`](type.md#c.PyTypeObject "PyTypeObject") 对象。
 
-所有 Python 对象（甚至 Python 整数）都有一个 _type_ 和一个 _reference count_ 。对象的类型确定它是什么类型的对象（例如整数、列表或用户定义函数；还有更多，如 [标准类型层级结构](datamodel.md#types) 中所述）。对于每个众所周知的类型，都有一个宏来检查对象是否属于该类型；例如，当（且仅当） _a_ 所指的对象是 Python 列表时 `PyList_Check(a)` 为真。
+所有 Python 对象（甚至 Python 整数）都有一个 _type_ 和一个 _reference count_ 。对象的类型确定它是什么类型的对象（例如整数、列表或用户定义函数；还有更多，如 [标准类型层级结构](3.%20数据模型.md#types) 中所述）。对于每个众所周知的类型，都有一个宏来检查对象是否属于该类型；例如，当（且仅当） _a_ 所指的对象是 Python 列表时 `PyList_Check(a)` 为真。
 
 ### 引用计数¶
 
@@ -416,7 +416,7 @@ Python程序员只需要处理特定需要处理的错误异常；未处理的�
 
 异常状态是在各个线程的存储中维护的（这相当于在一个无线程的应用中使用全局存储）。 一个线程可以处在两种状态之一：异常已经发生，或者没有发生。 函数 [`PyErr_Occurred()`](10.C%20API接口/exceptions.md#c.PyErr_Occurred "PyErr_Occurred") 可以被用来检查此状态：当异常发生时它将返回一个借入的异常类型对象的引用，在其他情况下则返回 `NULL`。 有多个函数可以设置异常状态: [`PyErr_SetString()`](10.C%20API接口/exceptions.md#c.PyErr_SetString "PyErr_SetString") 是最常见的（尽管不是最通用的）设置异常状态的函数，而 [`PyErr_Clear()`](10.C%20API接口/exceptions.md#c.PyErr_Clear "PyErr_Clear") 可以清除异常状态。
 
-完整的异常状态由三个对象组成 (它为都可以为 `NULL`): 异常类型、相应的异常值，以及回溯信息。 这些对象的含义与 Python 中 `sys.exc_info()` 的结果相同；然而，它们并不是一样的：Python 对象代表由 Python [`try`](compound_stmts.md#try) ... [`except`](compound_stmts.md#except) 语句所处理的最后一个异常，而 C 层级的异常状态只在异常被传入到 C 函数或在它们之间传递时存在直至其到达 Python 字节码解释器的主事件循环，该事件循环会负责将其转移至 `sys.exc_info()` 等处。
+完整的异常状态由三个对象组成 (它为都可以为 `NULL`): 异常类型、相应的异常值，以及回溯信息。 这些对象的含义与 Python 中 `sys.exc_info()` 的结果相同；然而，它们并不是一样的：Python 对象代表由 Python [`try`](8.%20复合语句.md#try) ... [`except`](8.%20复合语句.md#except) 语句所处理的最后一个异常，而 C 层级的异常状态只在异常被传入到 C 函数或在它们之间传递时存在直至其到达 Python 字节码解释器的主事件循环，该事件循环会负责将其转移至 `sys.exc_info()` 等处。
 
 请注意自 Python 1.5 开始，从 Python 代码访问异常状态的首选的、线程安全的方式是调用函数 [`sys.exc_info()`](3.标准库/sys.md#sys.exc_info "sys.exc_info")，它将返回 Python 代码的分线程异常状态。 此外，这两种访问异常状态的方式的语义都发生了变化因而捕获到异常的函数将保存并恢复其线程的异常状态以保留其调用方的异常状态。 这将防止异常处理代码中由一个看起来很无辜的函数覆盖了正在处理的异常所造成的常见错误；它还减少了在回溯由栈帧所引用的对象的往往不被需要的生命其延长。
 
@@ -496,9 +496,9 @@ incr_item(PyObject *dict, PyObject *key)
 
 在大多数系统上（特别是 Unix 和 Windows，虽然在细节上有所不同），[`Py_Initialize()`](init.md#c.Py_Initialize "Py_Initialize") 将根据对标准 Python 解释器可执行文件的位置的最佳猜测来计算模块搜索路径，并设定 Python 库可在相对于 Python 解释器可执行文件的固定位置上找到。 特别地，它将相对于在 shell 命令搜索路径 (环境变量 `PATH`) 上找到的名为 `python` 的可执行文件所在父目录中查找名为 `lib/python _X.Y_` 的目录。
 
-举例来说，如果 Python 可执行文件位于 `/usr/local/bin/python`，它将假定库位于 `/usr/local/lib/python _X.Y_`。 （实际上，这个特定路径还将成为“回退”位置，会在当无法在 `PATH` 中找到名为 `python` 的可执行文件时被使用。） 用户可以通过设置环境变量 [`PYTHONHOME`](cmdline.md#envvar-PYTHONHOME)，或通过设置 [`PYTHONPATH`](cmdline.md#envvar-PYTHONPATH) 在标准路径之前插入额外的目录来覆盖此行为。
+举例来说，如果 Python 可执行文件位于 `/usr/local/bin/python`，它将假定库位于 `/usr/local/lib/python _X.Y_`。 （实际上，这个特定路径还将成为“回退”位置，会在当无法在 `PATH` 中找到名为 `python` 的可执行文件时被使用。） 用户可以通过设置环境变量 [`PYTHONHOME`](1.%20命令行与环境.md#envvar-PYTHONHOME)，或通过设置 [`PYTHONPATH`](1.%20命令行与环境.md#envvar-PYTHONPATH) 在标准路径之前插入额外的目录来覆盖此行为。
 
-The embedding application can steer the search by setting [`PyConfig.program_name`](init_config.md#c.PyConfig.program_name "PyConfig.program_name") _before_ calling [`Py_InitializeFromConfig()`](init_config.md#c.Py_InitializeFromConfig "Py_InitializeFromConfig"). Note that [`PYTHONHOME`](cmdline.md#envvar-PYTHONHOME) still overrides this and [`PYTHONPATH`](cmdline.md#envvar-PYTHONPATH) is still inserted in front of the standard path. An application that requires total control has to provide its own implementation of [`Py_GetPath()`](init.md#c.Py_GetPath "Py_GetPath"), [`Py_GetPrefix()`](init.md#c.Py_GetPrefix "Py_GetPrefix"), [`Py_GetExecPrefix()`](init.md#c.Py_GetExecPrefix "Py_GetExecPrefix"), and [`Py_GetProgramFullPath()`](init.md#c.Py_GetProgramFullPath "Py_GetProgramFullPath") (all defined in `Modules/getpath.c`).
+The embedding application can steer the search by setting [`PyConfig.program_name`](init_config.md#c.PyConfig.program_name "PyConfig.program_name") _before_ calling [`Py_InitializeFromConfig()`](init_config.md#c.Py_InitializeFromConfig "Py_InitializeFromConfig"). Note that [`PYTHONHOME`](1.%20命令行与环境.md#envvar-PYTHONHOME) still overrides this and [`PYTHONPATH`](1.%20命令行与环境.md#envvar-PYTHONPATH) is still inserted in front of the standard path. An application that requires total control has to provide its own implementation of [`Py_GetPath()`](init.md#c.Py_GetPath "Py_GetPath"), [`Py_GetPrefix()`](init.md#c.Py_GetPrefix "Py_GetPrefix"), [`Py_GetExecPrefix()`](init.md#c.Py_GetExecPrefix "Py_GetExecPrefix"), and [`Py_GetProgramFullPath()`](init.md#c.Py_GetProgramFullPath "Py_GetProgramFullPath") (all defined in `Modules/getpath.c`).
 
 有时，还需要对 Python 进行“反初始化”。 例如，应用程序可能想要重新启动 (再次调用 [`Py_Initialize()`](init.md#c.Py_Initialize "Py_Initialize")) 或者应用程序对 Python 的使用已经完成并想要释放 Python 所分配的内存。 这可以通过调用 [`Py_FinalizeEx()`](init.md#c.Py_FinalizeEx "Py_FinalizeEx") 来实现。 如果当前 Python 处于已初始化状态则 [`Py_IsInitialized()`](init.md#c.Py_IsInitialized "Py_IsInitialized") 函数将返回真值。 有关这些函数的更多信息将在之后的章节中给出。 请注意 [`Py_FinalizeEx()`](init.md#c.Py_FinalizeEx "Py_FinalizeEx") _不会_ 释放所有由 Python 解释器所分配的内存，例如由扩展模块所分配的内存目前是不会被释放的。
 
@@ -508,11 +508,11 @@ Python 可以附带某些宏来编译以启用对解释器和扩展模块的额�
 
 各种调试构建版的完整列表见 Python 源代码颁发包中的 `Misc/SpecialBuilds.txt`。 可用的构建版有支持追踪引用计数，调试内存分配器，或是对主解释器事件循环的低层级性能分析等等。 本节的剩余部分将只介绍最常用的几种构建版。
 
-附带定义 `Py_DEBUG` 宏来编译解释器将产生通常所称的 [Python 调试编译版](configure.md#debug-build)。 `Py_DEBUG` 在 Unix 编译中启用是通过添加 [`--with-pydebug`](configure.md#cmdoption-with-pydebug) 到 `./configure` 命令来实现的。 它也可通过提供非 Python 专属的 `_DEBUG` 宏来启用。 当 `Py_DEBUG` 在 Unix 编译中启用时，编译器优化将被禁用。
+附带定义 `Py_DEBUG` 宏来编译解释器将产生通常所称的 [Python 调试编译版](3.%20配置%20Python.md#debug-build)。 `Py_DEBUG` 在 Unix 编译中启用是通过添加 [`--with-pydebug`](3.%20配置%20Python.md#cmdoption-with-pydebug) 到 `./configure` 命令来实现的。 它也可通过提供非 Python 专属的 `_DEBUG` 宏来启用。 当 `Py_DEBUG` 在 Unix 编译中启用时，编译器优化将被禁用。
 
-除了下文描述的引用计数调试，还会执行额外检查，请参阅 [Python Debug Build](configure.md#debug-build)。
+除了下文描述的引用计数调试，还会执行额外检查，请参阅 [Python Debug Build](3.%20配置%20Python.md#debug-build)。
 
-定义 `Py_TRACE_REFS` 将启用引用追踪 (参见 [`configure --with-trace-refs 选项`](configure.md#cmdoption-with-trace-refs))。 当定义了此宏时，将通过在每个 [`PyObject`](structures.md#c.PyObject "PyObject") 上添加两个额外字段来维护一个活动对象的循环双链列表。 总的分配量也会被追踪。 在退出时，所有现存的引用将被打印出来。 （在交互模式下这将在解释器运行每条语句之后发生）。
+定义 `Py_TRACE_REFS` 将启用引用追踪 (参见 [`configure --with-trace-refs 选项`](3.%20配置%20Python.md#cmdoption-with-trace-refs))。 当定义了此宏时，将通过在每个 [`PyObject`](structures.md#c.PyObject "PyObject") 上添加两个额外字段来维护一个活动对象的循环双链列表。 总的分配量也会被追踪。 在退出时，所有现存的引用将被打印出来。 （在交互模式下这将在解释器运行每条语句之后发生）。
 
 有关更多详细信息，请参阅Python源代码中的 `Misc/SpecialBuilds.txt` 。
 

@@ -1018,7 +1018,7 @@ value = STACK.pop()
 obj.name = value
 ~~~
 
-where _namei_ is the index of name in `co_names` of the [code object](datamodel.md#code-objects).
+where _namei_ is the index of name in `co_names` of the [code object](3.%20数据模型.md#code-objects).
 
 DELETE_ATTR( _namei_ )¶
 
@@ -1034,7 +1034,7 @@ obj = STACK.pop()
 del obj.name
 ~~~
 
-where _namei_ is the index of name into `co_names` of the [code object](datamodel.md#code-objects).
+where _namei_ is the index of name into `co_names` of the [code object](3.%20数据模型.md#code-objects).
 
 STORE_GLOBAL( _namei_ )¶
 

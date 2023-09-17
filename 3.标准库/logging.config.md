@@ -6,11 +6,11 @@ Important
 
 此页面仅包含参考信息。有关教程，请参阅
 
-  * [基础教程](6.常用指引/logging.md#logging-basic-tutorial)
+  * [基础教程](7.日志指南.md#logging-basic-tutorial)
 
-  * [进阶教程](6.常用指引/logging.md#logging-advanced-tutorial)
+  * [进阶教程](7.日志指南.md#logging-advanced-tutorial)
 
-  * [日志记录操作手册](logging-cookbook.md#logging-cookbook)
+  * [日志记录操作手册](8.日志专题手册.md#logging-cookbook)
 
 * * *
 

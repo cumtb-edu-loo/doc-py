@@ -30,7 +30,7 @@ vectorcall 协议是在 [**PEP 590**](https://peps.python.org/pep-0590/) 被引�
 
 一个支持 Vectorcall 的类 **必须** 也实现具有相同语义的 [`tp_call`](typeobj.md#c.PyTypeObject.tp_call "PyTypeObject.tp_call")。
 
-在 3.12 版本发生变更: 现在 [`Py_TPFLAGS_HAVE_VECTORCALL`](typeobj.md#c.Py_TPFLAGS_HAVE_VECTORCALL "Py_TPFLAGS_HAVE_VECTORCALL") 旗标在类的 [`__call__()`](datamodel.md#object.__call__ "object.__call__") 方法被重新赋值时将会从类中移除。 （这将仅在内部设置 [`tp_call`](typeobj.md#c.PyTypeObject.tp_call "PyTypeObject.tp_call")，因此可能使其行为不同于 vectorcall 函数。） 在更早的 Python 版本中，vectorcall 应当仅被用于 [`不可变对象`](typeobj.md#c.Py_TPFLAGS_IMMUTABLETYPE "Py_TPFLAGS_IMMUTABLETYPE") 或静态类型。
+在 3.12 版本发生变更: 现在 [`Py_TPFLAGS_HAVE_VECTORCALL`](typeobj.md#c.Py_TPFLAGS_HAVE_VECTORCALL "Py_TPFLAGS_HAVE_VECTORCALL") 旗标在类的 [`__call__()`](3.%20数据模型.md#object.__call__ "object.__call__") 方法被重新赋值时将会从类中移除。 （这将仅在内部设置 [`tp_call`](typeobj.md#c.PyTypeObject.tp_call "PyTypeObject.tp_call")，因此可能使其行为不同于 vectorcall 函数。） 在更早的 Python 版本中，vectorcall 应当仅被用于 [`不可变对象`](typeobj.md#c.Py_TPFLAGS_IMMUTABLETYPE "Py_TPFLAGS_IMMUTABLETYPE") 或静态类型。
 
 如果一个类的vectorcall比*tp_call*慢，就不应该实现vectorcall。例如，如果被调用者需要将参数转换为args 元组和kwargs dict，那么实现vectorcall就没有意义。
 

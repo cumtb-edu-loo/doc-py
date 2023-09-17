@@ -10,9 +10,9 @@
 
 `importlib` 包具有三重目标。
 
-一是在 Python 源代码中提供 [`import`](simple_stmts.md#import) 语句的实现（并且因此而扩展 [`__import__()`](functions.md#import__ "__import__") 函数）。 这提供了一个可移植到任何 Python 解释器的 `import` 实现。 与使用 Python 以外的编程语言实现的方式相比这一实现也更易于理解。
+一是在 Python 源代码中提供 [`import`](7.%20简单语句.md#import) 语句的实现（并且因此而扩展 [`__import__()`](functions.md#import__ "__import__") 函数）。 这提供了一个可移植到任何 Python 解释器的 `import` 实现。 与使用 Python 以外的编程语言实现的方式相比这一实现也更易于理解。
 
-第二个目的是实现 [`import`](simple_stmts.md#import) 的部分被公开在这个包中，使得用户更容易创建他们自己的自定义对象 (通常被称为 [importer](../glossary.md#term-importer)) 来参与到导入过程中。
+第二个目的是实现 [`import`](7.%20简单语句.md#import) 的部分被公开在这个包中，使得用户更容易创建他们自己的自定义对象 (通常被称为 [importer](../glossary.md#term-importer)) 来参与到导入过程中。
 
 三，这个包也包含了对外公开用于管理 Python 包的各个方面的附加功能的模块:
 
@@ -22,7 +22,7 @@
 
 参见
 
-[import 语句](simple_stmts.md#import)
+[import 语句](7.%20简单语句.md#import)
 
     
 
@@ -203,7 +203,7 @@ except NameError:
 
 重新加载内置的或者动态加载模块，通常来说不是很有用处。不推荐重新加载"[`sys`](3.标准库/sys.md#module-sys "sys: Access system-specific parameters and functions.")，[`__main__`](__main__.md#module-__main__ "__main__: The environment where top-level code is run. Covers command-line interfaces, import-time behavior, and ``__name__ == '__main__'``.")，[`builtins`](builtins.md#module-builtins "builtins: The module that provides the built-in namespace.") 和其它关键模块。在很多例子中，扩展模块并不是设计为不止一次的初始化，并且当重新加载时，可能会以任意方式失败。
 
-如果一个模块使用 [`from`](simple_stmts.md#from) ... [`import`](simple_stmts.md#import) ... 导入的对象来自另外一个模块，给其它模块调用 `reload()` 不会重新定义来自这个模块的对象 —— 解决这个问题的一种方式是重新执行 `from` 语句，另一种方式是使用 `import` 和限定名称( _module.name_ )来代替。
+如果一个模块使用 [`from`](7.%20简单语句.md#from) ... [`import`](7.%20简单语句.md#import) ... 导入的对象来自另外一个模块，给其它模块调用 `reload()` 不会重新定义来自这个模块的对象 —— 解决这个问题的一种方式是重新执行 `from` 语句，另一种方式是使用 `import` 和限定名称( _module.name_ )来代替。
 
 如果一个模块创建一个类的实例，重新加载定义那个类的模块不影响那些实例的方法定义———它们继续使用旧类中的定义。对于子类来说同样是正确的。
 
@@ -217,7 +217,7 @@ except NameError:
 
 * * *
 
-`importlib.abc` 模块包含了 [`import`](simple_stmts.md#import) 使用到的所有核心抽象基类。在实现核心的 ABCs 中，核心抽象基类的一些子类也提供了帮助。
+`importlib.abc` 模块包含了 [`import`](7.%20简单语句.md#import) 使用到的所有核心抽象基类。在实现核心的 ABCs 中，核心抽象基类的一些子类也提供了帮助。
 
 ABC 类的层次结构：
 
@@ -340,27 +340,27 @@ load_module( _fullname_ )¶
 
 模块的完整限定名称。 对于被执行的模块来说是 `'__main__'`。
 
-  * [`__file__`](4.语言参考/import.md#file__ "__file__")
+  * [`__file__`](5.%20导入系统.md#file__ "__file__")
     
 
 被 [loader](../glossary.md#term-loader) 用于加载指定模块的位置。 例如，对于从一个 .py 文件加载的模块来说即文件名。 这不一定会在所有模块上设置（例如内置模块就不会设置）。
 
-  * [`__cached__`](4.语言参考/import.md#cached__ "__cached__")
+  * [`__cached__`](5.%20导入系统.md#cached__ "__cached__")
     
 
 模块代码的编译版本的文件名。 这不一定会在所有模块上设置（例如内置模块就不会设置）。
 
-  * [`__path__`](4.语言参考/import.md#path__ "__path__")
+  * [`__path__`](5.%20导入系统.md#path__ "__path__")
     
 
 用于查找指定包的子模块的位置列表。 在大多数时候这将为单个目录。 导入系统会以与 [`sys.path`](3.标准库/sys.md#sys.path "sys.path") 相同但专门针对指定包的方式将此属性传给 `__import__()` 和查找器。 这不会在非包模块上设置因此它可以被用作确定模块是否为包的指示器。
 
-  * [`__package__`](4.语言参考/import.md#package__ "__package__")
+  * [`__package__`](5.%20导入系统.md#package__ "__package__")
     
 
-指定模块所在包的完整限定名称（或者对于最高层级模块来说则为空字符串）。 如果模块是包则它将与 [`__name__`](4.语言参考/import.md#name__ "__name__") 相同。
+指定模块所在包的完整限定名称（或者对于最高层级模块来说则为空字符串）。 如果模块是包则它将与 [`__name__`](5.%20导入系统.md#name__ "__name__") 相同。
 
-  * [`__loader__`](4.语言参考/import.md#loader__ "__loader__")
+  * [`__loader__`](5.%20导入系统.md#loader__ "__loader__")
     
 
 用于加载模块的 [loader](../glossary.md#term-loader)。

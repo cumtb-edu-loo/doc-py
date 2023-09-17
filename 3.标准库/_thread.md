@@ -164,7 +164,7 @@ with a_lock:
 
   * 不可能中断锁上的 [`acquire()`](threading.md#threading.Lock.acquire "threading.Lock.acquire") 方法 --- [`KeyboardInterrupt`](3.标准库/exceptions.md#KeyboardInterrupt "KeyboardInterrupt") 异常将在获取锁之后发生。
 
-  * 当主线程退出时，由系统决定其他线程是否存活。在大多数系统中，这些线程会直接被杀掉，不会执行 [`try`](compound_stmts.md#try) ... [`finally`](compound_stmts.md#finally) 语句，也不会执行对象析构函数。
+  * 当主线程退出时，由系统决定其他线程是否存活。在大多数系统中，这些线程会直接被杀掉，不会执行 [`try`](8.%20复合语句.md#try) ... [`finally`](8.%20复合语句.md#finally) 语句，也不会执行对象析构函数。
 
-  * 当主线程退出时，不会进行正常的清理工作（除非使用了 [`try`](compound_stmts.md#try) ... [`finally`](compound_stmts.md#finally) 语句），标准 I/O 文件也不会刷新。
+  * 当主线程退出时，不会进行正常的清理工作（除非使用了 [`try`](8.%20复合语句.md#try) ... [`finally`](8.%20复合语句.md#finally) 语句），标准 I/O 文件也不会刷新。
 

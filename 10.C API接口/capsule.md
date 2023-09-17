@@ -1,6 +1,6 @@
 # Capsule 对象¶
 
-有关使用这些对象的更多信息请参阅 [给扩展模块提供C API](9.拓展和嵌入/extending.md#using-capsules)。
+有关使用这些对象的更多信息请参阅 [给扩展模块提供C API](1.%20使用%20C%20或%20C++%20扩展%20Python.md#using-capsules)。
 
 在 3.1 版本加入.
 

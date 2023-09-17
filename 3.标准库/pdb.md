@@ -582,7 +582,7 @@ unalias name¶
 (Pdb)
 ~~~
 
-要设置全局变量，你可以在同一行上在赋值命令前添加 [`global`](simple_stmts.md#global) 语句，例如:
+要设置全局变量，你可以在同一行上在赋值命令前添加 [`global`](7.%20简单语句.md#global) 语句，例如:
 
     
     

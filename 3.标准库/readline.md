@@ -247,7 +247,7 @@ except FileNotFoundError:
 atexit.register(readline.write_history_file, histfile)
 ~~~
 
-此代码实际上会在 Python 运行于 [交互模式](interpreter.md#tut-interactive) 时自动运行 (参见 [Readline 配置](site.md#rlcompleter-config))。
+此代码实际上会在 Python 运行于 [交互模式](2.%20Python%20解释器.md#tut-interactive) 时自动运行 (参见 [Readline 配置](site.md#rlcompleter-config))。
 
 以下示例实现了同样的目标，但是通过只添加新历史的方式来支持并发的交互会话。
 

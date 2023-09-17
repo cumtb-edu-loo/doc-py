@@ -1,6 +1,6 @@
 # 迭代器对象¶
 
-Python 提供了两个通用迭代器对象。 第一个是序列迭代器，它可与支持 [`__getitem__()`](datamodel.md#object.__getitem__ "object.__getitem__") 方法的任意序列一起使用。 第二个迭代器使用一个可调用对象和一个哨兵值，为序列中的每个项目调用可调用对象，并在返回哨兵值时结束迭代。
+Python 提供了两个通用迭代器对象。 第一个是序列迭代器，它可与支持 [`__getitem__()`](3.%20数据模型.md#object.__getitem__ "object.__getitem__") 方法的任意序列一起使用。 第二个迭代器使用一个可调用对象和一个哨兵值，为序列中的每个项目调用可调用对象，并在返回哨兵值时结束迭代。
 
 [PyTypeObject](type.md#c.PyTypeObject "PyTypeObject") PySeqIter_Type¶  
 

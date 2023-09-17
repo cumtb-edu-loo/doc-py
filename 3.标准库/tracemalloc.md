@@ -14,9 +14,9 @@ tracemalloc 模块是一个用于对 python 已申请的内存块进行debug的�
 
   * 对比两个内存快照的差异，以便排查内存泄漏
 
-要追踪 Python 所分配的大部分内存块，模块应当通过将 [`PYTHONTRACEMALLOC`](cmdline.md#envvar-PYTHONTRACEMALLOC) 环境变量设置为 `1`，或是通过使用 [`-X`](cmdline.md#cmdoption-X) `tracemalloc` 命令行选项来尽可能早地启动。 可以在运行时调用 `tracemalloc.start()` 函数来启动追踪 Python 内存分配。memory allocations.
+要追踪 Python 所分配的大部分内存块，模块应当通过将 [`PYTHONTRACEMALLOC`](1.%20命令行与环境.md#envvar-PYTHONTRACEMALLOC) 环境变量设置为 `1`，或是通过使用 [`-X`](1.%20命令行与环境.md#cmdoption-X) `tracemalloc` 命令行选项来尽可能早地启动。 可以在运行时调用 `tracemalloc.start()` 函数来启动追踪 Python 内存分配。memory allocations.
 
-在默认情况下，一个已分配内存块的追踪将只储存最新的帧 (1 帧)。 要要启动时储存 25 帧：将 [`PYTHONTRACEMALLOC`](cmdline.md#envvar-PYTHONTRACEMALLOC) 环境变量设为 `25`，或使用 [`-X`](cmdline.md#cmdoption-X) `tracemalloc=25` 命令行选项。
+在默认情况下，一个已分配内存块的追踪将只储存最新的帧 (1 帧)。 要要启动时储存 25 帧：将 [`PYTHONTRACEMALLOC`](1.%20命令行与环境.md#envvar-PYTHONTRACEMALLOC) 环境变量设为 `25`，或使用 [`-X`](1.%20命令行与环境.md#cmdoption-X) `tracemalloc=25` 命令行选项。
 
 ## 例子¶
 

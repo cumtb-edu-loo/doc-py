@@ -1168,7 +1168,7 @@ for name in ["foo", "bar", "quux"]:
 tar.close()
 ~~~
 
-使用 [`with`](compound_stmts.md#with) 语句的同一个示例:
+使用 [`with`](8.%20复合语句.md#with) 语句的同一个示例:
 
     
     

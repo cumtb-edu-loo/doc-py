@@ -927,5 +927,5 @@ finally:
     some_lock.release()
 ~~~
 
-现在 `Lock` 、 `RLock` 、 `Condition` 、 `Semaphore` 和 `BoundedSemaphore` 对象可以用作 [`with`](compound_stmts.md#with) 语句的上下文管理器。
+现在 `Lock` 、 `RLock` 、 `Condition` 、 `Semaphore` 和 `BoundedSemaphore` 对象可以用作 [`with`](8.%20复合语句.md#with) 语句的上下文管理器。
 

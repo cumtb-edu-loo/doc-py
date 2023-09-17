@@ -4,7 +4,7 @@
 
 * * *
 
-此模块为涉及 [`with`](compound_stmts.md#with) 语句的常见任务提供了实用的工具。更多信息请参见 [上下文管理器类型](stdtypes.md#typecontextmanager) 和 [with 语句上下文管理器](datamodel.md#context-managers)。
+此模块为涉及 [`with`](8.%20复合语句.md#with) 语句的常见任务提供了实用的工具。更多信息请参见 [上下文管理器类型](stdtypes.md#typecontextmanager) 和 [with 语句上下文管理器](3.%20数据模型.md#context-managers)。
 
 ## 工具¶
 
@@ -65,11 +65,11 @@ def managed_resource(*args, **kwds):
 ...     # even if code in the block raises an exception
 ~~~
 
-被装饰的函数在被调用时，必须返回一个 [generator](../glossary.md#term-generator) 迭代器。 这个迭代器必须只 yield 一个值出来，这个值会被用在 [`with`](compound_stmts.md#with) 语句中，绑定到 `as` 后面的变量，如果给定了的话。
+被装饰的函数在被调用时，必须返回一个 [generator](../glossary.md#term-generator) 迭代器。 这个迭代器必须只 yield 一个值出来，这个值会被用在 [`with`](8.%20复合语句.md#with) 语句中，绑定到 `as` 后面的变量，如果给定了的话。
 
-当生成器发生 yield 时，嵌套在 [`with`](compound_stmts.md#with) 语句中的语句体会被执行。 语句体执行完毕离开之后，该生成器将被恢复执行。 如果在该语句体中发生了未处理的异常，则该异常会在生成器发生 yield 时重新被引发。 因此，你可以使用 [`try`](compound_stmts.md#try)...[`except`](compound_stmts.md#except)...[`finally`](compound_stmts.md#finally) 语句来捕获该异常（如果有的话），或确保进行了一些清理。 如果仅出于记录日志或执行某些操作（而非完全抑制异常）的目的捕获了异常，生成器必须重新引发该异常。 否则生成器的上下文管理器将向 `with` 语句指示该异常已经被处理，程序将立即在 `with` 语句之后恢复并继续执行。
+当生成器发生 yield 时，嵌套在 [`with`](8.%20复合语句.md#with) 语句中的语句体会被执行。 语句体执行完毕离开之后，该生成器将被恢复执行。 如果在该语句体中发生了未处理的异常，则该异常会在生成器发生 yield 时重新被引发。 因此，你可以使用 [`try`](8.%20复合语句.md#try)...[`except`](8.%20复合语句.md#except)...[`finally`](8.%20复合语句.md#finally) 语句来捕获该异常（如果有的话），或确保进行了一些清理。 如果仅出于记录日志或执行某些操作（而非完全抑制异常）的目的捕获了异常，生成器必须重新引发该异常。 否则生成器的上下文管理器将向 `with` 语句指示该异常已经被处理，程序将立即在 `with` 语句之后恢复并继续执行。
 
-`contextmanager()` 使用 `ContextDecorator` 因此它创建的上下文管理器不仅可以用在 [`with`](compound_stmts.md#with) 语句中，还可以用作一个装饰器。当它用作一个装饰器时，每一次函数调用时都会隐式创建一个新的生成器实例（这使得 `contextmanager()` 创建的上下文管理器满足了支持多次调用以用作装饰器的需求，而非“一次性”的上下文管理器）。
+`contextmanager()` 使用 `ContextDecorator` 因此它创建的上下文管理器不仅可以用在 [`with`](8.%20复合语句.md#with) 语句中，还可以用作一个装饰器。当它用作一个装饰器时，每一次函数调用时都会隐式创建一个新的生成器实例（这使得 `contextmanager()` 创建的上下文管理器满足了支持多次调用以用作装饰器的需求，而非“一次性”的上下文管理器）。
 
 在 3.2 版本发生变更: `ContextDecorator` 的使用。
 
@@ -158,7 +158,7 @@ with closing(urlopen('https://www.python.org')) as page:
         print(line)
 ~~~
 
-而无需显式地关闭 `page` 。 即使发生错误，在退出 [`with`](compound_stmts.md#with) 语句块时， `page.close()` 也同样会被调用。
+而无需显式地关闭 `page` 。 即使发生错误，在退出 [`with`](8.%20复合语句.md#with) 语句块时， `page.close()` 也同样会被调用。
 
 contextlib.aclosing( _thing_ )¶
 
@@ -180,7 +180,7 @@ async def aclosing(thing):
         await thing.aclose()
 ~~~
 
-重要的是，`aclosing()` 支持在异步生成器因遭遇 [`break`](simple_stmts.md#break) 或异常而提前退出时对其执行确定性的清理。 例如:
+重要的是，`aclosing()` 支持在异步生成器因遭遇 [`break`](7.%20简单语句.md#break) 或异常而提前退出时对其执行确定性的清理。 例如:
 
     
     
@@ -235,7 +235,7 @@ def process_file(file_or_path):
         # Perform processing on the file
 ~~~
 
-它也可以替代 [asynchronous context managers](datamodel.md#async-context-managers) ：
+它也可以替代 [asynchronous context managers](3.%20数据模型.md#async-context-managers) ：
 
     
     
@@ -460,7 +460,7 @@ class mycontext(ContextBaseClass, ContextDecorator):
 
 备注
 
-由于被装饰的函数必须能够被多次调用，因此对应的上下文管理器必须支持在多个 [`with`](compound_stmts.md#with) 语句中使用。如果不是这样，则应当使用原来的具有显式 `with` 语句的形式使用该上下文管理器。
+由于被装饰的函数必须能够被多次调用，因此对应的上下文管理器必须支持在多个 [`with`](8.%20复合语句.md#with) 语句中使用。如果不是这样，则应当使用原来的具有显式 `with` 语句的形式使用该上下文管理器。
 
 在 3.2 版本加入.
 
@@ -536,11 +536,11 @@ with ExitStack() as stack:
 
 `__enter__()` 方法返回 `ExitStack` 实例，并且不会执行额外的操作。
 
-每个实例维护一个注册了一组回调的栈，这些回调在实例关闭时以相反的顺序被调用（显式或隐式地在 [`with`](compound_stmts.md#with) 语句的末尾）。请注意，当一个栈实例被垃圾回收时，这些回调将 _不会_ 被隐式调用。
+每个实例维护一个注册了一组回调的栈，这些回调在实例关闭时以相反的顺序被调用（显式或隐式地在 [`with`](8.%20复合语句.md#with) 语句的末尾）。请注意，当一个栈实例被垃圾回收时，这些回调将 _不会_ 被隐式调用。
 
 通过使用这个基于栈的模型，那些通过 `__init__` 方法获取资源的上下文管理器（如文件对象）能够被正确处理。
 
-由于注册的回调函数是按照与注册相反的顺序调用的，因此最终的行为就像多个嵌套的 [`with`](compound_stmts.md#with) 语句用在这些注册的回调函数上。这个行为甚至扩展到了异常处理：如果内部的回调函数抑制或替换了异常，则外部回调收到的参数是基于该更新后的状态得到的。
+由于注册的回调函数是按照与注册相反的顺序调用的，因此最终的行为就像多个嵌套的 [`with`](8.%20复合语句.md#with) 语句用在这些注册的回调函数上。这个行为甚至扩展到了异常处理：如果内部的回调函数抑制或替换了异常，则外部回调收到的参数是基于该更新后的状态得到的。
 
 这是一个相对底层的 API，它负责正确处理栈里回调退出时依次展开的细节。它为相对高层的上下文管理器提供了一个合适的基础，使得它能根据应用程序的需求使用特定方式操作栈。
 
@@ -672,7 +672,7 @@ async with AsyncExitStack() as stack:
 
 ### 支持可变数量的上下文管理器¶
 
-`ExitStack` 的主要应用场景已在该类的文档中给出：在单个 [`with`](compound_stmts.md#with) 语句中支持可变数量的上下文管理器和其他清理操作。 这个可变性可以来自通过用户输入驱动所需的上下文管理器数量（例如打开用户所指定的文件集），或者来自将某些上下文管理器作为可选项。
+`ExitStack` 的主要应用场景已在该类的文档中给出：在单个 [`with`](8.%20复合语句.md#with) 语句中支持可变数量的上下文管理器和其他清理操作。 这个可变性可以来自通过用户输入驱动所需的上下文管理器数量（例如打开用户所指定的文件集），或者来自将某些上下文管理器作为可选项。
 
     
     
@@ -686,11 +686,11 @@ with ExitStack() as stack:
     # Perform operations that use the acquired resources
 ~~~
 
-如上所示，`ExitStack` 还让使用 [`with`](compound_stmts.md#with) 语句来管理任意非原生支持上下文管理协议的资源变得相当容易。
+如上所示，`ExitStack` 还让使用 [`with`](8.%20复合语句.md#with) 语句来管理任意非原生支持上下文管理协议的资源变得相当容易。
 
 ### 捕获 `__enter__` 方法产生的异常¶
 
-有时人们会想要从 `__enter__` 方法的实现中捕获异常，而 _不会_ 无意中捕获来自 [`with`](compound_stmts.md#with) 语句体或上下文管理器的 `__exit__` 方法的异常。 通过使用 `ExitStack` 可以将上下文管理协议中的步骤稍微分开以允许这样做:
+有时人们会想要从 `__enter__` 方法的实现中捕获异常，而 _不会_ 无意中捕获来自 [`with`](8.%20复合语句.md#with) 语句体或上下文管理器的 `__exit__` 方法的异常。 通过使用 `ExitStack` 可以将上下文管理协议中的步骤稍微分开以允许这样做:
 
     
     
@@ -705,7 +705,7 @@ else:
         # Handle normal case
 ~~~
 
-实际上需要这样做很可能表明下层的 API 应该提供一个直接的资源管理接口以便与 [`try`](compound_stmts.md#try)/[`except`](compound_stmts.md#except)/[`finally`](compound_stmts.md#finally) 语句配合使用，但并不是所有的 API 在这方面都设计得很好。 当上下文管理器是所提供的唯一资源管理 API 时，则 `ExitStack` 可以让处理各种无法在 [`with`](compound_stmts.md#with) 语句中直接处理的情况变得更为容易。
+实际上需要这样做很可能表明下层的 API 应该提供一个直接的资源管理接口以便与 [`try`](8.%20复合语句.md#try)/[`except`](8.%20复合语句.md#except)/[`finally`](8.%20复合语句.md#finally) 语句配合使用，但并不是所有的 API 在这方面都设计得很好。 当上下文管理器是所提供的唯一资源管理 API 时，则 `ExitStack` 可以让处理各种无法在 [`with`](8.%20复合语句.md#with) 语句中直接处理的情况变得更为容易。
 
 ### 在一个 `__enter__` 方法的实现中进行清理¶
 
@@ -918,7 +918,7 @@ RuntimeError: generator didn't yield
 
 ### 重进入上下文管理器¶
 
-更复杂的上下文管理器可以“重进入”。 这些上下文管理器不但可以被用于多个 [`with`](compound_stmts.md#with) 语句中，还可以被用于已经在使用同一个上下文管理器的 `with` 语句 _内部_ 。
+更复杂的上下文管理器可以“重进入”。 这些上下文管理器不但可以被用于多个 [`with`](8.%20复合语句.md#with) 语句中，还可以被用于已经在使用同一个上下文管理器的 `with` 语句 _内部_ 。
 
 [`threading.RLock`](threading.md#threading.RLock "threading.RLock") 是一个可重入上下文管理器的例子，`suppress()`, `redirect_stdout()` 和 `chdir()` 也是。 下面是一个非常简单的使用重入的示例:
 

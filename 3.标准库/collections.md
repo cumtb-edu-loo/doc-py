@@ -1011,7 +1011,7 @@ Account(type='premium', balance=0)
 11
 ~~~
 
-转换一个字典到命名元组，使用 ** 两星操作符 (所述如 [解包实参列表](controlflow.md#tut-unpacking-arguments)):
+转换一个字典到命名元组，使用 ** 两星操作符 (所述如 [解包实参列表](4.%20更多控制流工具.md#tut-unpacking-arguments)):
 
     
     
@@ -1066,7 +1066,7 @@ Point: x=14.000  y= 0.714  hypot=14.018
 
 参见
 
-  * 请参阅 [`typing.NamedTuple`](typing.md#typing.NamedTuple "typing.NamedTuple") ，以获取为命名元组添加类型提示的方法。 它还使用 [`class`](compound_stmts.md#class) 关键字提供了一种优雅的符号:
+  * 请参阅 [`typing.NamedTuple`](typing.md#typing.NamedTuple "typing.NamedTuple") ，以获取为命名元组添加类型提示的方法。 它还使用 [`class`](8.%20复合语句.md#class) 关键字提供了一种优雅的符号:
     
         class Component(NamedTuple):
         part_number: int

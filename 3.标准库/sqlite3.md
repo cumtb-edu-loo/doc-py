@@ -136,7 +136,7 @@ cur.executemany("INSERT INTO movie VALUES(?, ?, ?)", data)
 con.commit()  # Remember to commit the transaction after executing INSERT.
 ~~~
 
-请注意，占位符 (placeholders) `?` 是用来在查询中绑定数据 `data` 的。在绑定 Python 的值到 SQL 语句中时，请使用占位符取代格式化字符串 ([string formatting](inputoutput.md#tut-formatting) ) 以避免 [SQL 注入攻击](https://en.wikipedia.org/wiki/SQL_injection) （更多细节请参见 如何在 SQL 查询中使用占位符来绑定值 ）。
+请注意，占位符 (placeholders) `?` 是用来在查询中绑定数据 `data` 的。在绑定 Python 的值到 SQL 语句中时，请使用占位符取代格式化字符串 ([string formatting](7.%20输入与输出.md#tut-formatting) ) 以避免 [SQL 注入攻击](https://en.wikipedia.org/wiki/SQL_injection) （更多细节请参见 如何在 SQL 查询中使用占位符来绑定值 ）。
 
 同样的，我们可以通过执行 `SELECT` 查询验证新的数据行是否已经插入表中，这一次我们将迭代查询的结果：
 
@@ -2147,7 +2147,7 @@ con.close()
 
 ### 如何使用连接上下文管理器¶
 
-`Connection` 对象可被用作上下文管理器以便在离开上下文管理器代码块时自动提交或回滚开启的事务。 如果 [`with`](compound_stmts.md#with) 语句体无异常地结束，事务将被提交。 如果提交失败，或者如果 `with` 语句体引发了未捕获的异常，则事务将被回滚。 如果 `autocommit` 为 `False`，则会在提交或回滚后隐式地开启一个新事务。
+`Connection` 对象可被用作上下文管理器以便在离开上下文管理器代码块时自动提交或回滚开启的事务。 如果 [`with`](8.%20复合语句.md#with) 语句体无异常地结束，事务将被提交。 如果提交失败，或者如果 `with` 语句体引发了未捕获的异常，则事务将被回滚。 如果 `autocommit` 为 `False`，则会在提交或回滚后隐式地开启一个新事务。
 
 如果在离开 `with` 语句体时没有开启的事务，或者如果 `autocommit` 为 `True`，则上下文管理器将不做任何操作。
 

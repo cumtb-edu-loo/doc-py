@@ -261,7 +261,7 @@ $ python -m timeit -s "text = 'sample string'; char = 'g'" "text.find(char)"
 [0.40183617287970225, 0.37027556854118704, 0.38344867356679524, 0.3712595970846668, 0.37866875250654886]
 ~~~
 
-以下示例显示如何计算包含多行的表达式。 在这里我们对比使用 [`hasattr()`](functions.md#hasattr "hasattr") 与 [`try`](compound_stmts.md#try)/[`except`](compound_stmts.md#except) 的开销来测试缺失与提供对象属性:
+以下示例显示如何计算包含多行的表达式。 在这里我们对比使用 [`hasattr()`](functions.md#hasattr "hasattr") 与 [`try`](8.%20复合语句.md#try)/[`except`](8.%20复合语句.md#except) 的开销来测试缺失与提供对象属性:
 
     
     

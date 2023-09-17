@@ -4,11 +4,11 @@
 
 * * *
 
-**这个模块将在初始化时被自动导入。** 此自动导入可以通过使用解释器的 [`-S`](cmdline.md#cmdoption-S) 选项来屏蔽。
+**这个模块将在初始化时被自动导入。** 此自动导入可以通过使用解释器的 [`-S`](1.%20命令行与环境.md#cmdoption-S) 选项来屏蔽。
 
-导入此模块将会附加域特定的路径到模块搜索路径并且添加一些内建对象，除非使用了 [`-S`](cmdline.md#cmdoption-S) 选项。 那样的话，模块可以被安全地导入，而不会对模块搜索路径和内建对象有自动的修改或添加。要明确地触发通常域特定的添加，调用函数 `site.main()`。
+导入此模块将会附加域特定的路径到模块搜索路径并且添加一些内建对象，除非使用了 [`-S`](1.%20命令行与环境.md#cmdoption-S) 选项。 那样的话，模块可以被安全地导入，而不会对模块搜索路径和内建对象有自动的修改或添加。要明确地触发通常域特定的添加，调用函数 `site.main()`。
 
-在 3.3 版本发生变更: 在之前即便使用了 [`-S`](cmdline.md#cmdoption-S)，导入此模块仍然会触发路径操纵。
+在 3.3 版本发生变更: 在之前即便使用了 [`-S`](1.%20命令行与环境.md#cmdoption-S)，导入此模块仍然会触发路径操纵。
 
 它会从头部和尾部构建至多四个目录作为起点。 对于头部，它会使用 `sys.prefix` 和 `sys.exec_prefix`；空的头部会被跳过。 对于尾部，它会使用空字符串然后是 `lib/site-packages` (在 Windows 上) 或 `lib/python _X.Y_ /site-packages` (在 Unix 和 macOS 上)。 对于每个不同的头-尾组合，它会查看其是否指向现有的目录，如果是的话，则将其添加到 `sys.path` 并且检查新添加目录中的配置文件。
 
@@ -57,13 +57,13 @@ bar
 
 在这些路径操作之后，会尝试导入一个名为 `sitecustomize` 的模块，它可以执行任意站点专属的定制。 它通常是由系统管理员在 site-packages 目录下创建的。 如此此导入失败并引发 [`ImportError`](3.标准库/exceptions.md#ImportError "ImportError") 或其子类异常，并且异常的 `name` 属性等于 `'sitecustomize'`，则它会被静默地忽略。 如果 Python 是在没有可用输出流的情况下启动的，例如在 Windows 上使用 `pythonw.exe` (它默认被用于启动 start IDLE)，则来自 `sitecustomize` 的输出尝试会被忽略。 任何其他异常都会导致静默且可能令人迷惑不解的进程失败。
 
-在此之后，会尝试导入一个名为 `usercustomize` 的模块，它可以执行任意用户专属的定制，如果 `ENABLE_USER_SITE` 为真值的话。 这个文件应该在用户的 site-packages 目录中创建（见下文），该目录是 `sys.path` 的组成部分，除非被 [`-s`](cmdline.md#cmdoption-s) 所禁用。 如果此导入失败并引发 [`ImportError`](3.标准库/exceptions.md#ImportError "ImportError") 或者其子类异常，并且异常的 `name` 属性等于 `'usercustomize'`，它会被静默地忽略。
+在此之后，会尝试导入一个名为 `usercustomize` 的模块，它可以执行任意用户专属的定制，如果 `ENABLE_USER_SITE` 为真值的话。 这个文件应该在用户的 site-packages 目录中创建（见下文），该目录是 `sys.path` 的组成部分，除非被 [`-s`](1.%20命令行与环境.md#cmdoption-s) 所禁用。 如果此导入失败并引发 [`ImportError`](3.标准库/exceptions.md#ImportError "ImportError") 或者其子类异常，并且异常的 `name` 属性等于 `'usercustomize'`，它会被静默地忽略。
 
 请注意对于某些非 Unix 系统来说，`sys.prefix` 和 `sys.exec_prefix` 均为空值，并且路径操作会被跳过；但是仍然会尝试导入 `sitecustomize` 和 `usercustomize`。
 
 ## Readline 配置¶
 
-在支持 [`readline`](readline.md#module-readline "readline: GNU readline support for Python. \(Unix\)") 的系统上，这个模块也将导入并配置 [`rlcompleter`](rlcompleter.md#module-rlcompleter "rlcompleter: Python identifier completion, suitable for the GNU readline library.") 模块，如果 Python 是以 [交互模式](interpreter.md#tut-interactive) 启动并且不带 [`-S`](cmdline.md#cmdoption-S) 选项的话。 默认的行为是启用 tab 键补全并使用 `~/.python_history` 作为历史存档文件。 要禁用它，请删除（或重载）你的 `sitecustomize` 或 `usercustomize` 模块或 [`PYTHONSTARTUP`](cmdline.md#envvar-PYTHONSTARTUP) 文件中的 [`sys.__interactivehook__`](3.标准库/sys.md#sys.__interactivehook__ "sys.__interactivehook__") 属性。
+在支持 [`readline`](readline.md#module-readline "readline: GNU readline support for Python. \(Unix\)") 的系统上，这个模块也将导入并配置 [`rlcompleter`](rlcompleter.md#module-rlcompleter "rlcompleter: Python identifier completion, suitable for the GNU readline library.") 模块，如果 Python 是以 [交互模式](2.%20Python%20解释器.md#tut-interactive) 启动并且不带 [`-S`](1.%20命令行与环境.md#cmdoption-S) 选项的话。 默认的行为是启用 tab 键补全并使用 `~/.python_history` 作为历史存档文件。 要禁用它，请删除（或重载）你的 `sitecustomize` 或 `usercustomize` 模块或 [`PYTHONSTARTUP`](1.%20命令行与环境.md#envvar-PYTHONSTARTUP) 文件中的 [`sys.__interactivehook__`](3.标准库/sys.md#sys.__interactivehook__ "sys.__interactivehook__") 属性。
 
 在 3.4 版本发生变更: rlcompleter 和 history 会被自动激活。
 

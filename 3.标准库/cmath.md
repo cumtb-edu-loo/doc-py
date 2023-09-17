@@ -2,7 +2,7 @@
 
 * * *
 
-本模块提供了一些适用于复数的数学函数。 本模块中的函数接受整数、浮点数或复数作为参数。 它们也接受任意具有 [`__complex__()`](datamodel.md#object.__complex__ "object.__complex__") 或 [`__float__()`](datamodel.md#object.__float__ "object.__float__") 方法的 Python 对象：这些方法分别用于将对象转换为复数或浮点数，然后再将函数应用于转换后的结果。
+本模块提供了一些适用于复数的数学函数。 本模块中的函数接受整数、浮点数或复数作为参数。 它们也接受任意具有 [`__complex__()`](3.%20数据模型.md#object.__complex__ "object.__complex__") 或 [`__float__()`](3.%20数据模型.md#object.__float__ "object.__float__") 方法的 Python 对象：这些方法分别用于将对象转换为复数或浮点数，然后再将函数应用于转换后的结果。
 
 备注
 

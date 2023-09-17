@@ -1,6 +1,6 @@
 # Python/C API 参考手册¶
 
-本手册描述了希望编写扩展模块并将 Python 解释器嵌入其应用程序中的 C 和 C++ 程序员可用的 API。同时可以参阅 [扩展和嵌入 Python 解释器](9.拓展和嵌入/index.md#extending-index) ，其中描述了扩展编写的一般原则，但没有详细描述 API 函数。
+本手册描述了希望编写扩展模块并将 Python 解释器嵌入其应用程序中的 C 和 C++ 程序员可用的 API。同时可以参阅 [扩展和嵌入 Python 解释器](0.扩展和嵌入%20Python%20解释器.md#extending-index) ，其中描述了扩展编写的一般原则，但没有详细描述 API 函数。
 
   * [概述](10.C%20API接口/intro.md)
     * [代码标准](10.C%20API接口/intro.md#coding-standards)

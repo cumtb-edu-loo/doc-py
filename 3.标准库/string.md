@@ -200,7 +200,7 @@ _field_name_ 本身以一个数字或关键字形式的 _arg_name_ 打头。 如
 "Units destroyed: {players[0]}"   # First element of keyword argument 'players'.
 ~~~
 
-_conversion_ 字段会在格式化之前进行类型强制转换。 通常，格式化一个值的工作是由该值本身的 [`__format__()`](datamodel.md#object.__format__ "object.__format__") 方法完成的。 但是，在某些情况下最好是强制将类型格式化为一个字符串，覆盖其本身的格式化定义。 通过在调用 [`__format__()`](datamodel.md#object.__format__ "object.__format__") 之间将值转换为字符串，可以绕过正常的格式化逻辑。
+_conversion_ 字段会在格式化之前进行类型强制转换。 通常，格式化一个值的工作是由该值本身的 [`__format__()`](3.%20数据模型.md#object.__format__ "object.__format__") 方法完成的。 但是，在某些情况下最好是强制将类型格式化为一个字符串，覆盖其本身的格式化定义。 通过在调用 [`__format__()`](3.%20数据模型.md#object.__format__ "object.__format__") 之间将值转换为字符串，可以绕过正常的格式化逻辑。
 
 目前支持的转换旗标有三种: `'!s'` 会对值调用 [`str()`](stdtypes.md#str "str")，`'!r'` 调用 [`repr()`](functions.md#repr "repr") 而 `'!a'` 则调用 [`ascii()`](functions.md#ascii "ascii")。
 
@@ -224,7 +224,7 @@ _format_spec_ 字段还可以在其内部包含嵌套的替换字段。 这些�
 
 ### 格式规格迷你语言¶
 
-“格式规格”在格式字符串所包含的替换字段内部使用，用于定义单个值应如何呈现 (参见 格式字符串语法 和 [格式字符串字面值](lexical_analysis.md#f-strings))。 它们也可以被直接传给内置的 [`format()`](functions.md#format "format") 函数。 每种可格式化的类型都可以自行定义如何对格式规格进行解读。
+“格式规格”在格式字符串所包含的替换字段内部使用，用于定义单个值应如何呈现 (参见 格式字符串语法 和 [格式字符串字面值](2.%20词法分析.md#f-strings))。 它们也可以被直接传给内置的 [`format()`](functions.md#format "format") 函数。 每种可格式化的类型都可以自行定义如何对格式规格进行解读。
 
 大多数内置类型都为格式规格实现了下列选项，不过某些格式化选项只被数值类型所支持。
 
@@ -245,7 +245,7 @@ _标准格式说明符_ 的一般形式如下：
 **type** ::=  "b" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" | "n" | "o" | "s" | "x" | "X" | "%"
 ~~~
 
-如果指定了一个有效的 _align_ 值，则可以在该值前面加一个 _fill_ 字符，它可以为任意字符，如果省略则默认为空格符。 在 [格式化字符串字面值](lexical_analysis.md#f-strings) 或在使用 [`str.format()`](stdtypes.md#str.format "str.format") 方法时是无法使用花括号字面值 ("`{`" or "`}`") 作为 _fill_ 字符的。 但是，通过嵌套替换字段插入花括号则是可以的。 这个限制不会影响 [`format()`](functions.md#format "format") 函数。
+如果指定了一个有效的 _align_ 值，则可以在该值前面加一个 _fill_ 字符，它可以为任意字符，如果省略则默认为空格符。 在 [格式化字符串字面值](2.%20词法分析.md#f-strings) 或在使用 [`str.format()`](stdtypes.md#str.format "str.format") 方法时是无法使用花括号字面值 ("`{`" or "`}`") 作为 _fill_ 字符的。 但是，通过嵌套替换字段插入花括号则是可以的。 这个限制不会影响 [`format()`](functions.md#format "format") 函数。
 
 各种对齐选项的含义如下：
 

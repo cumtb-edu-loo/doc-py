@@ -4,7 +4,7 @@ int PySequence_Check([PyObject](structures.md#c.PyObject "PyObject") *o)¶
 
     _Part of the[ Stable ABI](stable.md#stable)._
 
-如果对象提供了序列协议则返回 `1`，否则返回 `0`。 请注意对于具有 [`__getitem__()`](datamodel.md#object.__getitem__ "object.__getitem__") 方法的 Python 类返回 `1` ，除非它们是 [`dict`](stdtypes.md#dict "dict") 的子类，因为在通常情况下无法确定这种类支持哪种键类型。 该函数总是会成功执行。
+如果对象提供了序列协议则返回 `1`，否则返回 `0`。 请注意对于具有 [`__getitem__()`](3.%20数据模型.md#object.__getitem__ "object.__getitem__") 方法的 Python 类返回 `1` ，除非它们是 [`dict`](stdtypes.md#dict "dict") 的子类，因为在通常情况下无法确定这种类支持哪种键类型。 该函数总是会成功执行。
 
 [Py_ssize_t](10.C%20API接口/intro.md#c.Py_ssize_t "Py_ssize_t") PySequence_Size([PyObject](structures.md#c.PyObject "PyObject") *o)¶  
 

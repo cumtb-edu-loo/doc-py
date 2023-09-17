@@ -181,7 +181,7 @@ ShareableList(['a', 'l', 'p', 'h', 'a'], name='psm_6572_12221')
 >>> smm.shutdown()  # Calls unlink() on sl, raw_shm, and another_sl
 ~~~
 
-以下案例展示了 `SharedMemoryManager` 对象的一种可能更方便的使用方式，通过 [`with`](compound_stmts.md#with) 语句来保证所有共享内存块在使用完后被释放。
+以下案例展示了 `SharedMemoryManager` 对象的一种可能更方便的使用方式，通过 [`with`](8.%20复合语句.md#with) 语句来保证所有共享内存块在使用完后被释放。
 
     
     
@@ -198,7 +198,7 @@ ShareableList(['a', 'l', 'p', 'h', 'a'], name='psm_6572_12221')
 ...     total_result = sum(sl)  # Consolidate the partial results now in sl
 ~~~
 
-在 [`with`](compound_stmts.md#with) 语句中使用 `SharedMemoryManager` 对象的时候，使用这个管理器创建的共享内存块会在 [`with`](compound_stmts.md#with) 语句代码块结束后被释放。
+在 [`with`](8.%20复合语句.md#with) 语句中使用 `SharedMemoryManager` 对象的时候，使用这个管理器创建的共享内存块会在 [`with`](8.%20复合语句.md#with) 语句代码块结束后被释放。
 
 _class _multiprocessing.shared_memory.ShareableList( _sequence=None_ , _\\*_ , _name=None_ )¶
 

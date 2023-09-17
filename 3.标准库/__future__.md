@@ -8,7 +8,7 @@
 
   * 避免混淆已有的分析 import 语句并查找 import 的模块的工具。
 
-  * 确保 [future 语句](simple_stmts.md#future) 在 2.1 之前的版本运行时至少能抛出 runtime 异常（import `__future__` 会失败，因为 2.1 版本之前没有这个模块）。
+  * 确保 [future 语句](7.%20简单语句.md#future) 在 2.1 之前的版本运行时至少能抛出 runtime 异常（import `__future__` 会失败，因为 2.1 版本之前没有这个模块）。
 
   * 当引入不兼容的修改时，可以记录其引入的时间以及强制使用的时间。这是一种可执行的文档，并且可以通过 import `__future__` 来做程序性的检查。
 
@@ -196,7 +196,7 @@ TBD [1]
 
 参见
 
-[future 语句](simple_stmts.md#future)
+[future 语句](7.%20简单语句.md#future)
 
     
 

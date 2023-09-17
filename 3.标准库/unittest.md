@@ -110,7 +110,7 @@ if __name__ == '__main__':
 
 继承 `unittest.TestCase` 就创建了一个测试样例。上述三个独立的测试是三个类的方法，这些方法的命名都以 `test` 开头。 这个命名约定告诉测试运行者类的哪些方法表示测试。
 
-每个测试的关键是：调用 `assertEqual()` 来检查预期的输出； 调用 `assertTrue()` 或 `assertFalse()` 来验证一个条件；调用 `assertRaises()` 来验证抛出了一个特定的异常。使用这些方法而不是 [`assert`](simple_stmts.md#assert) 语句是为了让测试运行者能聚合所有的测试结果并产生结果报告。
+每个测试的关键是：调用 `assertEqual()` 来检查预期的输出； 调用 `assertTrue()` 或 `assertFalse()` 来验证一个条件；调用 `assertRaises()` 来验证抛出了一个特定的异常。使用这些方法而不是 [`assert`](7.%20简单语句.md#assert) 语句是为了让测试运行者能聚合所有的测试结果并产生结果报告。
 
 通过 `setUp()` 和 `tearDown()` 方法，可以设置测试开始前与完成后需要执行的指令。 在 组织你的测试代码 中，对此有更为详细的描述。
 
@@ -2330,7 +2330,7 @@ _testLoader_ 参数必须是一个 `TestLoader` 实例，其默认值为 `defaul
 
 _failfast_ , _catchbreak_ 和 _buffer_ 形参的效果与同名的 command-line options 一致。
 
-_warnings_ 参数指定在运行测试时所应使用的 [警告过滤器](warnings.md#warning-filter)。 如果未指定，则默认的 `None` 会在将 `-W` 选项传给 **python** 命令时被保留 (参见 [警告控制](cmdline.md#using-on-warnings))，而在其他情况下将被设为 `'default'`。
+_warnings_ 参数指定在运行测试时所应使用的 [警告过滤器](warnings.md#warning-filter)。 如果未指定，则默认的 `None` 会在将 `-W` 选项传给 **python** 命令时被保留 (参见 [警告控制](1.%20命令行与环境.md#using-on-warnings))，而在其他情况下将被设为 `'default'`。
 
 调用 `main` 实际上将返回一个 `TestProgram` 类的实例。 这会把测试运行结果保存为 `result` 属性。
 

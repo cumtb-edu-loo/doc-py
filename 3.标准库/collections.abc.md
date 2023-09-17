@@ -53,7 +53,7 @@ True
 True
 ~~~
 
-在这个例子中，`D` 类不需要定义 `__contains__`, `__iter__` 和 `__reversed__` 因为 [in 运算符](expressions.md#comparisons), the [迭代](../glossary.md#term-iterable) 逻辑和 [`reversed()`](functions.md#reversed "reversed") 函数会自动回退为使用 `__getitem__` 和 `__len__`。
+在这个例子中，`D` 类不需要定义 `__contains__`, `__iter__` 和 `__reversed__` 因为 [in 运算符](6.%20表达式.md#comparisons), the [迭代](../glossary.md#term-iterable) 逻辑和 [`reversed()`](functions.md#reversed "reversed") 函数会自动回退为使用 `__getitem__` 和 `__len__`。
 
 3) Some simple interfaces are directly recognizable by the presence of the required methods (unless those methods have been set to [`None`](constants.md#None "None")):
 

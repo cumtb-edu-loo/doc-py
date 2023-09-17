@@ -1,6 +1,6 @@
 # 解析参数并构建值变量¶
 
-在创建你自己的扩展函数和方法时，这些函数是有用的。其它的信息和样例见 [扩展和嵌入 Python 解释器](9.拓展和嵌入/index.md#extending-index) 。
+在创建你自己的扩展函数和方法时，这些函数是有用的。其它的信息和样例见 [扩展和嵌入 Python 解释器](0.扩展和嵌入%20Python%20解释器.md#extending-index) 。
 
 这些函数描述的前三个，`PyArg_ParseTuple()`，`PyArg_ParseTupleAndKeywords()`，以及 `PyArg_Parse()`，它们都使用 _格式化字符串_ 来将函数期待的参数告知函数。这些函数都使用相同语法规则的格式化字符串。
 

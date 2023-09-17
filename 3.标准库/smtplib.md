@@ -34,7 +34,7 @@ _class _smtplib.SMTP( _host=''_ , _port=0_ , _local_hostname=None_ , [ _timeout_
 
 引发一个 [审计事件](3.标准库/sys.md#auditing) `smtplib.send`，附带参数 `self`, `data`。
 
-在 3.3 版本发生变更: 添加了对 [`with`](compound_stmts.md#with) 语句的支持。
+在 3.3 版本发生变更: 添加了对 [`with`](8.%20复合语句.md#with) 语句的支持。
 
 在 3.3 版本发生变更: 添加了 _source_address_ 参数。
 

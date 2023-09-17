@@ -4,7 +4,7 @@
 
 * * *
 
-此模块添加了从 ZIP 格式档案中导入 Python 模块（ `*.py` ， `*.pyc` ）和包的能力。通常不需要明确地使用 `zipimport` 模块，内置的 [`import`](simple_stmts.md#import) 机制会自动将此模块用于 ZIP 档案路径的 [`sys.path`](3.标准库/sys.md#sys.path "sys.path") 项目上。
+此模块添加了从 ZIP 格式档案中导入 Python 模块（ `*.py` ， `*.pyc` ）和包的能力。通常不需要明确地使用 `zipimport` 模块，内置的 [`import`](7.%20简单语句.md#import) 机制会自动将此模块用于 ZIP 档案路径的 [`sys.path`](3.标准库/sys.md#sys.path "sys.path") 项目上。
 
 通常， [`sys.path`](3.标准库/sys.md#sys.path "sys.path") 是字符串的目录名称列表。此模块同样允许 [`sys.path`](3.标准库/sys.md#sys.path "sys.path") 的一项成为命名 ZIP 文件档案的字符串。 ZIP 档案可以容纳子目录结构去支持包的导入，并且可以将归档文件中的路径指定为仅从子目录导入。比如说，路径 `example.zip/lib/` 将只会从档案中的 `lib/` 子目录导入。
 

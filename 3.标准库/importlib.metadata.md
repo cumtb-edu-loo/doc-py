@@ -305,7 +305,7 @@ PosixPath('/home/gustav/example/lib/site-packages/wheel/util.py')
 
 ## 扩展搜索算法¶
 
-因为 [分发包](https://packaging.python.org/en/latest/glossary/#term-Distribution-Package) 元数据不能通过 [`sys.path`](3.标准库/sys.md#sys.path "sys.path") 搜索，或是通过包加载器直接获得，一个分发包的元数据是通过导入系统的 [查找器](4.语言参考/import.md#finders-and-loaders) 找到的。 要找到分发包的元数据，`importlib.metadata` 将在 [`sys.meta_path`](3.标准库/sys.md#sys.meta_path "sys.meta_path") 上查询 [元路径查找器](../glossary.md#term-meta-path-finder) 的列表。
+因为 [分发包](https://packaging.python.org/en/latest/glossary/#term-Distribution-Package) 元数据不能通过 [`sys.path`](3.标准库/sys.md#sys.path "sys.path") 搜索，或是通过包加载器直接获得，一个分发包的元数据是通过导入系统的 [查找器](5.%20导入系统.md#finders-and-loaders) 找到的。 要找到分发包的元数据，`importlib.metadata` 将在 [`sys.meta_path`](3.标准库/sys.md#sys.meta_path "sys.meta_path") 上查询 [元路径查找器](../glossary.md#term-meta-path-finder) 的列表。
 
 在默认情况下 `importlib.metadata` 会安装在文件系统中找到的分发包的查找器。 这个查找器无法真正找出任何 _分发包_ ，但它能找到它们的元数据。
 

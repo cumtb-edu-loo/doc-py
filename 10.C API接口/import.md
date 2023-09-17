@@ -96,9 +96,9 @@ Similar to `PyImport_AddModuleRef()`, but return a [borrowed reference](../gloss
 
 给定一个模块名称（可能为 `package.module` 形式）和一个从 Python 字节码文件读取或从内置函数 [`compile()`](functions.md#compile "compile") 获取的代码对象，加载该模块。 返回对该模块对象的新引用，或者如果发生错误则返回 `NULL` 并设置一个异常。 在发生错误的情况下 _name_ 会从 [`sys.modules`](3.标准库/sys.md#sys.modules "sys.modules") 中被移除，即使 _name_ 在进入 `PyImport_ExecCodeModule()` 时已存在于 [`sys.modules`](3.标准库/sys.md#sys.modules "sys.modules") 中。 在 [`sys.modules`](3.标准库/sys.md#sys.modules "sys.modules") 中保留未完全初始化的模块是危险的，因为导入这样的模块没有办法知识模块对象是否处于一种未知的（对于模块作者的意图来说可能是已损坏的）状态。
 
-模块的 [`__spec__`](4.语言参考/import.md#spec__ "__spec__") 和 [`__loader__`](4.语言参考/import.md#loader__ "__loader__") 如果尚未设置的话，将被设为适当的值。 相应 spec 的加载器（如果已设置）将被设为模块的 `__loader__` 而在其他情况下将被设为 [`SourceFileLoader`](importlib.md#importlib.machinery.SourceFileLoader "importlib.machinery.SourceFileLoader") 的实例。
+模块的 [`__spec__`](5.%20导入系统.md#spec__ "__spec__") 和 [`__loader__`](5.%20导入系统.md#loader__ "__loader__") 如果尚未设置的话，将被设为适当的值。 相应 spec 的加载器（如果已设置）将被设为模块的 `__loader__` 而在其他情况下将被设为 [`SourceFileLoader`](importlib.md#importlib.machinery.SourceFileLoader "importlib.machinery.SourceFileLoader") 的实例。
 
-模块的 [`__file__`](4.语言参考/import.md#file__ "__file__") 属性将被设为代码对象的 `co_filename`。 如果适用，还将设置 [`__cached__`](4.语言参考/import.md#cached__ "__cached__")。
+模块的 [`__file__`](5.%20导入系统.md#file__ "__file__") 属性将被设为代码对象的 `co_filename`。 如果适用，还将设置 [`__cached__`](5.%20导入系统.md#cached__ "__cached__")。
 
 如果模块已被导入则此函数将重载它。 请参阅 `PyImport_ReloadModule()` 了解重载模块的预定方式。
 
@@ -106,13 +106,13 @@ Similar to `PyImport_AddModuleRef()`, but return a [borrowed reference](../gloss
 
 另请参阅 `PyImport_ExecCodeModuleEx()` 和 `PyImport_ExecCodeModuleWithPathnames()`。
 
-在 3.12 版本发生变更: [`__cached__`](4.语言参考/import.md#cached__ "__cached__") 和 [`__loader__`](4.语言参考/import.md#loader__ "__loader__") 的设置已被弃用。 替代设置参见 [`ModuleSpec`](importlib.md#importlib.machinery.ModuleSpec "importlib.machinery.ModuleSpec")。
+在 3.12 版本发生变更: [`__cached__`](5.%20导入系统.md#cached__ "__cached__") 和 [`__loader__`](5.%20导入系统.md#loader__ "__loader__") 的设置已被弃用。 替代设置参见 [`ModuleSpec`](importlib.md#importlib.machinery.ModuleSpec "importlib.machinery.ModuleSpec")。
 
 [PyObject](structures.md#c.PyObject "PyObject") *PyImport_ExecCodeModuleEx(const char *name, [PyObject](structures.md#c.PyObject "PyObject") *co, const char *pathname)¶  
 
     _返回值：新的引用。_ _Part of the[ Stable ABI](stable.md#stable)._
 
-类似于 `PyImport_ExecCodeModule()`，但如果 _pathname_ 不为 `NULL` 则会被设为模块对象的 [`__file__`](4.语言参考/import.md#file__ "__file__") 属性的值。
+类似于 `PyImport_ExecCodeModule()`，但如果 _pathname_ 不为 `NULL` 则会被设为模块对象的 [`__file__`](5.%20导入系统.md#file__ "__file__") 属性的值。
 
 参见 `PyImport_ExecCodeModuleWithPathnames()`。
 
@@ -120,11 +120,11 @@ Similar to `PyImport_AddModuleRef()`, but return a [borrowed reference](../gloss
 
     _返回值：新的引用。_ _Part of the[ Stable ABI](stable.md#stable) since version 3.7._
 
-类似于 `PyImport_ExecCodeModuleEx()`，但如果 _cpathname_ 不为 `NULL` 则会被设为模块对象的 [`__cached__`](4.语言参考/import.md#cached__ "__cached__") 值。 在三个函数中，这是推荐使用的一个。
+类似于 `PyImport_ExecCodeModuleEx()`，但如果 _cpathname_ 不为 `NULL` 则会被设为模块对象的 [`__cached__`](5.%20导入系统.md#cached__ "__cached__") 值。 在三个函数中，这是推荐使用的一个。
 
 在 3.3 版本加入.
 
-在 3.12 版本发生变更: [`__cached__`](4.语言参考/import.md#cached__ "__cached__") 的设置已被弃用。 替代设置参见 [`ModuleSpec`](importlib.md#importlib.machinery.ModuleSpec "importlib.machinery.ModuleSpec")。
+在 3.12 版本发生变更: [`__cached__`](5.%20导入系统.md#cached__ "__cached__") 的设置已被弃用。 替代设置参见 [`ModuleSpec`](importlib.md#importlib.machinery.ModuleSpec "importlib.machinery.ModuleSpec")。
 
 [PyObject](structures.md#c.PyObject "PyObject") *PyImport_ExecCodeModuleWithPathnames(const char *name, [PyObject](structures.md#c.PyObject "PyObject") *co, const char *pathname, const char *cpathname)¶  
 
