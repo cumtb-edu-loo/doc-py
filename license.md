@@ -449,7 +449,7 @@ PERFORMANCE OF THIS SOFTWARE.
 
 ### Mersenne Twister¶
 
-作为 [`random`](library/random.md#module-random "random: Generate pseudo-random numbers with various common distributions.") 模块下层的 `_random` C 扩展包括基于从 <http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/MT2002/emt19937ar.md> 下载的代码。 以下是原始代码的完整注释:
+作为 [`random`](random.md#module-random "random: Generate pseudo-random numbers with various common distributions.") 模块下层的 `_random` C 扩展包括基于从 <http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/MT2002/emt19937ar.md> 下载的代码。 以下是原始代码的完整注释:
 
     
     
@@ -498,7 +498,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ### 套接字¶
 
-[`socket`](library/socket.md#module-socket "socket: Low-level networking interface.") 使用了 `getaddrinfo()` 和 `getnameinfo()` WIDE 项目的不同源文件中: <https://www.wide.ad.jp/>
+[`socket`](socket.md#module-socket "socket: Low-level networking interface.") 使用了 `getaddrinfo()` 和 `getnameinfo()` WIDE 项目的不同源文件中: <https://www.wide.ad.jp/>
 
     
     
@@ -562,7 +562,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ### Cookie 管理¶
 
-[`http.cookies`](library/http.cookies.md#module-http.cookies "http.cookies: Support for HTTP state management \(cookies\).") 模块包含以下声明:
+[`http.cookies`](http.cookies.md#module-http.cookies "http.cookies: Support for HTTP state management \(cookies\).") 模块包含以下声明:
 
     
     
@@ -592,7 +592,7 @@ PERFORMANCE OF THIS SOFTWARE.
 
 ### 执行追踪¶
 
-[`trace`](library/trace.md#module-trace "trace: Trace or track Python statement execution.") 模块包含以下声明:
+[`trace`](trace.md#module-trace "trace: Trace or track Python statement execution.") 模块包含以下声明:
 
     
     
@@ -659,7 +659,7 @@ Modified by Jack Jansen, CWI, July 1995:
 
 ### XML 远程过程调用¶
 
-[`xmlrpc.client`](library/xmlrpc.client.md#module-xmlrpc.client "xmlrpc.client: XML-RPC client access.") 模块包含以下声明:
+[`xmlrpc.client`](xmlrpc.client.md#module-xmlrpc.client "xmlrpc.client: XML-RPC client access.") 模块包含以下声明:
 
     
     
@@ -723,7 +723,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ### Select kqueue¶
 
-[`select`](library/select.md#module-select "select: Wait for I/O completion on multiple streams.") 模块关于 kqueue 的接口包含以下声明:
+[`select`](select.md#module-select "select: Wait for I/O completion on multiple streams.") 模块关于 kqueue 的接口包含以下声明:
 
     
     
@@ -812,7 +812,7 @@ Solution inspired by code from:
 
 ### OpenSSL¶
 
-The modules [`hashlib`](library/hashlib.md#module-hashlib "hashlib: Secure hash and message digest algorithms."), [`posix`](library/posix.md#module-posix "posix: The most common POSIX system calls \(normally used via module os\). \(Unix\)") and [`ssl`](library/ssl.md#module-ssl "ssl: TLS/SSL wrapper for socket objects") use the OpenSSL library for added performance if made available by the operating system. Additionally, the Windows and macOS installers for Python may include a copy of the OpenSSL libraries, so we include a copy of the OpenSSL license here. For the OpenSSL 3.0 release, and later releases derived from that, the Apache License v2 applies:
+The modules [`hashlib`](hashlib.md#module-hashlib "hashlib: Secure hash and message digest algorithms."), [`posix`](posix.md#module-posix "posix: The most common POSIX system calls \(normally used via module os\). \(Unix\)") and [`ssl`](ssl.md#module-ssl "ssl: TLS/SSL wrapper for socket objects") use the OpenSSL library for added performance if made available by the operating system. Additionally, the Windows and macOS installers for Python may include a copy of the OpenSSL libraries, so we include a copy of the OpenSSL license here. For the OpenSSL 3.0 release, and later releases derived from that, the Apache License v2 applies:
 
     
     
@@ -997,7 +997,7 @@ END OF TERMS AND CONDITIONS
 
 ### expat¶
 
-[`pyexpat`](library/pyexpat.md#module-xml.parsers.expat "xml.parsers.expat: An interface to the Expat non-validating XML parser.") 扩展是使用所包括的 expat 源副本来构建的，除非配置了 `--with-system-expat`:
+[`pyexpat`](pyexpat.md#module-xml.parsers.expat "xml.parsers.expat: An interface to the Expat non-validating XML parser.") 扩展是使用所包括的 expat 源副本来构建的，除非配置了 `--with-system-expat`:
 
     
     
@@ -1027,7 +1027,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ### libffi¶
 
-作为 [`ctypes`](library/ctypes.md#module-ctypes "ctypes: A foreign function library for Python.") 模块下层的 `_ctypes` C 扩展是使用包括了 libffi 源的副本构建的，除非构建时配置了 `--with-system-libffi`:
+作为 [`ctypes`](ctypes.md#module-ctypes "ctypes: A foreign function library for Python.") 模块下层的 `_ctypes` C 扩展是使用包括了 libffi 源的副本构建的，除非构建时配置了 `--with-system-libffi`:
 
     
     
@@ -1057,7 +1057,7 @@ DEALINGS IN THE SOFTWARE.
 
 ### zlib¶
 
-如果系统上找到的zlib版本太旧而无法用于构建，则使用包含 zlib源代码的拷贝来构建 [`zlib`](library/zlib.md#module-zlib "zlib: Low-level interface to compression and decompression routines compatible with gzip.") 扩展:
+如果系统上找到的zlib版本太旧而无法用于构建，则使用包含 zlib源代码的拷贝来构建 [`zlib`](zlib.md#module-zlib "zlib: Low-level interface to compression and decompression routines compatible with gzip.") 扩展:
 
     
     
@@ -1088,7 +1088,7 @@ jloup@gzip.org          madler@alumni.caltech.edu
 
 ### cfuhash¶
 
-[`tracemalloc`](library/tracemalloc.md#module-tracemalloc "tracemalloc: Trace memory allocations.") 使用的哈希表的实现基于 cfuhash项目:
+[`tracemalloc`](tracemalloc.md#module-tracemalloc "tracemalloc: Trace memory allocations.") 使用的哈希表的实现基于 cfuhash项目:
 
     
     
@@ -1130,7 +1130,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ### libmpdec¶
 
-作为 [`decimal`](library/decimal.md#module-decimal "decimal: Implementation of the General Decimal Arithmetic  Specification.") 模块下层的 `_decimal` C 扩展是使用包括了 libmpdec 库的副本构建的，除非构建时配置了 `--with-system-libmpdec`:
+作为 [`decimal`](decimal.md#module-decimal "decimal: Implementation of the General Decimal Arithmetic  Specification.") 模块下层的 `_decimal` C 扩展是使用包括了 libmpdec 库的副本构建的，除非构建时配置了 `--with-system-libmpdec`:
 
     
     
@@ -1163,7 +1163,7 @@ SUCH DAMAGE.
 
 ### W3C C14N 测试套件¶
 
-[`test`](library/test.md#module-test "test: Regression tests package containing the testing suite for Python.") 包中的 C14N 2.0 测试集 (`Lib/test/xmltestdata/c14n-20/`) 提取自 W3C 网站 <https://www.w3.org/TR/xml-c14n2-testcases/> 并根据 3 条款版 BSD 许可证发行:
+[`test`](test.md#module-test "test: Regression tests package containing the testing suite for Python.") 包中的 C14N 2.0 测试集 (`Lib/test/xmltestdata/c14n-20/`) 提取自 W3C 网站 <https://www.w3.org/TR/xml-c14n2-testcases/> 并根据 3 条款版 BSD 许可证发行:
 
     
     

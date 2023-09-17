@@ -55,9 +55,9 @@ argument -- 参数¶
     complex(*(3, 5))
     
 
-参数会被赋值给函数体中对应的局部变量。有关赋值规则参见 [调用](reference/expressions.md#calls) 一节。根据语法，任何表达式都可用来表示一个参数；最终算出的值会被赋给对应的局部变量。
+参数会被赋值给函数体中对应的局部变量。有关赋值规则参见 [调用](expressions.md#calls) 一节。根据语法，任何表达式都可用来表示一个参数；最终算出的值会被赋给对应的局部变量。
 
-另参见 parameter 术语表条目，常见问题中 [参数与形参的区别](faq/programming.md#faq-argument-vs-parameter) 以及 [**PEP 362**](https://peps.python.org/pep-0362/)。
+另参见 parameter 术语表条目，常见问题中 [参数与形参的区别](programming.md#faq-argument-vs-parameter) 以及 [**PEP 362**](https://peps.python.org/pep-0362/)。
 
 asynchronous context manager -- 异步上下文管理器¶
 
@@ -174,7 +174,7 @@ callable -- 可调用对象¶
 callable(argument1, argument2, argumentN)
 ~~~
 
-function，还可扩展到 method 等，就属于可调用对象。 实现了 [`__call__()`](reference/datamodel.md#object.__call__ "object.__call__") 方法的类的实例也属于可调用对象。
+function，还可扩展到 method 等，就属于可调用对象。 实现了 [`__call__()`](datamodel.md#object.__call__ "object.__call__") 方法的类的实例也属于可调用对象。
 
 callback -- 回调¶
 
@@ -267,7 +267,7 @@ def f(arg):
     ...
 ~~~
 
-同样的概念也适用于类，但通常较少这样使用。有关装饰器的详情可参见 [函数定义](reference/compound_stmts.md#function) 和 [类定义](reference/compound_stmts.md#class) 的文档。
+同样的概念也适用于类，但通常较少这样使用。有关装饰器的详情可参见 [函数定义](compound_stmts.md#function) 和 [类定义](compound_stmts.md#class) 的文档。
 
 descriptor -- 描述器¶
 
@@ -413,9 +413,9 @@ def sum_two_numbers(a: int, b: int) -> int:
    return a + b
 ~~~
 
-函数标注语法的详解见 [函数定义](reference/compound_stmts.md#function) 一节。
+函数标注语法的详解见 [函数定义](compound_stmts.md#function) 一节。
 
-参见 variable annotation 和 [**PEP 484**](https://peps.python.org/pep-0484/)，其中描述了此功能。 另请参阅 [对象注解属性的最佳实践](howto/annotations.md#annotations-howto) 以了解使用标的最佳实践。
+参见 variable annotation 和 [**PEP 484**](https://peps.python.org/pep-0484/)，其中描述了此功能。 另请参阅 [对象注解属性的最佳实践](annotations.md#annotations-howto) 以了解使用标的最佳实践。
 
 __future__¶
 
@@ -769,7 +769,7 @@ named tuple -- 具名元组¶
 True
 ~~~
 
-有些具名元组是内置类型（例如上面的例子）。 此外，具名元组还可通过常规类定义从 [`tuple`](library/stdtypes.md#tuple "tuple") 继承并定义名称字段的方式来创建。 这样的类可以手工编写，或者使用工厂函数 [`collections.namedtuple()`](library/collections.md#collections.namedtuple "collections.namedtuple") 创建。 后一种方式还会添加一些手工编写或内置具名元组所没有的额外方法。
+有些具名元组是内置类型（例如上面的例子）。 此外，具名元组还可通过常规类定义从 [`tuple`](stdtypes.md#tuple "tuple") 继承并定义名称字段的方式来创建。 这样的类可以手工编写，或者使用工厂函数 [`collections.namedtuple()`](collections.md#collections.namedtuple "collections.namedtuple") 创建。 后一种方式还会添加一些手工编写或内置具名元组所没有的额外方法。
 
 namespace -- 命名空间¶
 
@@ -848,7 +848,7 @@ function （或方法）定义中的命名实体，它指定函数可以接受�
 
 形参可以同时指定可选和必选参数，也可以为某些可选参数指定默认值。
 
-另参见 argument 术语表条目、[参数与形参的区别](faq/programming.md#faq-argument-vs-parameter) 中的常见问题、[`inspect.Parameter`](library/inspect.md#inspect.Parameter "inspect.Parameter") 类、[函数定义](reference/compound_stmts.md#function) 一节以及 [**PEP 362**](https://peps.python.org/pep-0362/)。
+另参见 argument 术语表条目、[参数与形参的区别](programming.md#faq-argument-vs-parameter) 中的常见问题、[`inspect.Parameter`](inspect.md#inspect.Parameter "inspect.Parameter") 类、[函数定义](compound_stmts.md#function) 一节以及 [**PEP 362**](https://peps.python.org/pep-0362/)。
 
 path entry -- 路径入口¶
 
@@ -1146,7 +1146,7 @@ def remove_gray_shades(colors: list[Color]) -> list[Color]:
     pass
 ~~~
 
-参见 [`typing`](library/typing.md#module-typing "typing: Support for type hints \(see :pep:`484`\).") 和 [**PEP 484**](https://peps.python.org/pep-0484/)，其中有对此功能的详细描述。
+参见 [`typing`](typing.md#module-typing "typing: Support for type hints \(see :pep:`484`\).") 和 [**PEP 484**](https://peps.python.org/pep-0484/)，其中有对此功能的详细描述。
 
 type hint -- 类型注解¶
 
@@ -1184,7 +1184,7 @@ class C:
     field: 'annotation'
 ~~~
 
-变量标注通常被用作 类型注解：例如以下变量预期接受 [`int`](library/functions.md#int "int") 类型的值:
+变量标注通常被用作 类型注解：例如以下变量预期接受 [`int`](functions.md#int "int") 类型的值:
 
     
     
@@ -1192,9 +1192,9 @@ class C:
 count: int = 0
 ~~~
 
-变量标注语法的详细解释见 [带标注的赋值语句](reference/simple_stmts.md#annassign) 一节。
+变量标注语法的详细解释见 [带标注的赋值语句](simple_stmts.md#annassign) 一节。
 
-参见 function annotation, [**PEP 484**](https://peps.python.org/pep-0484/) 和 [**PEP 526**](https://peps.python.org/pep-0526/)，其中描述了此功能。 另请参阅 [对象注解属性的最佳实践](howto/annotations.md#annotations-howto) 以了解使用标注的最佳实践。
+参见 function annotation, [**PEP 484**](https://peps.python.org/pep-0484/) 和 [**PEP 526**](https://peps.python.org/pep-0526/)，其中描述了此功能。 另请参阅 [对象注解属性的最佳实践](annotations.md#annotations-howto) 以了解使用标注的最佳实践。
 
 virtual environment -- 虚拟环境¶
 
